@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Dependency directories
+node_modules
+jspm_packages
+
+bundle.js

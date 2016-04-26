@@ -4,13 +4,6 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  has_many(
-    :links,
-    class_name: "Link",
-    foreign_key: :user_id,
-    primary_key: :id
-  )
-
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
