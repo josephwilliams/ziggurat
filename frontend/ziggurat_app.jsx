@@ -22,7 +22,7 @@ var UserUtils = window.UserUtil = require('./utils/user_utils');
 //Actions
 var ClientActions = require('./actions/client_actions');
 
-
+//new commit
 //App
 var App = React.createClass({
   mixins: [CurrentUserState],
