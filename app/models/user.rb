@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   after_initialize :ensure_session_token
+  # before_validation :ensure_session_token_uniqueness
 
   def self.find_by_credentials(username, password)
+
     user = User.find_by(username: username)
-    return nil unless user && user.valid_password?(password)
-    user
+    return nil if user.nil?
+    user.valid_password?(password) ? user : nil
   end
 
   def password=(password)
@@ -30,5 +32,11 @@ class User < ActiveRecord::Base
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def ensure_session_token_uniqueness
+    while User.find_by(session_token: self.session_token)
+      self.session_token = new_session_token
+    end
   end
 end
