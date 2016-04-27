@@ -10,8 +10,8 @@ module.exports = {
     UserUtils.loginUser(user);
   },
 
-  logoutUser: function (user) {
-    UserUtils.logoutUser(user);
+  logoutUser: function () {
+    UserUtils.logoutUser();
   },
 
   createUser: function (user) {

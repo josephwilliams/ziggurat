@@ -20,6 +20,7 @@ class Api::UsersController < ApplicationController
                                  :username,
                                  :description,
                                  :location,
+                                 :email,
                                  :image_url)
   end
 end

@@ -31,15 +31,21 @@ UserUtils = {
       data: {user: user},
       success: function (user) {
         UserActions.loginUser(user);
+      },
+      error: function (errors){
+        UserActions.showErrors(errors);
       }
     });
   },
 
-  checkUser: function (user) {
+  fetchCurrentUser: function (user) {
     $.ajax({
       url: "api/session",
+      type: "GET",
       success: function (user) {
-
+        if (user){
+          UserActions.loginUser(user);
+        }
       }
     });
   }

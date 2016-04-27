@@ -19,13 +19,11 @@ var CurrentUserState = {
   },
 
   updateUser: function() {
-
     this.setState({
       currentUser: SessionStore.currentUser(),
       userErrors: SessionStore.errors()
     });
-
-  }
+  },
 
 };
 

@@ -25,10 +25,6 @@ SessionStore.currentUser = function() {
   }
 };
 
-SessionStore.persistUser = function() {
-
-};
-
 SessionStore.setErrors = function(errors) {
   _errors = errors;
 };
@@ -58,6 +54,9 @@ SessionStore.__onDispatch = function (payload) {
       break;
     case "PERSIST_USER":
       SessionStore.persistUser();
+      break;
+    case "SHOW_ERRORS":
+      SessionStore.setErrors(payload.errors);
       break;
   }
   SessionStore.__emitChange();

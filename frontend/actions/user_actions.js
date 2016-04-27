@@ -38,6 +38,13 @@ UserActions = {
     });
   },
 
+  showErrors: function(errors){
+    AppDispatcher.dispatch({
+      actionType: SessionConstants.SHOW_ERRORS,
+      errors: errors.responseJSON.errors
+    });
+  },
+
 
 };
 

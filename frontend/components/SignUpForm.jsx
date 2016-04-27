@@ -1,28 +1,18 @@
 var React = require('react');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
+
 var ClientActions = require('../actions/client_actions');
 
 var SignUpForm = React.createClass({
-  getInitialState: function() {
-    return {username: "",
-            password: "",
-            email: "",
-            location: ""};
-  },
+  mixins: [LinkedStateMixin],
 
-  handleUsernameInput: function(event) {
-    this.setState({username: event.target.value});
-  },
-
-  handlePasswordInput: function(event) {
-    this.setState({password: event.target.value});
-  },
-
-  handleEmailInput: function(event) {
-    this.setState({email: event.target.value});
-  },
-
-  handleLocationInput: function(event) {
-    this.setState({location: event.target.value});
+  getInitialState: function () {
+    return ({
+      username: "",
+      password: "",
+      email: "",
+      location: ""
+    });
   },
 
   handleSubmit: function(event) {
@@ -33,22 +23,29 @@ var SignUpForm = React.createClass({
       email: this.state.email,
       location: this.state.location
     });
+
+    this.setState({
+      username: "",
+      password: "",
+      email: "",
+      location: ""
+    });
   },
 
-  // errors: function() {
-  //   if (!this.state.userErrors){
-  //     return;
-  //   }
-  //   var self = this;
-  //   return (
-  //     <ul>
-  //       {
-  //         Object.keys(this.state.userErrors).map(function(key, i){
-  //           return (<li key={i}>{self.state.userErrors[key]}</li>);
-  //         })
-  //       }
-  //     </ul>);
-  //   },
+  errors: function() {
+    if (!this.state.userErrors){
+      return;
+    }
+    var self = this;
+    return (
+      <ul>
+        {
+          Object.keys(this.state.userErrors).map(function(key, i){
+            return (<li key={i}>{self.state.userErrors[key]}</li>);
+          })
+        }
+      </ul>);
+    },
 
   form: function(){
 
@@ -57,29 +54,23 @@ var SignUpForm = React.createClass({
   					<section>
   						<label> Username:
   							<input type="text"
-                       value={this.state.username}
-                       onChange={this.handleUsernameInput}/>
+                       valueLink={this.linkState('username')}/>
   						</label>
 
   						<label> Password:
   							<input type="password"
-                       value={this.state.password}
-                       onChange={this.handlePasswordInput} />
+                       valueLink={this.linkState('password')}/>
   						</label>
 
               <label> Email:
                 <input type="text"
-                       value={this.state.email}
-                       onChange={this.handleEmailInput} />
+                       valueLink={this.linkState('email')}/>
               </label>
 
               <label> Location:
                 <input type="text"
-                       value={this.state.location}
-                       onChange={this.handleLocationInput} />
+                       valueLink={this.linkState('location')}/>
               </label>
-
-
   					</section>
 
   					<input type="Submit" value="Sign Up"/>
@@ -90,7 +81,7 @@ var SignUpForm = React.createClass({
   render: function() {
     return (
       <div id="signup-form">
-
+        {this.errors()}
         {this.form()}
       </div>
     );

@@ -10,41 +10,63 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 
 //Components
-var LoginForm = require('./components/LoginForm');
-var SignUpForm = require('./components/SignUpForm');
+var AuthForms = require('./components/AuthForms');
 var UserShow = require('./components/UserShow');
 
-//mixins
+//Mixins
 var CurrentUserState = require('./mixins/current_user_state');
 
+//Utils
 var UserUtils = window.UserUtil = require('./utils/user_utils');
 
+//Actions
+var ClientActions = require('./actions/client_actions');
+
+
+//App
 var App = React.createClass({
   mixins: [CurrentUserState],
 
+  componentDidMount: function () {
+    ClientActions.fetchCurrentUser();
+  },
+
+  greeting: function () {
+    if (this.state.currentUser){
+      return (
+        <div>
+          <p>hello, {this.state.currentUser.username}</p>
+        </div>
+      );
+    } else {
+      return (
+        <p>hello, please sign up or login!</p>
+      );
+    };
+  },
+
+  showErrors: function () {
+    return (
+      <p>
+        {JSON.stringify(this.state.userErrors)}
+      </p>
+    );
+  },
+
+  logoutUser: function (event) {
+    event.preventDefault();
+    ClientActions.logoutUser();
+  },
 
   render: function() {
-    var greeting = "";
-
-    if (this.state.currentUser){
-      greeting = "hello " + this.state.currentUser.username;
-    }
-
-    var authForms = (
-
-      <div>
-        <h4>{greeting}</h4>
-        <LoginForm/>
-        <br/>
-        <SignUpForm/>
-      </div>
-    );
-
     return (
       <div>
-        <header><h3>ZIGGU</h3></header>
+        <h3>ZIGGU</h3>
         {this.props.children}
-        {authForms}
+        {this.greeting()}
+        {this.showErrors()}
+        <button onClick={this.logoutUser}>Logout</button>
+        <AuthForms/>
       </div>
     );
   }
@@ -53,7 +75,6 @@ var App = React.createClass({
 var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-
       <Route path="/users/:id" component={UserShow}/>
     </Route>
   </Router>

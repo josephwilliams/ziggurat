@@ -1,23 +1,15 @@
 var React = require('react');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var ClientActions = require('../actions/client_actions');
 var UserActions = require('../actions/user_actions');
-var CurrentUserState = require('../mixins/current_user_state');
 
 var LoginForm = React.createClass({
-  mixins: [CurrentUserState],
+  mixins: [LinkedStateMixin],
 
   getInitialState: function() {
     return {username: "",
             password: ""};
-  },
-
-  handleUsernameInput: function(event) {
-    this.setState({username: event.target.value});
-  },
-
-  handlePasswordInput: function(event) {
-    this.setState({password: event.target.value});
   },
 
   handleSubmit: function(event) {
@@ -27,22 +19,26 @@ var LoginForm = React.createClass({
       password: this.state.password
     }});
 
+    this.setState({
+      username: "",
+      password: ""
+    });
   },
 
-  // errors: function() {
-  //   if (!this.state.userErrors){
-  //     return;
-  //   }
-  //   var self = this;
-  //   return (
-  //     <ul>
-  //       {
-  //         Object.keys(this.state.userErrors).map(function(key, i){
-  //           return (<li key={i}>{self.state.userErrors[key]}</li>);
-  //         })
-  //       }
-  //     </ul>);
-  //   },
+  errors: function() {
+    if (!this.state.userErrors){
+      return;
+    }
+    var self = this;
+    return (
+      <ul>
+        {
+          Object.keys(this.state.userErrors).map(function(key, i){
+            return (<li key={i}>{self.state.userErrors[key]}</li>);
+          })
+        }
+      </ul>);
+    },
 
   form: function(){
   		return(
@@ -50,14 +46,14 @@ var LoginForm = React.createClass({
   					<section>
   						<label> Username:
   							<input type="text"
-                       value=""
-                       onChange={this.handleUsernameInput}/>
+                       valueLink={this.linkState('username')}
+                       />
   						</label>
 
   						<label> Password:
   							<input type="password"
-                       value=""
-                       onChange={this.handlePasswordInput} />
+                       valueLink={this.linkState('password')}
+                       />
   						</label>
   					</section>
 
@@ -69,7 +65,7 @@ var LoginForm = React.createClass({
   render: function() {
     return (
       <div id="login-form">
-
+        {this.errors()}
         {this.form()}
       </div>
     );
