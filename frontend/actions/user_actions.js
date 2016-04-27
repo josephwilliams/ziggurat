@@ -16,15 +16,6 @@ UserActions = {
     });
   },
 
-  // create user causes user login via SessionStore;
-  // needs another call to UserStore for creation of a user
-  // createUser: function(user){
-  //   AppDispatcher.dispatch({
-  //     actionType: SessionConstants.SIGNUP,
-  //     user: user
-  //   });
-  // },
-
   fetchCurrentUser: function() {
     AppDispatcher.dispatch({
       actionType: SessionConstants.CURRENT_USER,
@@ -44,8 +35,6 @@ UserActions = {
       errors: errors.responseJSON.errors
     });
   },
-
-
 };
 
 module.exports = UserActions;

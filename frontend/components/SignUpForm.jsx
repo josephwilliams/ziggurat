@@ -1,10 +1,8 @@
 var React = require('react');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var ClientActions = require('../actions/client_actions');
 
 var SignUpForm = React.createClass({
-  mixins: [LinkedStateMixin],
 
   getInitialState: function () {
     return ({
@@ -13,6 +11,22 @@ var SignUpForm = React.createClass({
       email: "",
       location: ""
     });
+  },
+
+  changeUsername: function (event) {
+    this.setState({username: event.target.value});
+  },
+
+  changePassword: function (event) {
+    this.setState({password: event.target.value});
+  },
+
+  changeLocation: function (event) {
+    this.setState({location: event.target.value});
+  },
+
+  changeEmail: function (event) {
+    this.setState({email: event.target.value});
   },
 
   handleSubmit: function(event) {
@@ -54,22 +68,26 @@ var SignUpForm = React.createClass({
   					<section>
   						<label> Username:
   							<input type="text"
-                       valueLink={this.linkState('username')}/>
+                       value={this.state.username}
+                       onChange={this.changeUsername}/>
   						</label>
 
   						<label> Password:
   							<input type="password"
-                       valueLink={this.linkState('password')}/>
+                       value={this.state.password}
+                       onClick={this.changePassword}/>
   						</label>
 
               <label> Email:
                 <input type="text"
-                       valueLink={this.linkState('email')}/>
+                       value={this.state.email}
+                       onChange={this.changeEmail}/>
               </label>
 
               <label> Location:
                 <input type="text"
-                       valueLink={this.linkState('location')}/>
+                       value={this.state.location}
+                       onChange={this.changeLocation}/>
               </label>
   					</section>
 

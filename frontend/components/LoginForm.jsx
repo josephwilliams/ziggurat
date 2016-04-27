@@ -1,15 +1,21 @@
 var React = require('react');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var ClientActions = require('../actions/client_actions');
 var UserActions = require('../actions/user_actions');
 
 var LoginForm = React.createClass({
-  mixins: [LinkedStateMixin],
 
   getInitialState: function() {
     return {username: "",
             password: ""};
+  },
+
+  changeUsername: function (event) {
+    this.setState({username: event.target.value});
+  },
+
+  changePassword: function (event) {
+    this.setState({password: event.target.value});
   },
 
   handleSubmit: function(event) {
@@ -46,13 +52,15 @@ var LoginForm = React.createClass({
   					<section>
   						<label> Username:
   							<input type="text"
-                       valueLink={this.linkState('username')}
+                       value={this.state.username}
+                       onChange={this.changeUsername}
                        />
   						</label>
 
   						<label> Password:
   							<input type="password"
-                       valueLink={this.linkState('password')}
+                       value={this.state.password}
+                       onChange={this.changePassword}
                        />
   						</label>
   					</section>

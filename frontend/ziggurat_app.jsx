@@ -45,12 +45,10 @@ var App = React.createClass({
     };
   },
 
-  showErrors: function () {
-    return (
-      <p>
-        {JSON.stringify(this.state.userErrors)}
-      </p>
-    );
+  logoutButton: function () {
+    if (this.state.currentUser){
+      return <button onClick={this.logoutUser}>Logout</button>
+    }
   },
 
   logoutUser: function (event) {
@@ -64,9 +62,8 @@ var App = React.createClass({
         <h3>ZIGGU</h3>
         {this.props.children}
         {this.greeting()}
-        {this.showErrors()}
-        <button onClick={this.logoutUser}>Logout</button>
         <AuthForms/>
+        {this.logoutButton}
       </div>
     );
   }
