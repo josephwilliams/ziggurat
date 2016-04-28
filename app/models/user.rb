@@ -8,8 +8,12 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   # before_validation :ensure_session_token_uniqueness
 
-  def self.find_by_credentials(username, password)
+  has_many(
+    :photos,
 
+  )
+
+  def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil if user.nil?
     user.valid_password?(password) ? user : nil

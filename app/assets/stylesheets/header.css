@@ -62,7 +62,7 @@
 
 .logo:hover {
   -webkit-animation: swing 2s ease;
-  animation: swing 2s ease;*/
+  animation: swing 2s ease;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
