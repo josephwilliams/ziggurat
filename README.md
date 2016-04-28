@@ -47,7 +47,7 @@ Ziggurat will allow users to do the following:
 **Objective:** Photos can be created, viewed (read), edited (their info), and destroyed through the API.
 
  - [ ] Create Photo model
- - [] Seed the database with test data (some decent photos)
+ - [ ] Seed the database with test data (some decent photos)
  - [ ] CRUD API for photos (PhotosController)
  - [ ] Construct jBuilder views for Photos
  - [x] Setup Webpack and Flux scaffold
@@ -91,7 +91,7 @@ Add basic colors and stylistic elements.
  - [ ] Build out similar features to the tag, but with a boolean-like “liked” or          “not-liked” system
  - [ ] Style new elements
 
-###Phase 6: User comments on notes (1.5 day)
+###Phase 6: User comments on photos (1.5 day)
 **Objective:** Implement a highly functional user commentary system on photos.
 
  - [ ] Create a Comment model and join table
