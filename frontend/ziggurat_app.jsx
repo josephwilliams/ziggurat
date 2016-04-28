@@ -38,7 +38,7 @@ var App = React.createClass({
     var currentUser = this.state.currentUser;
     return (
       <div>
-        <Header currentUser={currentUser}/>
+        <Header currentUser={currentUser} />
         {this.props.children}
         <Footer/>
       </div>
@@ -50,7 +50,7 @@ var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage}/>
-      <Route path="user/:id}" component={UserShow}/>
+      <Route path="user/:id" component={UserShow}/>
     </Route>
   </Router>
 );

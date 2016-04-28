@@ -9,7 +9,6 @@ var UserShow = React.createClass({
   mixins: [CurrentUserState],
 
   render: function() {
-    debugger
     var user = this.state.currentUser;
     return (
       <div>
