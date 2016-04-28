@@ -1,6 +1,15 @@
 class PhotosController < ApplicationController
+  def index
+    render json: {}
+  end
+
+  def show
+    render json: {}
+  end
+
   def new
     @photo = Photo.new
+    render json: {}
   end
 
   def create
@@ -14,7 +23,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-
+    render json: {}
   end
 
   private
