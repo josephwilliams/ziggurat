@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: ziggurat
+  api_key: '475673845248281'
+  api_secret: ZxJpc7LPDXc608z2nGOCuu3as84
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ziggurat
+  api_key: '475673845248281'
+  api_secret: ZxJpc7LPDXc608z2nGOCuu3as84
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ziggurat
+  api_key: '475673845248281'
+  api_secret: ZxJpc7LPDXc608z2nGOCuu3as84
+  enhance_image_tag: true
+  static_image_support: false

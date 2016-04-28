@@ -11,9 +11,13 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 
 //Components
-var AuthForms = require('./components/AuthForms');
+var AuthForms = require('./components/auth/AuthForms');
 var UserShow = require('./components/UserShow');
 var Header = require('./components/Header');
+var SplashPage = require('./components/splash/SplashPage');
+var SplashImage = require('./components/splash/SplashImage');
+var AuthModal = require('./components/auth/AuthModal');
+var Footer = require('./components/Footer');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');
@@ -30,37 +34,13 @@ ClientActions.fetchCurrentUser();
 var App = React.createClass({
   mixins: [CurrentUserState],
 
-  componentDidMount: function () {
-  },
-
-  greeting: function () {
-    if (this.state.currentUser){
-      return (
-        <div>
-          <p>hello, {this.state.currentUser.username}</p>
-          <button onClick={this.logoutUser}>Logout</button>
-        </div>
-      );
-    } else {
-      return (
-        <p>hello, please sign up or login!</p>
-      );
-    };
-  },
-
-  logoutUser: function (event) {
-    event.preventDefault();
-    ClientActions.logoutUser();
-  },
-
   render: function() {
     var currentUser = this.state.currentUser;
     return (
       <div>
-        {this.props.children}
         <Header currentUser={currentUser}/>
-        {this.greeting()}
-        <AuthForms/>
+        {this.props.children}
+        <Footer/>
       </div>
     );
   }
@@ -69,7 +49,8 @@ var App = React.createClass({
 var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="/users/:id" component={UserShow}/>
+      <IndexRoute component={SplashPage}/>
+      <Route path="user/:id}" component={UserShow}/>
     </Route>
   </Router>
 );

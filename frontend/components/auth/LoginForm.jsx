@@ -1,7 +1,7 @@
 var React = require('react');
 
-var ClientActions = require('../actions/client_actions');
-var UserActions = require('../actions/user_actions');
+var ClientActions = require('../../actions/client_actions');
+var UserActions = require('../../actions/user_actions');
 
 var LoginForm = React.createClass({
 
@@ -50,14 +50,14 @@ var LoginForm = React.createClass({
   		return(
   				<form onSubmit={this.handleSubmit}>
   					<section>
-  						<label> Username:
+  						<label> Username: <br/>
   							<input type="text"
                        value={this.state.username}
                        onChange={this.changeUsername}
                        />
   						</label>
 
-  						<label> Password:
+  						<label> Password: <br/>
   							<input type="password"
                        value={this.state.password}
                        onChange={this.changePassword}
@@ -65,7 +65,7 @@ var LoginForm = React.createClass({
   						</label>
   					</section>
 
-  					<input type="Submit" value="Login"/>
+  					<input type="Submit" value="Login" className="auth-button"/>
   				</form>
   		);
   	},

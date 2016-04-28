@@ -1,6 +1,6 @@
 var React = require('react');
 
-var ClientActions = require('../actions/client_actions');
+var ClientActions = require('../../actions/client_actions');
 
 var SignUpForm = React.createClass({
 
@@ -71,24 +71,31 @@ var SignUpForm = React.createClass({
   				<form onSubmit={this.handleSubmit}>
   					<section>
   						<label> Username:
+                <br/>
   							<input type="text"
                        value={this.state.username}
                        onChange={this.changeUsername}/>
   						</label>
+              <br/>
 
   						<label> Password:
+                <br/>
   							<input type="password"
                        value={this.state.password}
                        onChange={this.changePassword}/>
   						</label>
+              <br/>
 
               <label> Email:
+                <br/>
                 <input type="text"
                        value={this.state.email}
                        onChange={this.changeEmail}/>
               </label>
+              <br/>
 
               <label> Location:
+                <br/>
                 <input type="text"
                        onClick={this.blankLocation}
                        value={this.state.location}
@@ -96,7 +103,7 @@ var SignUpForm = React.createClass({
               </label>
   					</section>
 
-  					<input type="Submit" value="Sign Up"/>
+  					<input type="Submit" value="Sign Up" className="auth-button"/>
   				</form>
   		);
   	},
