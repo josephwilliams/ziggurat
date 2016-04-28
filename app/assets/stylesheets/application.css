@@ -13,3 +13,153 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   margin: auto;
+   padding: 0;
+   background: #fff;
+   width: 1000px;
+ }
+
+ .nav {
+   font-family: 'Amatic SC', cursive;
+   font-weight: 600;
+   font-size: 20px;
+   color: #161616;
+   list-style: none;
+   background-color: white;
+   text-align: center;
+   padding: 0;
+   margin: 0;
+ }
+
+ .nav ul {
+   list-style: none;
+   background-color: white;
+   padding: 0px;
+   height: 50px;
+   margin: 0;
+   margin-right: 5px;
+   border-bottom: 1px solid black;
+ }
+
+ .nav li {
+   font-size: 1.2em;
+   display: inline-block;
+   border-bottom: none;
+   vertical-align: bottom;
+   line-height: 50px;
+   width: 100px;
+   float: right;
+   position: relative;
+   top: 13px;
+ }
+
+ .nav li.nav-link a {
+   text-decoration: none;
+   color: black;
+   display: block;
+   transition: .1s background-color;
+ }
+
+ .nav li.nav-link a:hover {
+   background-color: #3D3C3A;
+   color: #fff;
+ }
+
+ .nav li.nav-link a.active {
+   background-color: #fff;
+
+   cursor: default;
+ }
+
+ .nav li.title {
+   font-size: 36px;
+   background-color: #3D3C3A;
+   color: ##161616;
+   float: left;
+   width: 150px;
+ }
+
+ .nav li.title a {
+   background-color: #3D3C3A;
+   color: #eaeaea;
+   text-decoration: none;
+ }
+
+ .nav li.title a:hover {
+   width: 150px;
+ }
+
+ .nav li.title:hover {
+   -webkit-animation: swing 2s ease;
+   animation: swing 2s ease;*/
+   -webkit-animation-iteration-count: 1;
+   animation-iteration-count: 1;
+ }
+
+ .auth-forms {
+   display: block;
+   background-color: lightgrey;
+   border: 1px solid black;
+   float: left;
+   padding: 5px;
+   width: 200px;
+ }
+
+/*LOGO SWING*/
+ @-webkit-keyframes swing
+{
+    20%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    40%
+    {
+        -webkit-transform: translateX(-2px);
+       transform: translateX(-2px);
+    }
+    60%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    20%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    40%
+    {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    60%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}

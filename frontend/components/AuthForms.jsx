@@ -25,8 +25,10 @@ var AuthForms = React.createClass({
   },
 
   render: function () {
+    var errors = JSON.stringify(this.state.userErrors);
     return (
-      <div>
+      <div className="auth-forms">
+        {errors}
         {this.showErrors()}
         {this.forms()}
       </div>

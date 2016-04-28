@@ -9,7 +9,7 @@ var SignUpForm = React.createClass({
       username: "",
       password: "",
       email: "",
-      location: ""
+      location: "optional"
     });
   },
 
@@ -23,6 +23,10 @@ var SignUpForm = React.createClass({
 
   changeLocation: function (event) {
     this.setState({location: event.target.value});
+  },
+
+  blankLocation: function (event) {
+    this.setState({location: ""});
   },
 
   changeEmail: function (event) {
@@ -75,7 +79,7 @@ var SignUpForm = React.createClass({
   						<label> Password:
   							<input type="password"
                        value={this.state.password}
-                       onClick={this.changePassword}/>
+                       onChange={this.changePassword}/>
   						</label>
 
               <label> Email:
@@ -86,6 +90,7 @@ var SignUpForm = React.createClass({
 
               <label> Location:
                 <input type="text"
+                       onClick={this.blankLocation}
                        value={this.state.location}
                        onChange={this.changeLocation}/>
               </label>

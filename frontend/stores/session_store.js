@@ -43,19 +43,16 @@ SessionStore.__onDispatch = function (payload) {
     case SessionConstants.LOGOUT:
       SessionStore.logout();
       break;
-    case SessionConstants.ERROR:
-      SessionStore.setErrors(payload.errors);
-      break;
     case SessionConstants.LOGIN:
       SessionStore.login(payload.user);
       break;
     case SessionConstants.CURRENT_USER:
       SessionStore.currentUser();
       break;
-    case "PERSIST_USER":
+    case SessionStore.PERSIST_USER:
       SessionStore.persistUser();
       break;
-    case "SHOW_ERRORS":
+    case SessionConstants.SHOW_ERRORS:
       SessionStore.setErrors(payload.errors);
       break;
   }
