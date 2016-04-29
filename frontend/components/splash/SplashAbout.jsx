@@ -1,6 +1,6 @@
 var React = require('react');
 
-SplashAbout = React.createClass({
+var SplashAbout = React.createClass({
   render: function () {
     return (
       <div>

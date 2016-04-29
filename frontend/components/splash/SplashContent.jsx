@@ -2,7 +2,7 @@ var React = require('react');
 var SearchTags = require('../SearchTags');
 var SplashAbout = require('./SplashAbout');
 
-SplashContent = React.createClass({
+var SplashContent = React.createClass({
   render: function () {
     return (
       <div>

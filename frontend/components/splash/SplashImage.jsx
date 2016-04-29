@@ -1,6 +1,6 @@
 var React = require('react');
 
-SplashImage = React.createClass({
+var SplashImage = React.createClass({
   randomPhotoLink: function () {
     // photoLinks from unsplash.com
     var photoLinks = [
