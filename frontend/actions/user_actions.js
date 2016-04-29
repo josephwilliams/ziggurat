@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var SessionConstants = require('../constants/session_constants');
 
-UserActions = {
+var UserActions = {
 
   loginUser: function(user) {
     AppDispatcher.dispatch({
