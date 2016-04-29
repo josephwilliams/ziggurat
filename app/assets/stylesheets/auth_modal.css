@@ -33,7 +33,7 @@
 }
 
 .auth-modal-text {
-  padding: 5px
+  padding: 5px;
   display: flex;
   justify-content: flex-end;
 }
