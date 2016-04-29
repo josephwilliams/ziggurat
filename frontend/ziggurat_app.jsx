@@ -39,11 +39,10 @@ var App = React.createClass({
     return (
       <div>
         <Header currentUser={currentUser} />
+        <div className="nav-bar-placeholder"/>
         <div className="content">
-
           {this.props.children}
           <Footer />
-
         </div>
       </div>
     );

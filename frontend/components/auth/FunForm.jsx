@@ -5,9 +5,19 @@ var FunForm = React.createClass({
     return (
         <div className="form-container">
           <div className="profile">
+            <div className="above-start-button">
+              your journey begins here
+            </div>
+
             <button className="start-button" id="toggleProfile">
-             <img src="https://pbs.twimg.com/profile_images/554631714970955776/uzPxPPtr.jpeg" alt="Avatar" />
+              <span>
+
+                <div className="start-button-words">lets go</div>
+
+
+              </span>
             </button>
+
             <div className="profile__form">
               <div className="profile__fields">
                 <div className="field">

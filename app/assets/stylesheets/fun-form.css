@@ -145,6 +145,10 @@ input:valid + .label {
 
 
 /*Start Button*/
+.above-start-button {
+  font-family: "Nunito", sans-serif;
+}
+
 .start-button
 {
   text-transform: uppercase;
@@ -152,18 +156,14 @@ input:valid + .label {
   text-align: center;
   color: #0C5;
 
-  font-size: 24px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 300;
-
   margin: 5em auto;
 
   position: absolute;
   top:0; right:0; bottom:0; left:0;
 
-  padding: 20px 0;
-  width: 220px;
-  height:30px;
+  padding: 10px 0;
+  width: 160px;
+  height:60px;
 
   background: #0D6;
   border: 1px solid #0D6;
@@ -173,7 +173,13 @@ input:valid + .label {
   transition: all 0.5s;
 }
 
-.start-button:hover, .button:active
+.start-button-words {
+  font-size: 24px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 300;
+}
+
+.start-button:hover, .start-button:active
 {
   text-decoration: none;
   color: #0C5;
@@ -183,6 +189,9 @@ input:valid + .label {
 
 .start-button span
 {
+  font-family: "Nunito", sans-serif;
+  font-size: 24px;
+  
   display: inline-block;
   position: relative;
   padding-right: 0;
@@ -192,30 +201,24 @@ input:valid + .label {
 
 .start-button span:after
 {
-  content: ' ';
+  content: '♥';
   position: absolute;
   top: 0;
-  right: -18px;
+  right: -50px;
+  margin-right: 10px;
   opacity: 0;
   width: 10px;
   height: 10px;
-  margin-top: -10px;
-
+  margin-top: -18px;
   background: rgba(0, 0, 0, 0);
-  border: 3px solid #FFF;
-  border-top: none;
-  border-right: none;
-
-  transition: opacity 0.5s, top 0.5s, right 0.5s;
-  transform: rotate(-45deg);
 }
 
-.start-button:hover span, .button:active span
+.start-button:hover span, .start-button:active span
 {
   padding-right: 30px;
 }
 
-.start-button:hover span:after, .button:active span:after
+.start-button:hover span:after, .start-button:active span:after
 {
   transition: opacity 0.5s, top 0.5s, right 0.5s;
   opacity: 1;
