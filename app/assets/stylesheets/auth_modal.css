@@ -32,7 +32,6 @@
     box-shadow: 0px 0px 0px 0px;
 }
 
-.splash-image {
-  padding: 4px 0px 0px 0px;
-  border-bottom: 1px solid black;
+.auth-modal p {
+  font-family: 'Open Sans', sans-serif;
 }

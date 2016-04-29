@@ -1,3 +1,8 @@
+.splash-image {
+  padding: 4px 0px 0px 0px;
+  border-bottom: 1px solid black;
+}
+
 .splash-content {
   font-family: 'Amatic SC', cursive;
   font-weight: 800;

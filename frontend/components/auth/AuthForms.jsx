@@ -27,10 +27,19 @@ var AuthForms = React.createClass({
   render: function () {
     var errors = JSON.stringify(this.state.userErrors);
     return (
-      <div className="auth-forms">
-        {errors}
-        {this.showErrors()}
-        {this.forms()}
+      <div className="auth-modal">
+        <div className="auth-forms">
+          {errors}
+          {this.showErrors()}
+          {this.forms()}
+        </div>
+        <div className="auth-modal-text">
+          <h3>welcome to ziggurat</h3>
+          <p>
+            Ziggurat provides the opportunity to experience a new kind of
+            photo-sharing experience.  Lets see how our photos make you feel.
+          </p>
+        </div>
       </div>
     )
   }
