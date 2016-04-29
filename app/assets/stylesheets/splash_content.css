@@ -60,12 +60,12 @@
   padding: 0px;
 }
 
-.splash-content li a {
+.splash-content ul li a {
   text-decoration: none;
   transition: 2s color;
 }
 
-.splash-content li a:hover {
+.splash-content ul li a:hover {
   color: grey;
 }
 
