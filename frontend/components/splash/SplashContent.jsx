@@ -10,7 +10,7 @@ var SplashContent = React.createClass({
           <ul>
             <li>
               <a>🔎begin your search</a> <br/>
-              <SearchTags/>
+                <SearchTags/>
             </li>
 
             <li>
