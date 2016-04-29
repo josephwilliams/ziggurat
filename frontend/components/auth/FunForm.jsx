@@ -4,7 +4,12 @@ var FunForm = React.createClass({
   render: function () {
     return (
       <div id="toggleProfile">
-        auth forms
+        <form>
+          <label> login
+          <input type="text">
+
+          </input></label>
+        </form>
       </div>
 
     );
