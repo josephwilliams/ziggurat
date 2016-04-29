@@ -32,6 +32,17 @@
     box-shadow: 0px 0px 0px 0px;
 }
 
+.auth-modal-text {
+  padding: 5px
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auth-modal-text h1 {
+  font-family: 'Amatic SC', cursive;
+  color: #161616;
+}
+
 .auth-modal p {
   font-family: 'Open Sans', sans-serif;
 }

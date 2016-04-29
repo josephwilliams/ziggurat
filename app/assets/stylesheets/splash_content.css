@@ -23,7 +23,7 @@
 .splash-content-about-large {
   font-family: 'Amatic SC', cursive;
   font-weight: 800;
-  font-size: 52px;
+  font-size: 48px;
 }
 
 .splash-content-how {
@@ -72,10 +72,11 @@
 .search-tags {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 1px;
 }
 
 .search-tags li {
-  padding: 10px;
+  display: flex;
+  padding: 1px;
   margin: 2px;
 }

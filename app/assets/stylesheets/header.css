@@ -10,7 +10,7 @@
 }
 
 .nav ul {
-  font-size: 36px;
+  font-size: 32px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -27,16 +27,15 @@
   background-color: #3D3C3A;
   color: #fff;
   cursor: pointer;
+  transition: .1s background-color;
 }
 
 .nav li a {
   text-decoration: none;
-  color: #161616;
-  transition: .1s background-color;
-}
+  color: #161616;}
 
 .nav li a:hover {
-  background-color: #3D3C3A;
+  /*background-color: #3D3C3A;*/
   color: #fff;
 }
 
@@ -47,12 +46,7 @@
 
 .user-greeting {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.8em;
-  /*vertical-align: bottom;*/
-  /*line-height: 50px;*/
-  /*padding: 0px 10px;*/
-  /*position: relative;
-  top: 5px;*/
+  font-size: 0.5em;
 }
 
 .logo {

@@ -15,12 +15,12 @@ var modalStyle = {
   },
   content : {
     position        : 'fixed',
-
-    left            : '37%',
-    right           : '150px',
-    bottom          : '80',
+    left            : '20%',
+    right           : '20%',
+    bottom          : '300px',
+    top             : '20%',
     border          : '1px solid #ccc',
-    padding         : '10px',
+    padding         : '5px',
     // z-index         : 11
   }
 };
@@ -30,11 +30,12 @@ var Header = React.createClass({
     if (this.props.currentUser){
       return (
         <div className="nav">
-          <li><a href="#" onClick={this.logoutUser}>
-            &nbsp;&nbsp;&nbsp;logout&nbsp;&nbsp;&nbsp;
-          </a>
-          </li>
-          <li className="user-greeting">hello, {this.props.currentUser.username}</li>
+          <ul>
+
+            <li onClick={this.logoutUser}>logout</li>
+            <li className="user-greeting">hi, {this.props.currentUser.username}</li>
+
+          </ul>
         </div>
       )
     } else {
@@ -66,8 +67,8 @@ var Header = React.createClass({
 
           <div className="nav">
             <ul>
-              <li><a href="#">&nbsp;&nbsp;&nbsp;flow&nbsp;&nbsp;&nbsp;</a></li>
-              <li><a href="#">&nbsp;&nbsp;&nbsp;search&nbsp;&nbsp;&nbsp;</a></li>
+              <li><a href="#">flow</a></li>
+              <li><a href="#">search</a></li>
               {this.authLinks()}
             </ul>
           </div>

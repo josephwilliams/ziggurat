@@ -34,7 +34,7 @@ var AuthForms = React.createClass({
           {this.forms()}
         </div>
         <div className="auth-modal-text">
-          <h3>welcome to ziggurat</h3>
+          <h1>welcome to ziggurat</h1>
           <p>
             Ziggurat provides the opportunity to experience a new kind of
             photo-sharing experience.  Lets see how our photos make you feel.
