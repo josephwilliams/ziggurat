@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var UserActions = require('../actions/user_actions');
 
-UserUtils = {
+var UserUtils = {
 
   loginUser: function (user){
     $.ajax({

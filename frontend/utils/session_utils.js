@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var UserActions = require('../actions/user_actions');
 
-SessionUtils = {
+var SessionUtils = {
   login: function (userData) {
     $.ajax({
       url: "/api/session",
