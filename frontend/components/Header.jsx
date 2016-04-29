@@ -15,10 +15,10 @@ var modalStyle = {
   },
   content : {
     position        : 'fixed',
-    top             : '100px',
-    left            : '150px',
+
+    left            : '37%',
     right           : '150px',
-    bottom          : '100px',
+    bottom          : '80',
     border          : '1px solid #ccc',
     padding         : '10px',
     // z-index         : 11
