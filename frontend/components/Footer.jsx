@@ -5,7 +5,9 @@ var Footer = React.createClass({
     return (
       <div className="footer">
         <footer>
-            forged in the fires of mount doom
+          <div className="footer-container">
+            <p>forged in the fires of mount doom</p>
+          </div>
           </footer>
       </div>
     );
