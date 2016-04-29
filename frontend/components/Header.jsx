@@ -60,8 +60,9 @@ var Header = React.createClass({
       <header>
         <nav className="header">
           <div className="logo">
-            <a href="#">&nbsp;&nbsp;z&nbsp;i&nbsp;g&nbsp;g&nbsp;u&nbsp;r
-              a&nbsp;t&nbsp;
+            <a href="#">
+              <img src="https://40.media.tumblr.com/dcedda1084e9b37cd607016d9be49b69/tumblr_o6ey0nnijK1vns4tpo1_400.png"
+                   height="46"/>
             </a>
           </div>
 

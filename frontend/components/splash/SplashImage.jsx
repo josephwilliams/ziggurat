@@ -28,7 +28,7 @@ var SplashImage = React.createClass({
     return (
       <div className="splash-image">
         <img width="1000"
-          src={this.randomPhotoLink()}>
+          src="https://40.media.tumblr.com/13ad600b93fac1b5fcd1c282664e452d/tumblr_o6extrWHad1vns4tpo1_1280.png">
         </img>
       </div>
     )

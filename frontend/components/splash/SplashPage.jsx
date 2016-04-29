@@ -2,7 +2,7 @@ var React = require('react');
 var Modal = require("react-modal");
 var SplashImage = require('./SplashImage');
 var SplashContent = require('./SplashContent');
-var FunForm = require('../auth/FunForm');
+var StartButton = require('../auth/StartButton');
 
 var SplashPage = React.createClass({
   render: function () {
@@ -10,7 +10,7 @@ var SplashPage = React.createClass({
       <div>
         <SplashImage/>
         <SplashContent/>
-        <FunForm/>
+        <StartButton/>
       </div>
     );
   }

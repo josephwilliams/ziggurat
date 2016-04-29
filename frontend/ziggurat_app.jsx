@@ -59,14 +59,6 @@ var Router = (
 );
 
 
-var funForm = function () {
-  document.getElementById('toggleProfile').addEventListener('click', function () {
-  [].map.call(document.querySelectorAll('.profile'), function(el) {
-    el.classList.toggle('profile--open');
-    });
-  });
-};
-
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("content");
   Modal.setAppElement(document.body);
