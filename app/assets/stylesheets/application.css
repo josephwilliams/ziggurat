@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ header {
+   position: fixed;
+   width: 1000px;
+ }
+
  body {
    font: inherit;
    margin: auto;
@@ -21,7 +27,14 @@
    width: 1000px;
  }
 
+ /*.content {
+   width: 1000px
+   position: absolute;
+
+ }*/
+
 footer {
+  position: absolute;
   background-color: #edede8;
   width: 1000px;
   height: 150px;

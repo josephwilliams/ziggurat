@@ -39,8 +39,12 @@ var App = React.createClass({
     return (
       <div>
         <Header currentUser={currentUser} />
-        {this.props.children}
-        <Footer/>
+        <div className="content">
+
+          {this.props.children}
+          <Footer />
+
+        </div>
       </div>
     );
   }

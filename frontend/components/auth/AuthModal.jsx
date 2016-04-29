@@ -17,9 +17,10 @@ var AuthModal = React.createClass({
   render: function(){
     return(
       <div className="nav">
-        <a onClick={this.openModal}>Sign Up</a>
+        <li onClick={this.openModal}>{this.props.text}</li>
 
         <Modal
+          style={this.props.style}
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
 

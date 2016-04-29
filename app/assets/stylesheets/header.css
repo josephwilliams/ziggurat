@@ -10,6 +10,7 @@
 }
 
 .nav ul {
+  font-size: 36px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -18,12 +19,14 @@
 }
 
 .nav ul li {
-  font-size: 1.4em;
   vertical-align: bottom;
-  line-height: 50px;
   padding: 0px 10px;
-  position: relative;
-  top: 5px;
+}
+
+.nav ul li:hover {
+  background-color: #3D3C3A;
+  color: #fff;
+  cursor: pointer;
 }
 
 .nav li a {
