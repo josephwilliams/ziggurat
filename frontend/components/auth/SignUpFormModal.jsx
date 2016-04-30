@@ -10,6 +10,8 @@ var AuthForms = React.createClass({
   getInitialState: function () {
     return {username: "",
             password: "",
+            email: "",
+            location: "optional",
             errors: {}};
   },
 
@@ -21,16 +23,43 @@ var AuthForms = React.createClass({
     this.setState({password: event.target.value});
   },
 
+  changeLocation: function (event) {
+    this.setState({location: event.target.value});
+  },
+
+  changeEmail: function (event) {
+    this.setState({email: event.target.value});
+  },
+
+  locationInputClick: function () {
+    this.setState({
+      location: ""
+    });
+  },
+
   handleSubmit: function (event) {
     event.preventDefault();
-    ClientActions.loginUser({ user: {
-      username: this.state.username,
-      password: this.state.password
-    }});
+
+    if (this.state.location === "optional"){
+      ClientActions.loginUser({ user: {
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email,
+      }});
+    } else {
+      ClientActions.loginUser({ user: {
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email,
+        location: this.state.location
+      }});
+    }
 
     this.setState({
       username: "",
-      password: ""
+      password: "",
+      email: "",
+      location: ""
     });
   },
 
@@ -74,7 +103,23 @@ var AuthForms = React.createClass({
                      />
               <label className="label">Password</label>
             </div>
-              <button className="btn">Login</button>
+             <div className="field">
+              <input type="text" className="input"
+                     value={this.state.email} onChange={this.changeEmail}
+                     id="fieldEmail"
+                     />
+                   <label className="label">Email</label>
+            </div>
+            <div className="field">
+             <input type="location" className="input"
+                    value={this.state.location}
+                    onChange={this.changeLocation}
+                    onClick={this.locationInputClick}
+                    id="fieldEmail"
+                    />
+                  <label className="label">Location</label>
+           </div>
+              <button className="btn">SignUp</button>
 
           </form>
        </div>
@@ -91,9 +136,12 @@ var AuthForms = React.createClass({
            photo-sharing. By signing up, you will be able to pick and
            sort photos based on the emotions they inspire within you.
          </p>
+
          <p>
            Let's see how our photos make you feel.
          </p>
+
+
          <p>
            <button className="btn-demo"
                    onClick={this.loginGuestUser}>Demo</button>&nbsp;&nbsp;

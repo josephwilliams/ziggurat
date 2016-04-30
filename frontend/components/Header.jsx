@@ -2,6 +2,7 @@ var React = require('react');
 var Modal = require("react-modal");
 var ClientActions = require('../actions/client_actions');
 var AuthModal = require('./auth/AuthModal');
+var SignUpFormModal = require('./auth/SignUpFormModal');
 
 var modalStyle = {
   overlay : {
@@ -61,8 +62,7 @@ var Header = React.createClass({
         <nav className="header">
           <div className="logo">
             <a href="#">
-              <img src="https://40.media.tumblr.com/dcedda1084e9b37cd607016d9be49b69/tumblr_o6ey0nnijK1vns4tpo1_400.png"
-                   height="46"/>
+              <img src="https://40.media.tumblr.com/dcedda1084e9b37cd607016d9be49b69/tumblr_o6ey0nnijK1vns4tpo1_400.png"/>
             </a>
           </div>
 

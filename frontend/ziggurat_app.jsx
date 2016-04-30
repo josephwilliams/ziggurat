@@ -40,6 +40,7 @@ var App = React.createClass({
       <div>
         <Header currentUser={currentUser} />
         <div className="nav-bar-placeholder"/>
+
         <div className="content">
           {this.props.children}
           <Footer />
@@ -63,5 +64,4 @@ document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("content");
   Modal.setAppElement(document.body);
   ReactDOM.render(Router, root);
-  funForm();
 });

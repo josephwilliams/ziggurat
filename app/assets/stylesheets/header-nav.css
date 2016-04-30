@@ -10,10 +10,13 @@
   background-color: white;
   padding: 0;
   border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .nav ul {
-  font-size: 32px;
+  font-size: 30px;
   display: flex;
   justify-content: flex-end;
   list-style: none;
@@ -60,11 +63,10 @@
   float: left;
 }
 
-/*.logo a {
-background-color: #3D3C3A;
-color: #eaeaea;
-text-decoration: none;
-}*/
+.logo img {
+  height: 45px;
+  margin-bottom: -5px;
+}
 
 .logo:hover {
   -webkit-animation: swing 2s ease;

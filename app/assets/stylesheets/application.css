@@ -17,6 +17,8 @@
  header {
    position: fixed;
    width: 1000px;
+   margin: auto;
+   /*margin-left: 13%;*/
  }
 
  body {
@@ -24,5 +26,17 @@
    margin: auto;
    padding: 0;
    background: #fff;
+
    width: 1000px;
+
+
  }
+
+ /*.content {
+   font: inherit;
+   margin: auto;
+   padding: 0;
+   background: #fff;
+   width: 1000px;
+   margin-left: 13%
+ }*/

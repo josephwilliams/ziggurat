@@ -2,12 +2,12 @@
 .auth-modal {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .auth-forms {
-   /*padding: 5px;*/
    position: relative;
+   top: 25px;
  }
 
  .auth-button {
@@ -37,12 +37,25 @@
   padding: 5px;
   width: 450px;
   position: relative;
-  top: 30px;
+  top: 20px;
 }
 
 .auth-modal-text h1 {
   font-family: 'Amatic SC', cursive;
   color: #161616;
+  display: inline;
+  position: relative;
+  top: 10px;
+}
+
+.auth-modal-text h1 img {
+  position: relative;
+  top: 10px;
+}
+
+.auth-modal-text img.camera-logo {
+  position: relative;
+  top: 5px;
 }
 
 .auth-modal p {
@@ -59,10 +72,12 @@
 .field {
   position: relative;
   margin-bottom: 2em;
+  font-size: 12px;
+
 }
 .label {
   bottom: 0;
-  color: #161616;
+  color: ##edede8;
   transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .input {
@@ -77,6 +92,7 @@
   color: #777;
   transition: all .2s ease-in;
 }
+
 .input:focus {
   outline: 0;
   border-color: #ccc;
@@ -108,7 +124,7 @@ input:valid + .label {
   outline: 0;
 }
 .btn:hover,
-.btn:focus {
+.btn:active {
   background: #A678E2;
 }
 
@@ -133,6 +149,7 @@ input:valid + .label {
 .btn-demo:hover,
 .btn-demo:active {
   background: #A678E2;
+  color: white;
 }
 
 
