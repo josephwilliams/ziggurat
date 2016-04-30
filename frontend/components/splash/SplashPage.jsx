@@ -8,8 +8,12 @@ var SplashPage = React.createClass({
   render: function () {
     return (
       <div>
-        <SplashContent/>
-        <StartButton/>
+        <SplashImage/>
+        <div className="page-line"/>
+        <div className="sub-content">
+          <SplashContent/>
+          <StartButton/>
+        </div>
       </div>
     );
   }

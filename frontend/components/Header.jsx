@@ -27,14 +27,36 @@ var modalStyle = {
 };
 
 var Header = React.createClass({
+  uploadLink: function () {
+    if (this.props.currentUser){
+      return(
+        <div>
+          <li>upload</li>
+        </div>
+      )
+    }
+  },
+
+  profileLink: function () {
+    if (this.props.currentUser){
+      return(
+        <div>
+          <li>profile</li>
+        </div>
+      )
+    }
+  },
+
   authLinks: function () {
     if (this.props.currentUser){
       return (
         <div className="nav">
           <ul>
 
+            <div className="user-greeting">hi, {this.props.currentUser.username}</div>
+            {this.profileLink()}
             <li onClick={this.logoutUser}>logout</li>
-            <li className="user-greeting">hi, {this.props.currentUser.username}</li>
+            &nbsp;
 
           </ul>
         </div>
@@ -43,8 +65,8 @@ var Header = React.createClass({
       return (
         <div className="nav">
           <ul>
-            <li><AuthModal style={modalStyle} text={"login"}/></li>
-            <li><AuthModal style={modalStyle} text={"sign up"}/></li>
+            <AuthModal style={modalStyle} text={"login"}/>
+            <AuthModal style={modalStyle} text={"sign up"}/>
           </ul>
         </div>
       )
@@ -68,8 +90,9 @@ var Header = React.createClass({
 
           <div className="nav">
             <ul>
-              <li><a href="#">flow</a></li>
-              <li><a href="#">search</a></li>
+              {this.uploadLink()}
+              <li>flow</li>
+              <li>search</li>
               {this.authLinks()}
             </ul>
           </div>

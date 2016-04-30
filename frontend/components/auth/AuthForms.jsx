@@ -40,7 +40,7 @@ var AuthForms = React.createClass({
         return (<p>{error}</p>)
       });
     } else {
-      console.log("no errors!");
+
     }
   },
 
@@ -64,15 +64,16 @@ var AuthForms = React.createClass({
             <div className="field">
               <input type="text" className="input"
                      value={this.state.username} onChange={this.changeUsername}
+                     id="fieldUsername"
                      />
-              <label className="label">Username</label>
+              <label for="fieldUsername" className="label">Username</label>
             </div>
             <div className="field">
               <input type="password" className="input"
                      value={this.state.password} onChange={this.changePassword}
                      id="fieldPassword"
                      />
-              <label className="label">Password</label>
+              <label for="fieldPassword" className="label">Password</label>
             </div>
               <button className="btn">Login</button>
 

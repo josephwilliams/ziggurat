@@ -1,6 +1,7 @@
-.nav-bar-placeholder {
+/*Past Header Concept*/
+/*.nav-bar-placeholder {
   height: 46px
-}
+}*/
 
 .header {
   font-family: 'Amatic SC', cursive;
@@ -11,16 +12,21 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  position: absolute;
+  padding: 15px 0px;
 
   background-color: transparent;
-  /*background-color: white;
-  border-bottom: 1px solid black;*/
+  position: relative;
+
+  /*background-color: white;*/
+  /*border-bottom: 1px solid black;*/
 }
 
 .nav ul {
   font-size: 30px;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   list-style: none;
   margin: 0;
 }
@@ -32,23 +38,9 @@
 
 .nav ul li:hover {
   background-color: #3D3C3A;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   transition: .1s background-color;
-}
-
-.nav li a {
-  text-decoration: none;
-  color: #161616;}
-
-.nav li a:hover {
-  /*background-color: #3D3C3A;*/
-  color: #fff;
-}
-
-.nav li a.active {
-  background-color: lightgrey;
-  cursor: default;
 }
 
 .user-greeting {
@@ -63,6 +55,8 @@
   /*color: #161616;*/
   /*width: 142px;*/
   float: left;
+  margin-top: 3px;
+  margin-left: 4px;
 }
 
 .logo img {

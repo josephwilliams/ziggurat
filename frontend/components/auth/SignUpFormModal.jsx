@@ -69,7 +69,7 @@ var AuthForms = React.createClass({
         return (<p>{error}</p>)
       });
     } else {
-      console.log("no errors!");
+
     }
   },
 

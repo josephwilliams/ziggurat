@@ -36,7 +36,7 @@ var AuthModal = React.createClass({
   },
   render: function(){
     return(
-      <div className="nav">
+      <div>
         <li onClick={this.openModal}>{this.props.text}</li>
 
         <Modal

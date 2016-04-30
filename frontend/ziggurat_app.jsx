@@ -18,6 +18,7 @@ var SplashPage = require('./components/splash/SplashPage');
 var SplashImage = require('./components/splash/SplashImage');
 var AuthModal = require('./components/auth/AuthModal');
 var Footer = require('./components/Footer');
+var FlowPage = require('./components/FlowPage');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');
@@ -39,8 +40,6 @@ var App = React.createClass({
     return (
       <div>
         <Header currentUser={currentUser} />
-        <div className="nav-bar-placeholder"/>
-          <SplashImage/>
         <div className="content">
           {this.props.children}
           <Footer />
@@ -54,7 +53,7 @@ var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage}/>
-      <Route path="user/:id" component={UserShow}/>
+      <Route path="flow" component={FlowPage}/>
     </Route>
   </Router>
 );

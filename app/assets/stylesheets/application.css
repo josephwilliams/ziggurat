@@ -17,10 +17,11 @@
  header {
    position: fixed;
    margin: auto;
-   /*width: 1000px;*/
    margin-left: 5%;
    display: flex;
    justify-content: space-between;
+
+   /*width: 1000px;*/
  }
 
  body {
@@ -28,15 +29,20 @@
    padding: 0;
    background: #fff;
 
-   /*margin: auto;*/
-   /*width: 1000px;*/
+   margin: auto;
  }
 
- .content {
+ .sub-content {
    font: inherit;
-   margin: auto;
    padding: 0;
    background: #fff;
    width: 1000px;
-   margin-left: 15%
+   margin: auto;
+   /*margin-left: 15%*/
+ }
+
+ .page-line {
+   width: 100%;
+   padding-bottom: 15px;
+   border-bottom: 1px solid black;
  }
