@@ -40,7 +40,7 @@ var App = React.createClass({
       <div>
         <Header currentUser={currentUser} />
         <div className="nav-bar-placeholder"/>
-
+          <SplashImage/>
         <div className="content">
           {this.props.children}
           <Footer />

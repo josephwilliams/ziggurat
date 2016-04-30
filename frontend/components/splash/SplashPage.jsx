@@ -8,7 +8,6 @@ var SplashPage = React.createClass({
   render: function () {
     return (
       <div>
-        <SplashImage/>
         <SplashContent/>
         <StartButton/>
       </div>

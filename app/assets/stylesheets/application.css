@@ -16,27 +16,27 @@
 
  header {
    position: fixed;
-   width: 1000px;
    margin: auto;
-   /*margin-left: 13%;*/
+   /*width: 1000px;*/
+   margin-left: 5%;
+   display: flex;
+   justify-content: space-between;
  }
 
  body {
    font: inherit;
-   margin: auto;
    padding: 0;
    background: #fff;
 
-   width: 1000px;
-
-
+   /*margin: auto;*/
+   /*width: 1000px;*/
  }
 
- /*.content {
+ .content {
    font: inherit;
    margin: auto;
    padding: 0;
    background: #fff;
    width: 1000px;
-   margin-left: 13%
- }*/
+   margin-left: 15%
+ }
