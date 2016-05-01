@@ -27,6 +27,16 @@ var modalStyle = {
 };
 
 var Header = React.createClass({
+  header: function () {
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 175) {
+        $(".nav").addClass("transparent");
+      } else {
+        $(".nav").removeClass("transparent");
+      }
+    });
+  },
+
   uploadLink: function () {
     if (this.props.currentUser){
       return(
@@ -81,6 +91,7 @@ var Header = React.createClass({
   render: function () {
     return (
       <header>
+        {this.header()}
         <nav className="header">
           <div className="logo">
             <a href="#">

@@ -29,6 +29,7 @@ var UserUtils = require('./utils/user_utils');
 //Actions
 var ClientActions = require('./actions/client_actions');
 
+// Checks current user authentication upon loading
 ClientActions.fetchCurrentUser();
 
 //App
@@ -39,7 +40,7 @@ var App = React.createClass({
     var currentUser = this.state.currentUser;
     return (
       <div>
-        <Header currentUser={currentUser} />
+        <Header currentUser={currentUser}/>
         <div className="content">
           {this.props.children}
           <Footer />
@@ -57,7 +58,6 @@ var Router = (
     </Route>
   </Router>
 );
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("content");
