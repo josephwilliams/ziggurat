@@ -11,14 +11,15 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 
 //Components
-var AuthForms = require('./components/auth/AuthForms');
+var LoginForm = require('./components/auth/LoginForm');
 var UserShow = require('./components/UserShow');
 var Header = require('./components/Header');
 var SplashPage = require('./components/splash/SplashPage');
 var SplashImage = require('./components/splash/SplashImage');
-var AuthModal = require('./components/auth/AuthModal');
+var LoginFormModal = require('./components/auth/LoginFormModal');
 var Footer = require('./components/Footer');
 var FlowPage = require('./components/FlowPage');
+var SignUpForm = require('./components/auth/SignUpForm');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');

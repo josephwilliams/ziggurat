@@ -1,5 +1,8 @@
-class PhotosController < ApplicationController
+class Api::PhotosController < ApplicationController
   def index
+    cloud_name = ENV['CLOUD_NAME']
+    upload_preset = Figaro.env.UPLOAD_PRESET
+    @photos = Photo.all
     render json: {}
   end
 

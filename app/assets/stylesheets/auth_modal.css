@@ -10,7 +10,12 @@
    top: 25px;
  }
 
- .auth-button {
+ .auth-modal-login-form {
+   position: relative;
+   top: 75px;
+ }
+
+.auth-button {
     display: block;
     overflow: hidden;
     outline: none;
@@ -37,7 +42,14 @@
   padding: 5px;
   width: 450px;
   position: relative;
-  top: 20px;
+  top: 7px;
+}
+
+.auth-modal-text-login {
+  padding: 5px;
+  width: 450px;
+  position: relative;
+  top: 30px;
 }
 
 .auth-modal-text h1 {
@@ -65,6 +77,19 @@
   justify-content: flex-start;
 }
 
+.auth-modal p a {
+  color: #8E49E8;
+  cursor: pointer;
+}
+
+.auth-modal p a:hover {
+  color: #A678E2;
+  cursor: pointer;
+}
+
+.auth-modal p a li {
+  list-style: none;
+}
 
 /*NEW FORMS*/
 
@@ -104,7 +129,7 @@
 input:valid + .label {
   transform: translateY(-100%);
   font-size: 0.75rem;
-  color: #ccc;
+  color: grey;
 }
 
 /* Button */

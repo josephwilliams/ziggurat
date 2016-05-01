@@ -1,10 +1,10 @@
 var React = require('react');
 var Modal = require("react-modal");
 var ClientActions = require('../actions/client_actions');
-var AuthModal = require('./auth/AuthModal');
+var LoginFormModal = require('./auth/LoginFormModal');
 var SignUpFormModal = require('./auth/SignUpFormModal');
 
-var modalStyle = {
+var SignUpFormStyle = {
   overlay : {
     position        : 'fixed',
     top             : 0,
@@ -16,12 +16,11 @@ var modalStyle = {
   },
   content : {
     position        : 'fixed',
+    top             : '15%',
+    bottom          : '36%',
     left            : '20%',
     right           : '20%',
-    bottom          : '300px',
-    top             : '20%',
-    border          : '1px solid #ccc',
-    padding         : '5px',
+    border          : '1px solid #161616',
     // z-index         : 11
   }
 };
@@ -75,8 +74,8 @@ var Header = React.createClass({
       return (
         <div className="nav">
           <ul>
-            <AuthModal style={modalStyle} text={"login"}/>
-            <AuthModal style={modalStyle} text={"sign up"}/>
+            <LoginFormModal text={"login"} parent={this}/>
+            <SignUpFormModal text={"sign up"} parent={this}/>
           </ul>
         </div>
       )

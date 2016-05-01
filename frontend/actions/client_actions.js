@@ -14,7 +14,7 @@ module.exports = {
     UserUtils.logoutUser();
   },
 
-  createUser: function (user) {
-    UserUtils.createUser(user);
+  createUser: function (user, closeModalCB) {
+    UserUtils.createUser(user, closeModalCB);
   }
 };

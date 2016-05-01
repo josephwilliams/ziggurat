@@ -1,6 +1,6 @@
 var React = require('react');
 var Modal = require('react-modal');
-var AuthForms = require('./AuthForms');
+var LoginForm = require('./LoginForm');
 
 var modalStyle = {
   overlay : {
@@ -24,7 +24,7 @@ var modalStyle = {
   }
 };
 
-var AuthModal = React.createClass({
+var LoginFormModal = React.createClass({
   getInitialState: function(){
     return({ modalOpen: false });
   },
@@ -44,7 +44,7 @@ var AuthModal = React.createClass({
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
 
-          <AuthForms/>
+          <LoginForm/>
 
         </Modal>
       </div>
@@ -52,4 +52,4 @@ var AuthModal = React.createClass({
   }
 });
 
-module.exports = AuthModal;
+module.exports = LoginFormModal;

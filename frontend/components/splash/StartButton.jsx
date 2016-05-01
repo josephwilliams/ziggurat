@@ -1,9 +1,8 @@
 var React = require('react');
 var Modal = require('react-modal');
-var AuthForms = require('../auth/AuthForms');
-var SignUpFormModal = require('../auth/SignUpFormModal');
+var SignUpForm = require('../auth/SignUpForm');
 
-var signUpFormModalStyle = {
+var SignUpFormStyle = {
   overlay : {
     position        : 'fixed',
     top             : 0,
@@ -15,14 +14,11 @@ var signUpFormModalStyle = {
   },
   content : {
     position        : 'fixed',
+    top             : '15%',
+    bottom          : '36%',
     left            : '20%',
     right           : '20%',
-    // bottom          : '220px',
-    bottom          : '20%',
-
-    top             : '25%',
-    border          : '1px solid #ccc',
-    padding         : '5px',
+    border          : '1px solid #161616',
     // z-index         : 11
   }
 };
@@ -31,6 +27,7 @@ var StartButton = React.createClass({
   getInitialState: function(){
     return({ modalOpen: false });
   },
+
   closeModal: function(){
     this.setState({ modalOpen: false })
   },
@@ -67,15 +64,14 @@ var StartButton = React.createClass({
               </button>
 
             </li>
-
           </ul>
 
             <Modal
-              style={signUpFormModalStyle}
+              style={SignUpFormStyle}
               isOpen={this.state.modalOpen}
               onRequestClose={this.closeModal}>
 
-              <SignUpFormModal parent={this}/>
+              <SignUpForm parent={this}/>
             </Modal>
         </div>
     );

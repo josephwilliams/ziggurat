@@ -24,13 +24,14 @@ var UserUtils = {
     });
   },
 
-  createUser: function (user) {
+  createUser: function (user, closeModal) {
     $.ajax({
       url: "api/users",
       type: "POST",
       data: {user: user},
       success: function (user) {
         UserActions.loginUser(user);
+        closeModal();
       },
       error: function (errors){
         UserActions.showErrors(errors);
