@@ -1,7 +1,7 @@
 var React = require('react');
 var Modal = require('react-modal');
-var AuthForms = require('./AuthForms');
-var SignUpFormModal = require('./SignUpFormModal');
+var AuthForms = require('../auth/AuthForms');
+var SignUpFormModal = require('../auth/SignUpFormModal');
 
 var signUpFormModalStyle = {
   overlay : {
@@ -51,7 +51,7 @@ var StartButton = React.createClass({
             <li>
 
               <div className="above-start-button">
-                your journey begins here
+                your photo-sharing journey begins here
               </div>
 
             </li>
