@@ -142,7 +142,7 @@ var SignUpForm = React.createClass({
         </h1>
 
         <p>
-          already a member? &nbsp;&nbsp;<a onClick={this.closeMe}><LoginFormModal text={"login!!"} parent={this}/></a>
+          already a member? &nbsp;&nbsp;<a onClick={this.closeMe}>login!</a>
         </p>
         <br/>
 
