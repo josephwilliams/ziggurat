@@ -39,27 +39,27 @@ var SignUpForm = React.createClass({
   handleSubmit: function (event) {
     event.preventDefault();
 
-    if (this.state.location === "optional"){
-      ClientActions.createUser({
-        username: this.state.username,
-        password: this.state.password,
-        email: this.state.email,
-      }, this.props.parent.closeModal);
-    } else {
-      ClientActions.createUser({
-        username: this.state.username,
-        password: this.state.password,
-        email: this.state.email,
-        location: this.state.location
-      }, this.props.parent.closeModal);
-    }
+    // if (this.state.location === "optional"){
+    //   ClientActions.createUser({
+    //     username: this.state.username,
+    //     password: this.state.password,
+    //     email: this.state.email,
+    //   }, this.props.parent.closeModal);
+    // } else {
+    //   ClientActions.createUser({
+    //     username: this.state.username,
+    //     password: this.state.password,
+    //     email: this.state.email,
+    //     location: this.state.location
+    //   }, this.props.parent.closeModal);
+    // }
 
-    // ClientActions.createUser({
-    //   username: this.state.username,
-    //   password: this.state.password,
-    //   email: this.state.email,
-    //   location: this.state.location
-    // }, this.props.parent.closeModal);
+    ClientActions.createUser({
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email,
+      location: this.state.location
+    }, this.props.parent.closeModal);
 
     this.setState({
       username: "",
