@@ -1,7 +1,5 @@
 /*Bigger version*/
 .splash-image {
-  padding: 0px 0px 20px 0px;
-
   max-height: 600px;
   overflow: hidden;
   margin: -12px;
@@ -20,8 +18,9 @@
 .splash-image img {
   margin: 0;
 
-  height: auto;
+  height: 100%;
   width: 100%;
+  min-height: 900px;
 
   position: relative;
   top: -180px;

@@ -20,10 +20,6 @@ var SplashImage = React.createClass({
     );
   },
 
-  startBox: function () {
-
-  },
-
   render: function () {
     return (
       <div className="splash-image">

@@ -41,19 +41,34 @@ var StartButton = React.createClass({
   render: function () {
     return (
         <div className="start-button-container">
-          <img src="https://67.media.tumblr.com/0c7a8025e4c23f9d4fd1e2b0ce7f54c7/tumblr_o6f8src6Se1vns4tpo1_540.png"
-               width="50"/>
-            <div className="above-start-button">
-              your journey begins here
-            </div>
-            <button className="start-button"
-                    onClick={this.openModal}>
-              <span>
-                <div className="start-button-words">
-                  lets go
-                </div>
-              </span>
-            </button>
+          <ul>
+            <li>
+
+              <img src="https://67.media.tumblr.com/0c7a8025e4c23f9d4fd1e2b0ce7f54c7/tumblr_o6f8src6Se1vns4tpo1_540.png"
+                width="50"/>
+
+            </li>
+            <li>
+
+              <div className="above-start-button">
+                your journey begins here
+              </div>
+
+            </li>
+            <li>
+
+              <button className="start-button"
+                onClick={this.openModal}>
+                <span>
+                  <div className="start-button-words">
+                    lets go
+                  </div>
+                </span>
+              </button>
+
+            </li>
+
+          </ul>
 
             <Modal
               style={signUpFormModalStyle}

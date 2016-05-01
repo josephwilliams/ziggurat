@@ -1,11 +1,19 @@
 /* Container */
 .start-button-container {
-  position: absolute;
   width: 24em;
-  left: 50%;
-  top: 50%;
   transform: translate(-50%,-50%);
   animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+
+  position: absolute;
+  left: 50%;
+  margin-top: -5%;
+
+  display: flex;
+  align-items: center;
+}
+
+.start-button-container ul {
+  list-style: none;
 }
 
 /*Start Button*/
@@ -15,23 +23,24 @@
   font-weight: bolder;
   font-stretch: expanded;
   color: white;
-
   -webkit-text-stroke: 1px black;
-  position: absolute;
-  top:15px; right:0; bottom:0; left:40px;
+
+  display: block;
+  /*position: absolute;
+  top:15px; right:0; bottom:0; left:40px;*/
 }
 
-.start-button
-{
+.start-button {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
   color: #0C5;
+  display: block;
 
-  margin: 5em auto;
+  margin: 1em auto;
 
-  position: absolute;
-  top:0; right:0; bottom:0; left:0;
+  /*position: absolute;
+  top:0; right:0; bottom:0; left:0;*/
 
   padding: 10px 0;
   width: 160px;
@@ -43,6 +52,10 @@
   overflow: hidden;
 
   transition: all 0.5s;
+}
+
+.start-button-container ul li img {
+  padding-left: 42%;
 }
 
 .start-button-words {

@@ -54,9 +54,9 @@ var Header = React.createClass({
           <ul>
 
             <div className="user-greeting">hi, {this.props.currentUser.username}</div>
+            &nbsp;&nbsp;
             {this.profileLink()}
             <li onClick={this.logoutUser}>logout</li>
-            &nbsp;
 
           </ul>
         </div>

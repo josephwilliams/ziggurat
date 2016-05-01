@@ -70,10 +70,6 @@
 
 /* Form */
 
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
 .field {
   position: relative;
   margin-bottom: 2em;
