@@ -44,7 +44,7 @@ var App = React.createClass({
                 postPhoto={this.postPhoto}/>
         <div className="content">
           {this.props.children}
-
+          <FlowPage />
           <Footer />
         </div>
       </div>
@@ -55,7 +55,7 @@ var App = React.createClass({
 var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={FlowPage}/>
+      <IndexRoute component={SplashPage}/>
       <Route path="splash" component={SplashPage}/>
       <Route path="flow" component={FlowPage}/>
     </Route>

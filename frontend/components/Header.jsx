@@ -115,7 +115,7 @@ var Header = React.createClass({
           <div className="nav">
             <ul>
               {this.uploadLink()}
-              <li>flow</li>
+              <li>explore</li>
               <li>search</li>
               {this.authLinks()}
             </ul>

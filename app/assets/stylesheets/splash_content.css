@@ -74,22 +74,42 @@
 .splash-content ul {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   list-style: none;
+  margin: 0px;
+  padding: 0;
 }
 
 .splash-content ul li {
   color: #161616;
   font-size: 1.4em;
   padding: 0px;
+  align-items: flex-end;
+  justify-content: space-around;
 }
 
 .splash-content ul li a {
   text-decoration: none;
   transition: 2s color;
+  cursor: pointer;
 }
 
-.splash-content ul li a:hover {
+.splash-content ul li .upload-subtext {
   color: grey;
+}
+
+.splash-content ul li .upload-subtext:hover {
+  -webkit-animation: swing 2s ease;
+  animation: swing 2s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.splash-content ul li .upload-subtext active {
+  -webkit-animation: swing 2s ease;
+  animation: swing 2s ease;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
 }
 
 .search-tags {
@@ -102,4 +122,62 @@
   display: flex;
   padding: 1px;
   margin: 2px;
+}
+
+/*logo swing*/
+ @-webkit-keyframes swing
+{
+    20%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    40%
+    {
+        -webkit-transform: translateX(-2px);
+       transform: translateX(-2px);
+    }
+    60%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    20%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    40%
+    {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    60%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }

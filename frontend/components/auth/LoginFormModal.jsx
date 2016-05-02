@@ -44,7 +44,7 @@ var LoginFormModal = React.createClass({
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
 
-          <LoginForm/>
+          <LoginForm parent={this}/>
 
         </Modal>
       </div>

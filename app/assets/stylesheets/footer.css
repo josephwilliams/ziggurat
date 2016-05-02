@@ -10,6 +10,7 @@ footer {
   padding: 5px;
   display: flex;
   align-items: flex-start;
+  border-top: 1px solid black;
 }
 
 .footer-container p {

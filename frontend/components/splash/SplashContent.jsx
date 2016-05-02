@@ -1,9 +1,57 @@
 var React = require('react');
+var CurrentUserState = require('../../mixins/current_user_state');
+
+//Components
 var SearchTags = require('../SearchTags');
 var SplashAbout = require('./SplashAbout');
+var SignUpFormModal = require('../auth/SignUpFormModal');
+
+//Actions
+var ClientActions = require('../../actions/client_actions');
 
 var SplashContent = React.createClass({
+  mixins: [CurrentUserState],
+
+  uploadPhotoClick: function () {
+    if (this.state.currentUser){
+      this.openUploadWidget();
+    } else {
+      this.shakeSubText();
+    }
+  },
+
+  shakeSubText: function () {
+    var subtext = document.getElementsByClassName('.upload-subtext');
+    subtext.className = subtext.className + '-move';
+  },
+
+  postPhoto: function (photoData) {
+    // called after successful upload via cloudinary widget
+    ClientActions.postPhoto(photoData);
+  },
+
+  openUploadWidget: function () {
+    cloudinary.openUploadWidget(
+      window.cloudinary_options,
+      function(error, images){
+        if (error === null) {
+          console.log("url:" + images[0].url)
+          this.postPhoto(images[0]);
+        } else {
+          console.log('photo didnt upload');
+        }
+      }.bind(this)
+    );
+  },
+
   render: function () {
+    var uploadSubText;
+    if (this.state.currentUser){
+      uploadSubText = "let's do this!"
+    } else {
+      uploadSubText = "sign up or login to contribute"
+    }
+
     return (
       <div>
         <div className="splash-content">
@@ -14,8 +62,11 @@ var SplashContent = React.createClass({
             </li>
 
             <li>
-              <a>upload a photo</a> <br/>
-                   ☁contribute
+              <a onClick={this.uploadPhotoClick}>☁ upload a photo</a>
+                <br/>
+              <div className="upload-subtext">
+                {uploadSubText}
+              </div>
             </li>
           </ul>
         </div>

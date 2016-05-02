@@ -2,3 +2,23 @@
   margin: auto;
   width: 1000px;
 }
+
+.photo-flow h1 {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 600;
+  font-size: 32px;
+  color: #161616;
+  padding: 0;
+}
+
+.flow-gallery-container {
+
+}
+
+.flow-gallery {
+  
+}
+
+.gallery-photo {
+
+}

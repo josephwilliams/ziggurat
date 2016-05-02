@@ -2,6 +2,8 @@ var React = require('react');
 var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
 
+var Gallery = require('./Gallery');
+
 var FlowPage = React.createClass({
   getInitialState: function () {
     return { photos: [] };
@@ -20,19 +22,16 @@ var FlowPage = React.createClass({
     var photos = this.state.photos;
     var photoFlow = photos.map(function(photo){
       return (<img src={photo.image_url}
-                  width="300"
-                  key={photo.id}/>)
+                   width="300"
+                   key={photo.id}/>)
     });
 
     return(
       <div>
-        <br/>
-        <br/>
-        <br/>
         <div className="photo-flow">
 
-          <h3>FLOW</h3>
-          {photoFlow}
+          <h1>explore</h1>
+          <Gallery photos={photos} />
         </div>
       </div>
     )
