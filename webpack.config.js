@@ -23,6 +23,10 @@ module.exports = {
       {
         test: /.node$/,
         loader: "node-loader",
+      },
+      {
+        test: /masonry-layout/,
+        loader: 'imports?define=>false&this=>window'
       }
     ]
   },
