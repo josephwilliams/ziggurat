@@ -16,6 +16,7 @@ var Gallery = React.createClass({
 
       return (
         <div className="flow-gallery-container">
+
           <Masonry
               className={'flow-gallery'} // default ''
               elementType={'ul'} // default 'div'

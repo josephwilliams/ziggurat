@@ -2,10 +2,13 @@ var React = require('react');
 var Masonry = require('react-masonry-component');
 var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
-
+var CurrentUserState = require('../../mixins/current_user_state');
+var HeaderAlt = require('../HeaderAlt');
 var Gallery = require('./Gallery');
 
 var FlowPage = React.createClass({
+  mixins: [CurrentUserState],
+
   getInitialState: function () {
     return { photos: [] };
   },
@@ -19,6 +22,11 @@ var FlowPage = React.createClass({
     this.setState({ photos: PhotoStore.all() });
   },
 
+  postPhoto: function (photoData) {
+    // called after successful upload via cloudinary widget
+    ClientActions.postPhoto(photoData);
+  },
+
   render: function () {
     var photos = this.state.photos;
     var photoFlow = photos.map(function(photo){
@@ -26,14 +34,15 @@ var FlowPage = React.createClass({
                    width="300"
                    key={photo.id}/>)
     });
+    var currentUser = this.state.currentUser;
 
     return(
-      <div>
-        <div className="photo-flow">
+      <div className="photo-flow-container">
 
-          <h1>explore</h1>
-          <Gallery photos={photos} />
-        </div>
+        <HeaderAlt currentUser={currentUser}
+          postPhoto={this.postPhoto}/>
+
+        <Gallery photos={photos} />
       </div>
     )
   }

@@ -43,8 +43,6 @@ var App = React.createClass({
     var currentUser = this.state.currentUser;
     return (
       <div>
-        <Header currentUser={currentUser}
-                postPhoto={this.postPhoto}/>
         <div className="content">
           {this.props.children}
           <Footer />

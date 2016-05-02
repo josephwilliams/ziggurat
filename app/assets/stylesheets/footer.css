@@ -4,13 +4,14 @@ footer {
   height: 150px;
   font-size: .9em;
   margin: auto;
+  padding-top: 2px;
+  /*border-top: 1px solid black;*/
 }
 
 .footer-container {
   padding: 5px;
   display: flex;
   align-items: flex-start;
-  /*border-top: 1px solid black;*/
 }
 
 .footer-container p {

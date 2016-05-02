@@ -1,9 +1,10 @@
-.photo-flow {
+.photo-flow-container {
   margin: auto;
   width: 1000px;
-}
 
-.photo-flow h1 {
+  background-color: white;
+  /*z-index: 100;*/
+
   font-family: 'Amatic SC', cursive;
   font-weight: 600;
   font-size: 32px;
@@ -16,7 +17,11 @@
 }
 
 .flow-gallery {
-  
+
+}
+
+ul .flow-gallery {
+  margin: auto;
 }
 
 .gallery-photo {
