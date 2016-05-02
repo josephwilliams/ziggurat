@@ -28,10 +28,7 @@ var SplashContent = React.createClass({
       window.cloudinary_options,
       function(error, images){
         if (error === null) {
-          console.log("url:" + images[0].url)
           this.postPhoto(images[0]);
-        } else {
-          console.log('photo didnt upload');
         }
       }.bind(this)
     );

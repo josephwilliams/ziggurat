@@ -29,4 +29,8 @@ module.exports = {
     PhotoUtils.getPhotos();
   },
 
+  getPhoto: function (id) {
+    PhotoUtils.getPhoto(id);
+  }
+
 };

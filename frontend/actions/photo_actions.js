@@ -3,10 +3,10 @@ var PhotoConstants = require('../constants/photo_constants');
 
 var PhotoActions = {
 
-  postPhoto: function(photoData) {
+  postPhoto: function(photo) {
     AppDispatcher.dispatch({
       actionType: PhotoConstants.POST,
-      photoData: photoData
+      photo: photo
     });
   },
 
@@ -21,6 +21,13 @@ var PhotoActions = {
     AppDispatcher.dispatch({
       actionType: PhotoConstants.SHOW_ERRORS,
       errors: errors.responseJSON.errors
+    });
+  },
+
+  receivePhoto: function(photo){
+    AppDispatcher.dispatch({
+      actionType: PhotoConstants.RECEIVE_PHOTO,
+      photo: photo
     });
   },
 

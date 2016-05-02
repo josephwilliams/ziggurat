@@ -1,0 +1,8 @@
+.show-photo-container {
+  width: 1000px;
+  margin: auto;
+  min-height: 800px;
+
+  position: relative;
+  top: 111px;
+}

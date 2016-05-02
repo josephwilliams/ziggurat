@@ -16,6 +16,9 @@ var Header = require('./components/Header');
 var SplashPage = require('./components/splash/SplashPage');
 var Footer = require('./components/Footer');
 var FlowPage = require('./components/flow/FlowPage');
+var PhotoShow = require('./components/photos/PhotoShow');
+var PhotoEdit = require('./components/photos/PhotoEdit');
+var SearchPage = require('./components/SearchPage');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');
@@ -44,7 +47,6 @@ var App = React.createClass({
                 postPhoto={this.postPhoto}/>
         <div className="content">
           {this.props.children}
-          <FlowPage />
           <Footer />
         </div>
       </div>
@@ -58,6 +60,8 @@ var Router = (
       <IndexRoute component={SplashPage}/>
       <Route path="splash" component={SplashPage}/>
       <Route path="flow" component={FlowPage}/>
+      <Route path="photos/:photoId" component={PhotoShow}/>
+      <Route path="search" component={SearchPage}/>
     </Route>
   </Router>
 );

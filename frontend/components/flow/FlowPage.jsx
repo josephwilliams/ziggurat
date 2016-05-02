@@ -11,8 +11,8 @@ var FlowPage = React.createClass({
   },
 
   componentDidMount: function () {
-    var photosListener = PhotoStore.addListener(this.updatePhotos)
     ClientActions.getPhotos();
+    var photosListener = PhotoStore.addListener(this.updatePhotos)
   },
 
   updatePhotos: function () {

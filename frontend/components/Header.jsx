@@ -41,10 +41,7 @@ var Header = React.createClass({
       window.cloudinary_options,
       function(error, images){
         if (error === null) {
-          console.log("url:" + images[0].url)
           this.props.postPhoto(images[0]);
-        } else {
-          console.log('photo didnt upload');
         }
       }.bind(this)
     );
@@ -115,10 +112,17 @@ var Header = React.createClass({
           <div className="nav">
             <ul>
               {this.uploadLink()}
-              <li>explore</li>
-              <li>
-                search
-              </li>
+                  <a href="/#/flow">
+                    <li>
+                    explore
+                  </li>
+                  </a>
+
+                  <a href="/#/search">
+                    <li>
+                  search
+                </li>
+                </a>
 
               {this.authLinks()}
             </ul>

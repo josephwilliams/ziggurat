@@ -29,6 +29,7 @@ PhotoStore.delete = function (id) {
   delete _photos[id];
 };
 
+// also called on RECEIVE_PHOTO to grab/assess potential changes
 PhotoStore.addPhoto = function (photo) {
   _photos[photo.id] = photo;
 };
@@ -46,13 +47,16 @@ PhotoStore.errors = function() {
 PhotoStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case PhotoConstants.POST:
-      PhotoStore.addPhoto(payload.photoData);
+      PhotoStore.addPhoto(payload.photo);
       break;
     case PhotoConstants.SHOW_ERRORS:
       PhotoStore.setErrors(payload.errors);
       break;
     case PhotoConstants.ALL_PHOTOS:
       PhotoStore.resetPhotos(payload.photos);
+      break;
+    case PhotoConstants.RECEIVE_PHOTO:
+      PhotoStore.addPhoto(payload.photo);
       break;
   }
   this.__emitChange();

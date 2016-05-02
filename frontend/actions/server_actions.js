@@ -8,7 +8,6 @@ var ServerActions = {
     });
   },
 
-
 };
 
 module.exports = ServerActions;

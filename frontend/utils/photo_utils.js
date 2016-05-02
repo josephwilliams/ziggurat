@@ -6,15 +6,16 @@ var PhotoUtils = {
     $.ajax({
       url: "api/photos",
       type: "POST",
-      data: { photo: { image_url: photoData.url,
+      data: { photo: {
+              image_url: photoData.url,
               thumbnail_url: photoData.thumbnail_url,
               height: photoData.height,
               width: photoData.width,
               author_id: photoData.author_id,
               description: photoData.description
             }},
-      success: function (photoData) {
-        PhotoActions.postPhoto(photoData);
+      success: function (photo) {
+        PhotoActions.postPhoto(photo);
       },
       errors: function (errors) {
         PhotoActions.showErrors(errors);
@@ -34,6 +35,16 @@ var PhotoUtils = {
       }
     });
   },
+
+  getPhoto: function (id) {
+    $.ajax({
+      url: "api/photos/" + id.toString(),
+      type: "GET",
+      success: function (photo) {
+        PhotoActions.receivePhoto(photo);
+      }
+    });
+  }
 };
 
 module.exports = PhotoUtils;
