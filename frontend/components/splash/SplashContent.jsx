@@ -15,14 +15,7 @@ var SplashContent = React.createClass({
   uploadPhotoClick: function () {
     if (this.state.currentUser){
       this.openUploadWidget();
-    } else {
-      this.shakeSubText();
     }
-  },
-
-  shakeSubText: function () {
-    var subtext = document.getElementsByClassName('.upload-subtext');
-    subtext.className = subtext.className + '-move';
   },
 
   postPhoto: function (photoData) {
