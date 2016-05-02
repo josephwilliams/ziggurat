@@ -15,7 +15,7 @@ var UserShow = require('./components/UserShow');
 var Header = require('./components/Header');
 var SplashPage = require('./components/splash/SplashPage');
 var Footer = require('./components/Footer');
-
+var FlowPage = require('./components/flow/FlowPage');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');
@@ -44,7 +44,7 @@ var App = React.createClass({
                 postPhoto={this.postPhoto}/>
         <div className="content">
           {this.props.children}
-
+          <FlowPage />
           <Footer />
         </div>
       </div>
@@ -57,7 +57,7 @@ var Router = (
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage}/>
       <Route path="splash" component={SplashPage}/>
-
+      <Route path="flow" component={FlowPage}/>
     </Route>
   </Router>
 );
