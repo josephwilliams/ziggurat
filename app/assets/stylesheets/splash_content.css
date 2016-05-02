@@ -84,8 +84,8 @@
   color: #161616;
   font-size: 1.4em;
   padding: 0px;
-  align-items: flex-end;
-  justify-content: space-around;
+  /*align-items: flex-end;
+  justify-content: space-around;*/
 }
 
 .splash-content ul li a {
