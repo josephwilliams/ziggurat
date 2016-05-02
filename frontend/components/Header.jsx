@@ -3,6 +3,7 @@ var Modal = require("react-modal");
 var ClientActions = require('../actions/client_actions');
 var LoginFormModal = require('./auth/LoginFormModal');
 var SignUpFormModal = require('./auth/SignUpFormModal');
+var SearchNav = require('./SearchNav');
 
 var SignUpFormStyle = {
   overlay : {
@@ -116,7 +117,10 @@ var Header = React.createClass({
             <ul>
               {this.uploadLink()}
               <li>explore</li>
-              <li>search</li>
+              <li>
+                search
+              </li>
+
               {this.authLinks()}
             </ul>
           </div>

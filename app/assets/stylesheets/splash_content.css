@@ -32,7 +32,7 @@
   font-size: 28px;
   background-color: #f1f1f1;
   padding: 30px 0px;
-  margin-top: 15px;
+  margin-top: 5px;
   width: 100%;
 }
 
@@ -92,6 +92,15 @@
   text-decoration: none;
   transition: 2s color;
   cursor: pointer;
+}
+
+.splash-content ul li a .cloud {
+  font-size: .8em;
+  color: darkgrey;
+  padding: 0 2px;
+  margin: 0;
+  display: inline;
+  align-items: flex-end;
 }
 
 .splash-content ul li a:hover ~ .upload-subtext {

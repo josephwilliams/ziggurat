@@ -10,7 +10,7 @@ var SignUpForm = React.createClass({
     return {username: "",
             password: "",
             email: "",
-            location: "optional",
+            location: "",
             errors: {}};
   },
 
@@ -38,21 +38,6 @@ var SignUpForm = React.createClass({
 
   handleSubmit: function (event) {
     event.preventDefault();
-
-    // if (this.state.location === "optional"){
-    //   ClientActions.createUser({
-    //     username: this.state.username,
-    //     password: this.state.password,
-    //     email: this.state.email,
-    //   }, this.props.parent.closeModal);
-    // } else {
-    //   ClientActions.createUser({
-    //     username: this.state.username,
-    //     password: this.state.password,
-    //     email: this.state.email,
-    //     location: this.state.location
-    //   }, this.props.parent.closeModal);
-    // }
 
     ClientActions.createUser({
       username: this.state.username,
@@ -128,6 +113,7 @@ var SignUpForm = React.createClass({
                     onChange={this.changeLocation}
                     onClick={this.locationInputClick}
                     id="fieldEmail"
+                    placeholder="optional"
                     />
                   <label className="label">Location</label>
            </div>

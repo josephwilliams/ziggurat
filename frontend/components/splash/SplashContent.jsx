@@ -55,7 +55,9 @@ var SplashContent = React.createClass({
             </li>
 
             <li>
-              <a onClick={this.uploadPhotoClick}>☁ upload a photo</a>
+              <a onClick={this.uploadPhotoClick}>upload a photo
+                <div className="cloud">⇧</div></a>
+
                 <br/>
               <div className="upload-subtext">
                 {uploadSubText}
