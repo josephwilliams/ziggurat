@@ -110,13 +110,6 @@
   animation-iteration-count: 1;
 }
 
-.splash-content ul li a:active ~ .upload-subtext {
-  -webkit-animation: swing 1s ease-in-out;
-  animation: swing 1s ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
 .splash-content ul li .upload-subtext {
   color: grey;
 }
