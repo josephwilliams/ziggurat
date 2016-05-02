@@ -2,23 +2,24 @@ class Api::PhotosController < ApplicationController
   def index
     cloud_name = ENV['CLOUD_NAME']
     upload_preset = Figaro.env.UPLOAD_PRESET
+
     @photos = Photo.all
-    render json: {}
   end
 
   def show
-    render json: {}
+    @photo = Photo.find(params[:id])
   end
 
   def new
     @photo = Photo.new
-    render json: {}
   end
 
   def create
     @photo = Photo.new(photo_params)
+    @photo.author_id = current_user.id
+
     if @photo.save
-      render "api/photos/show"
+      render :show
     else
       @errors = @photo.errors.full_messages
       render "api/shared/error", status: 422
@@ -31,6 +32,10 @@ class Api::PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:description, :image_url)
+    params.require(:photo).permit(:description,
+                                  :image_url,
+                                  :thumbnail_url,
+                                  :width,
+                                  :height)
   end
 end

@@ -11,24 +11,18 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 
 //Components
-var LoginForm = require('./components/auth/LoginForm');
 var UserShow = require('./components/UserShow');
 var Header = require('./components/Header');
 var SplashPage = require('./components/splash/SplashPage');
-var SplashImage = require('./components/splash/SplashImage');
-var LoginFormModal = require('./components/auth/LoginFormModal');
 var Footer = require('./components/Footer');
-var FlowPage = require('./components/FlowPage');
-var SignUpForm = require('./components/auth/SignUpForm');
+var FlowPage = require('./components/flow/FlowPage');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');
 
-//Utils
-var UserUtils = require('./utils/user_utils');
-
 //Actions
 var ClientActions = require('./actions/client_actions');
+var PhotoActions = require('./actions/photo_actions');
 
 // Checks current user authentication upon loading
 ClientActions.fetchCurrentUser();
@@ -37,13 +31,20 @@ ClientActions.fetchCurrentUser();
 var App = React.createClass({
   mixins: [CurrentUserState],
 
+  postPhoto: function (photoData) {
+    // called after successful upload via cloudinary widget
+    ClientActions.postPhoto(photoData);
+  },
+
   render: function() {
     var currentUser = this.state.currentUser;
     return (
       <div>
-        <Header currentUser={currentUser}/>
+        <Header currentUser={currentUser}
+                postPhoto={this.postPhoto}/>
         <div className="content">
           {this.props.children}
+
           <Footer />
         </div>
       </div>
@@ -54,7 +55,8 @@ var App = React.createClass({
 var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={SplashPage}/>
+      <IndexRoute component={FlowPage}/>
+      <Route path="splash" component={SplashPage}/>
       <Route path="flow" component={FlowPage}/>
     </Route>
   </Router>

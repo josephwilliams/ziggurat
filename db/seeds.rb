@@ -7,3 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(username: "guest", password: "password", email: "...", location: "USA")
+User.create!(username: "Joseph", password: "password", email: "...", location: "San Francisco");
+User.create!(username: "Tyler", password: "williams", email: "...", location: "Pittsburgh");
+User.create!(username: "Adam", password: "password", email: "...", location: "Washington, D.C.");
+
+Photo.create!(image_url: "https://images.unsplash.com/45/Vo7YbYQQ8iyOo4J9bOoj_ggb24.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f4405935f612ba77d99216f0f2f8f91a",
+              author_id: 1)
+Photo.create!(image_url: "https://images.unsplash.com/photo-1438930249256-07387cf30528?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=867be065397a1352dbeea0a60e0417f7",
+              author_id: 1)
+Photo.create!(image_url: "https://images.unsplash.com/12/palm-trees.JPG?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=c68801d882fdd2231a11a56050d57d93",
+              author_id: 1)

@@ -36,11 +36,25 @@ var Header = React.createClass({
     });
   },
 
+  openUploadWidget: function () {
+    cloudinary.openUploadWidget(
+      window.cloudinary_options,
+      function(error, images){
+        if (error === null) {
+          console.log("url:" + images[0].url)
+          this.props.postPhoto(images[0]);
+        } else {
+          console.log('photo didnt upload');
+        }
+      }.bind(this)
+    );
+  },
+
   uploadLink: function () {
     if (this.props.currentUser){
       return(
         <div>
-          <li>upload</li>
+          <li onClick={this.openUploadWidget}>upload</li>
         </div>
       )
     }

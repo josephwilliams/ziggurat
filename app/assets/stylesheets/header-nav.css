@@ -1,7 +1,8 @@
 /*Past Header Concept*/
-/*.nav-bar-placeholder {
-  height: 46px
-}*/
+.top-placeholder {
+  height: 50px;
+  position: absolute;
+}
 
 .header {
   font-family: 'Amatic SC', cursive;
