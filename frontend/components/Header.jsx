@@ -3,7 +3,6 @@ var Modal = require("react-modal");
 var ClientActions = require('../actions/client_actions');
 var LoginFormModal = require('./auth/LoginFormModal');
 var SignUpFormModal = require('./auth/SignUpFormModal');
-var SearchNav = require('./SearchNav');
 
 var SignUpFormStyle = {
   overlay : {
