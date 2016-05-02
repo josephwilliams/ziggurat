@@ -1,5 +1,5 @@
 var React = require('react');
-var Masonry = require('masonry-layout');
+var Masonry = require('react-masonry-component');
 var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
 

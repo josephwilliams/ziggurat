@@ -44,7 +44,7 @@ var App = React.createClass({
                 postPhoto={this.postPhoto}/>
         <div className="content">
           {this.props.children}
-
+          <FlowPage />
           <Footer />
         </div>
       </div>

@@ -1,5 +1,5 @@
 var React = require('react');
-var Masonry = require('masonry-layout');
+var Masonry = require('react-masonry-component');
 var PhotoItemSmall = require('./PhotoItemSmall');
 
 var masonryOptions = {
