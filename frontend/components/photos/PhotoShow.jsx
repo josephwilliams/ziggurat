@@ -1,6 +1,7 @@
 var React = require('react');
-var PhotoStore = window.PhotoStore = require('../../stores/photo_store');
+var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
+var HeaderAlt = require('../HeaderAlt');
 
 var PhotoShow = React.createClass({
   getInitialState: function () {
@@ -37,18 +38,22 @@ var PhotoShow = React.createClass({
       )
     } else {
       return(
-        <img src={this.state.photo.image_url} width="600"/>
+        <img src={this.state.photo.image_url}/>
       )
     }
   },
 
   render: function() {
+    console.log(this.props.path);
     return (
       <div>
         <div className="show-photo-container">
-          {this.showContainer()}
+          <HeaderAlt/>
+          <div className="photo-container">
 
+            {this.showContainer()}
 
+          </div>
         </div>
       </div>
     );

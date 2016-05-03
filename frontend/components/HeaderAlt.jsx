@@ -3,6 +3,7 @@ var Modal = require("react-modal");
 var ClientActions = require('../actions/client_actions');
 var LoginFormModal = require('./auth/LoginFormModal');
 var SignUpFormModal = require('./auth/SignUpFormModal');
+var CurrentUserState = require('../mixins/current_user_state');
 
 var SignUpFormStyle = {
   overlay : {
@@ -26,6 +27,8 @@ var SignUpFormStyle = {
 };
 
 var HeaderAlt = React.createClass({
+  mixins: [CurrentUserState],
+
   header: function () {
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 175) {
@@ -36,19 +39,24 @@ var HeaderAlt = React.createClass({
     });
   },
 
+  postPhoto: function (photoData) {
+    // called after successful upload via cloudinary widget
+    ClientActions.postPhoto(photoData);
+  },
+
   openUploadWidget: function () {
     cloudinary.openUploadWidget(
       window.cloudinary_options,
       function(error, images){
         if (error === null) {
-          this.props.postPhoto(images[0]);
+          this.postPhoto(images[0]);
         }
       }.bind(this)
     );
   },
 
   uploadLink: function () {
-    if (this.props.currentUser){
+    if (this.state.currentUser){
       return(
         <div>
           <li onClick={this.openUploadWidget}>upload</li>
@@ -58,7 +66,7 @@ var HeaderAlt = React.createClass({
   },
 
   profileLink: function () {
-    if (this.props.currentUser){
+    if (this.state.currentUser){
       return(
         <div>
           <li>profile</li>
@@ -68,12 +76,12 @@ var HeaderAlt = React.createClass({
   },
 
   authLinks: function () {
-    if (this.props.currentUser){
+    if (this.state.currentUser){
       return (
         <div>
           <ul>
 
-            <div className="user-greeting">hi, {this.props.currentUser.username}</div>
+            <div className="user-greeting">hi, {this.state.currentUser.username}</div>
             &nbsp;&nbsp;
             {this.profileLink()}
             <li onClick={this.logoutUser}>logout</li>

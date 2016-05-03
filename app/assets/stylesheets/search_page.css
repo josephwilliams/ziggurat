@@ -1,0 +1,13 @@
+.search-page-container {
+  margin: auto;
+  width: 1000px;
+
+  background-color: white;
+  /*z-index: 100;*/
+
+  font-family: 'Amatic SC', cursive;
+  font-weight: 600;
+  font-size: 32px;
+  color: #161616;
+  padding: 0;
+}

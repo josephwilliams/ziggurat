@@ -1,19 +1,21 @@
 var React = require('react');
-var PropTypes = React.PropTypes;
+var CurrentUserState = require('../mixins/current_user_state');
+var HeaderAlt = require('./HeaderAlt');
 
 var SearchPage = React.createClass({
+  mixins: [CurrentUserState],
 
-  render: function() {
-    return (
+  render: function () {
+    var currentUser = this.state.currentUser;
+
+    return(
       <div className="search-page-container">
-
-        <h1>
-          SEARCH.
-        </h1>
+        <HeaderAlt/>
+        <br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/>
       </div>
-    );
+    )
   }
-
 });
 
 module.exports = SearchPage;

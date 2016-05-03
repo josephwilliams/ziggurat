@@ -1,8 +1,22 @@
 .show-photo-container {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 600;
+  font-size: 32px;
+  color: #161616;
+
   width: 1000px;
   margin: auto;
   min-height: 800px;
 
   position: relative;
-  top: 111px;
+  /*top: 111px;*/
+}
+
+.photo-container {
+  padding: 15px 0px 5px 0px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.photo-container img {
+  max-width: 1000px;
 }

@@ -39,8 +39,7 @@ var FlowPage = React.createClass({
     return(
       <div className="photo-flow-container">
 
-        <HeaderAlt currentUser={currentUser}
-          postPhoto={this.postPhoto}/>
+        <HeaderAlt/>
 
         <Gallery photos={photos} />
       </div>
