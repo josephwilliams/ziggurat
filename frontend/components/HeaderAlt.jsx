@@ -29,6 +29,10 @@ var SignUpFormStyle = {
 var HeaderAlt = React.createClass({
   mixins: [CurrentUserState],
 
+  componentDidMount: function () {
+    ClientActions.fetchCurrentUser();
+  },
+
   header: function () {
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 175) {

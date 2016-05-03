@@ -2,6 +2,8 @@ var React = require('react');
 var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
 var HeaderAlt = require('../HeaderAlt');
+var PhotoComments = require('./PhotoComments');
+var PhotoCommentForm = require('./PhotoCommentForm');
 
 var PhotoShow = React.createClass({
   getInitialState: function () {
@@ -10,19 +12,19 @@ var PhotoShow = React.createClass({
   },
 
   componentDidMount: function () {
-    ClientActions.getPhotos();
+    // ClientActions.getPhotos();
     ClientActions.getPhoto(parseInt(this.props.params.photoId));
-    var photoListener = PhotoStore.addListener(this.handleChange);
-  },
-
-  componentWillUnmount: function () {
-    photoListener.remove();
+    this.photoListener = PhotoStore.addListener(this.handleChange);
   },
 
   handleChange: function () {
     var loadedPhoto = PhotoStore.find(this.props.params.photoId);
     this.setState({ photo: loadedPhoto })
   },
+
+  // componentWillUnmount: function () {
+  //   this.photoListener.remove;
+  // },
 
   showContainer: function () {
     if (this.state.photo === {}){
@@ -44,7 +46,9 @@ var PhotoShow = React.createClass({
   },
 
   render: function() {
-    console.log(this.props.path);
+    console.log("photo id:" + this.state.photo.id)
+    console.log("params.photoId:" + this.props.params.photoId)
+    var photoId = this.props.params.photoId;
     return (
       <div>
         <div className="show-photo-container">
@@ -52,6 +56,12 @@ var PhotoShow = React.createClass({
           <div className="photo-container">
 
             {this.showContainer()}
+
+            <div className="photo-bottom-padding"/>
+
+
+              <PhotoComments id={photoId}/>
+
 
           </div>
         </div>

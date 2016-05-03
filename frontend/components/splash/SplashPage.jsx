@@ -24,7 +24,7 @@ var SplashPage = React.createClass({
         <SplashImage/>
         <div className="page-line"/>
         <div className="sub-content">
-          <SplashContent/>
+          <SplashContent />
           <StartButton/>
         </div>
       </div>

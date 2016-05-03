@@ -7,7 +7,13 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.includes(:likes).includes(:comments).find(params[:id])
+    @likes = @photo.likes.count
+
+    @likes_hash = {}
+    if signed_in?
+     @likes_hash[@photo.id] = @photo.likes.find_by(user_id: current_user.id)
+    end
   end
 
   def new

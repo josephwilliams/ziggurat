@@ -20,3 +20,12 @@
 .photo-container img {
   max-width: 1000px;
 }
+
+.photo-bottom-padding {
+  height: 70px;
+  background-color: #edede8;
+}
+
+.comments-container {
+  
+}

@@ -28,11 +28,14 @@ var ClientActions = require('./actions/client_actions');
 var PhotoActions = require('./actions/photo_actions');
 
 // Checks current user authentication upon loading
-ClientActions.fetchCurrentUser();
 
 //App
 var App = React.createClass({
   mixins: [CurrentUserState],
+
+  componentDidMount: function () {
+    ClientActions.fetchCurrentUser();
+  },
 
   postPhoto: function (photoData) {
     // called after successful upload via cloudinary widget
@@ -56,7 +59,7 @@ var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage}/>
-      <Route path="splash" component={SplashPage}/>
+      <Route path="splash" component={SplashPage} />
       <Route path="flow" component={FlowPage}/>
       <Route path="photos/:photoId" component={PhotoShow}/>
       <Route path="search" component={SearchPage}/>

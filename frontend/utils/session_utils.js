@@ -8,7 +8,7 @@ var SessionUtils = {
       type: "POST",
       data: userData,
       success: function (user){
-
+        UserActions.loginUser(user);
       }
     });
   },

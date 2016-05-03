@@ -10,10 +10,10 @@ var SignUpFormModal = require('../auth/SignUpFormModal');
 var ClientActions = require('../../actions/client_actions');
 
 var SplashContent = React.createClass({
-  mixins: [CurrentUserState],
+  // mixins: [CurrentUserState],
 
   uploadPhotoClick: function () {
-    if (this.state.currentUser){
+    if (this.props.currentUser){
       this.openUploadWidget();
     }
   },
@@ -36,7 +36,7 @@ var SplashContent = React.createClass({
 
   render: function () {
     var uploadSubText;
-    if (this.state.currentUser){
+    if (this.props.currentUser){
       uploadSubText = "let's do this!"
     } else {
       uploadSubText = "sign up or login to contribute"

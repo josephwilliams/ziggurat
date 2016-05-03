@@ -6,7 +6,7 @@ var ServerActions = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     });
-  },
+  }
 
 };
 

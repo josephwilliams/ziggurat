@@ -3,10 +3,10 @@ var CurrentUserState = require('../mixins/current_user_state');
 var HeaderAlt = require('./HeaderAlt');
 
 var SearchPage = React.createClass({
-  mixins: [CurrentUserState],
+  // mixins: [CurrentUserState],
 
   render: function () {
-    var currentUser = this.state.currentUser;
+    // var currentUser = this.state.currentUser;
 
     return(
       <div className="search-page-container">

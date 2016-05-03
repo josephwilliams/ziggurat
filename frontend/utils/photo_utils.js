@@ -44,7 +44,8 @@ var PhotoUtils = {
         PhotoActions.receivePhoto(photo);
       }
     });
-  }
+  },
+
 };
 
 module.exports = PhotoUtils;
