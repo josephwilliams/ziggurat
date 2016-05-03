@@ -48,6 +48,13 @@ ul .flow-gallery {
   opacity: 0.1;
 }
 
+.like-count {
+  font-family: 'Open Sans', sans-serif;
+  display: inline;
+  font-size: 0.5em;
+  color: white;
+}
+
 .like-heart:hover {
   display: block;
   position: absolute;
