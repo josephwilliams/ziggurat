@@ -18,10 +18,10 @@ var Gallery = React.createClass({
         <div className="flow-gallery-container">
 
           <Masonry
-              className={'flow-gallery'} // default ''
-              elementType={'ul'} // default 'div'
-              options={masonryOptions} // default {}
-              disableImagesLoaded={false} // default false
+              className={'flow-gallery'}
+              elementType={'div'}
+              options={masonryOptions}
+              disableImagesLoaded={false}
           >
               {childElements}
           </Masonry>
