@@ -3,6 +3,7 @@ var CommentStore = window.CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
 var PhotoShow = require('./PhotoShow');
 var TimeAgo = require('react-timeago').default;
+var TimeAgo = require('react-timeago');
 
 var PhotoComments = React.createClass({
   getInitialState: function () {
