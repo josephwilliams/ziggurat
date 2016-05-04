@@ -10,13 +10,16 @@ var PhotoShow = React.createClass({
   getInitialState: function () {
 
     var potentialPhoto = PhotoStore.find(this.props.params.photoId);
-    return ({ photo: potentialPhoto ? potentialPhoto : {} });
+    return ({ photo: potentialPhoto ? potentialPhoto : {},
+              comments: [] });
   },
 
   componentDidMount: function () {
     ClientActions.getPhotos();
     // ADJUST GET PHOTO
     ClientActions.getPhoto(parseInt(this.props.params.photoId));
+    ClientActions.getComments(parseInt(this.state.photo.id));
+
     this.photoListener = PhotoStore.addListener(this.handleChange);
     this.commentsListener = CommentStore.addListener(this.handleChangeComments);
   },
@@ -28,11 +31,12 @@ var PhotoShow = React.createClass({
 
   handleChangeComments: function () {
     ClientActions.getComments(parseInt(this.state.photo.id));
+    this.setState({ comments: CommentStore.all() });
   },
 
   componentWillUnmount: function () {
     this.photoListener.remove();
-    this.commentsLister.remove();
+    this.commentsListener.remove();
   },
 
   showContainer: function () {
@@ -66,7 +70,8 @@ var PhotoShow = React.createClass({
 
             <div className="photo-bottom-padding"/>
 
-              <PhotoComments id={this.props.params.photoId} />
+              <PhotoComments id={this.props.params.photoId}
+                             comments={this.state.comments}/>
               <PhotoCommentForm id={this.props.params.photoId}/>
 
           </div>

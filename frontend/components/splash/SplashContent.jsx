@@ -14,14 +14,10 @@ var SplashContent = React.createClass({
   // mixins: [CurrentUserState],
 
   uploadPhotoClick: function () {
-    console.log('click');
     if (this.props.currentUser){
       console.log(this.props.currentUser);
       this.openUploadWidget();
     } else {
-      console.log('hmm');
-      this.openUploadWidget();
-
       <SignUpFormModal parent={this} modalOpen={true}/>
     }
   },

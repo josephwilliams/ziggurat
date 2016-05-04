@@ -21,13 +21,13 @@ CommentStore.resetComments = function (comments) {
   });
 };
 
-CommentStore.find = function (id) {
-  return _comments[id];
-};
-
-CommentStore.delete = function (id) {
-  delete _comments[id];
-};
+// CommentStore.find = function (id) {
+//   return _comments[id];
+// };
+//
+// CommentStore.delete = function (id) {
+//   delete _comments[id];
+// };
 
 CommentStore.addComment = function (comment) {
   // _comments[comment.id] = comment;
