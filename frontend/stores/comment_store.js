@@ -3,7 +3,7 @@ var CommentConstants = require('../constants/comment_constants');
 var Store = require('flux/utils').Store;
 
 var CommentStore = new Store(AppDispatcher);
-var _comments = {};
+var _comments = [];
 
 CommentStore.all = function () {
   var comments = [];
@@ -15,7 +15,7 @@ CommentStore.all = function () {
 };
 
 CommentStore.resetComments = function (comments) {
-  _comments = {};
+  _comments = [];
   comments.forEach(function(comment){
     _comments[comment.id] = comment;
   });
@@ -29,9 +29,9 @@ CommentStore.delete = function (id) {
   delete _comments[id];
 };
 
-// also called on RECEIVE_PHOTO to grab/assess potential changes
 CommentStore.addComment = function (comment) {
-  _comments[comment.id] = comment;
+  // _comments[comment.id] = comment;
+  _comments.push(comment);
 };
 
 CommentStore.setErrors = function(errors) {

@@ -1,9 +1,9 @@
-class CommentsController < ApplicationController
-  # before_action :require_signed_in!
+class Api::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
+    @comment.username = current_user.username
 
     if @comment.save
       render json: @comment
@@ -13,8 +13,14 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = current_comment
+    @comments = current_comment
     render json: @comment
+  end
+
+  def index
+    @comments = Comment.where(photo_id: params[:photo_id])
+
+    render json: @comments
   end
 
   def destroy
@@ -27,6 +33,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:photo_id,
                                     :comment_body)
+  end
 
   def current_comment
     @current_comment ||= Comment.find(params[:id])

@@ -36,6 +36,10 @@ var Header = React.createClass({
     });
   },
 
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   openUploadWidget: function () {
     cloudinary.openUploadWidget(
       window.cloudinary_options,
@@ -98,6 +102,14 @@ var Header = React.createClass({
     ClientActions.logoutUser();
   },
 
+  linkExplore: function () {
+    this.context.router.push("flow")
+  },
+
+  linkSearch: function () {
+    this.context.router.push("search")
+  },
+
   render: function () {
     return (
       <header>
@@ -112,13 +124,13 @@ var Header = React.createClass({
           <div className="nav">
             <ul>
               {this.uploadLink()}
-                  <a href="/#/flow">
+                  <a onClick={this.linkExplore}>
                     <li>
                     explore
                   </li>
                   </a>
 
-                  <a href="/#/search">
+                  <a onClick={this.linkSearch}>
                     <li>
                   search
                 </li>

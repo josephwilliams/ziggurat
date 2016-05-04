@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
    before_action :require_signed_in!
    before_action :require_like_owner!, only: [:destroy]
 

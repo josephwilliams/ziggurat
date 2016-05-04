@@ -6,7 +6,8 @@ var CommentUtils = {
     $.ajax({
       url: "api/photos/" + commentData.photoId.toString() + "/comments",
       type: "POST",
-      data: commentData,
+      data: { comment: {comment_body: commentData.commentBody,
+                        photo_id: commentData.photoId }},
       success: function (comment) {
         CommentActions.postComment(comment);
       }

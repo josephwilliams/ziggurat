@@ -1,4 +1,5 @@
 var CommentConstants = require('../constants/comment_constants');
+var AppDispatcher = require('../dispatcher/dispatcher');
 
 var CommentActions = {
   postComment: function(comment){

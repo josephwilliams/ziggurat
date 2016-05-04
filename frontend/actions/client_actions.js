@@ -46,11 +46,11 @@ module.exports = {
 
   // CommentActions
   postComment: function (commentData) {
-    CommentUtils.postPhoto(commentData);
+    CommentUtils.postComment(commentData);
   },
 
-  getComments: function () {
-    CommentUtils.getComments();
+  getComments: function (photoId) {
+    CommentUtils.getComments(photoId);
   },
 
   getComment: function (id) {

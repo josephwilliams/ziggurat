@@ -7,35 +7,36 @@ var PhotoCommentForm = require('./PhotoCommentForm');
 
 var PhotoShow = React.createClass({
   getInitialState: function () {
+
     var potentialPhoto = PhotoStore.find(this.props.params.photoId);
     return ({ photo: potentialPhoto ? potentialPhoto : {} });
   },
 
   componentDidMount: function () {
-    // ClientActions.getPhotos();
+    ClientActions.getPhotos();
+    // ADJUST GET PHOTO
     ClientActions.getPhoto(parseInt(this.props.params.photoId));
     this.photoListener = PhotoStore.addListener(this.handleChange);
   },
 
   handleChange: function () {
     var loadedPhoto = PhotoStore.find(this.props.params.photoId);
-    this.setState({ photo: loadedPhoto })
+    this.setState({ photo: loadedPhoto });
   },
 
-  // componentWillUnmount: function () {
-  //   this.photoListener.remove;
-  // },
+  componentWillUnmount: function () {
+    this.photoListener.remove;
+  },
 
   showContainer: function () {
-    if (this.state.photo === {}){
+    if (this.state.photo === undefined){
       return(
         <div>
-          <h3>
-            No photos here!
+          <h3 className="bad-load">
+            <center>
+              No photos here!
+            </center>
           </h3>
-          <h4>
-
-          </h4>
         </div>
       )
     } else {
@@ -46,22 +47,20 @@ var PhotoShow = React.createClass({
   },
 
   render: function() {
-    console.log("photo id:" + this.state.photo.id)
-    console.log("params.photoId:" + this.props.params.photoId)
     var photoId = this.props.params.photoId;
+
     return (
       <div>
         <div className="show-photo-container">
           <HeaderAlt/>
-          <div className="photo-container">
 
+          <div className="photo-container">
             {this.showContainer()}
 
             <div className="photo-bottom-padding"/>
 
-
-              <PhotoComments id={photoId}/>
-
+              <PhotoComments id={this.props.params.photoId} />
+              <PhotoCommentForm id={this.props.params.photoId}/>
 
           </div>
         </div>

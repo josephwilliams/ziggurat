@@ -1,0 +1,12 @@
+.photo-comment {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.4em;
+  border-bottom: 1px solid lightgrey;
+  padding: 3px 0px;
+}
+
+.photo-comment .comment-username {
+  font-size: 14px;
+  font-weight: 800;
+  display: inline;
+}

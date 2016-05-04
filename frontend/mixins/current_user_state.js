@@ -16,6 +16,7 @@ var CurrentUserState = {
     if (typeof SessionStore.currentUser() === 'undefined'){
       UserActions.fetchCurrentUser();
     }
+    // UserActions.fetchCurrentUser();
   },
 
   updateUser: function() {

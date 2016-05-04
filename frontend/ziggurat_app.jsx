@@ -31,7 +31,7 @@ var PhotoActions = require('./actions/photo_actions');
 
 //App
 var App = React.createClass({
-  mixins: [CurrentUserState],
+  // mixins: [CurrentUserState],
 
   componentDidMount: function () {
     ClientActions.fetchCurrentUser();
@@ -43,7 +43,6 @@ var App = React.createClass({
   },
 
   render: function() {
-    var currentUser = this.state.currentUser;
     return (
       <div>
         <div className="content">
@@ -60,7 +59,7 @@ var Router = (
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage}/>
       <Route path="splash" component={SplashPage} />
-      <Route path="flow" component={FlowPage}/>
+      <Route path="flow" component={FlowPage} />
       <Route path="photos/:photoId" component={PhotoShow}/>
       <Route path="search" component={SearchPage}/>
     </Route>

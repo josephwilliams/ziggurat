@@ -29,6 +29,10 @@ var SignUpFormStyle = {
 var HeaderAlt = React.createClass({
   mixins: [CurrentUserState],
 
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   componentDidMount: function () {
     ClientActions.fetchCurrentUser();
   },
@@ -110,6 +114,14 @@ var HeaderAlt = React.createClass({
     ClientActions.logoutUser();
   },
 
+  linkExplore: function () {
+    this.context.router.push("flow")
+  },
+
+  linkSearch: function () {
+    this.context.router.push("search")
+  },
+
   render: function () {
     return (
       <div>
@@ -124,13 +136,13 @@ var HeaderAlt = React.createClass({
           <div className="nav-alt">
             <ul>
               {this.uploadLink()}
-                  <a href="/#/flow">
+                  <a onClick={this.linkExplore}>
                     <li>
                     explore
                   </li>
                   </a>
 
-                  <a href="/#/search">
+                  <a onClick={this.linkSearch}>
                     <li>
                   search
                 </li>

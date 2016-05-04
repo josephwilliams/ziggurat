@@ -7,7 +7,7 @@ var HeaderAlt = require('../HeaderAlt');
 var Gallery = require('./Gallery');
 
 var FlowPage = React.createClass({
-  mixins: [CurrentUserState],
+  // mixins: [CurrentUserState],
 
   getInitialState: function () {
     return { photos: [] };
@@ -34,7 +34,7 @@ var FlowPage = React.createClass({
                    width="300"
                    key={photo.id}/>)
     });
-    var currentUser = this.state.currentUser;
+    var currentUser = this.props.currentUser;
 
     return(
       <div className="photo-flow-container">
