@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   after_initialize :ensure_session_token
-  # before_validation :ensure_session_token_uniqueness
+  before_validation :ensure_session_token_uniqueness
 
   has_many(
     :photos,
@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: "Photo"
   )
+  has_many :likes
+  has_many :liked_photos, through: :likes, source: :photo
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

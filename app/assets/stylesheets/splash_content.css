@@ -112,6 +112,7 @@
 
 .splash-content ul li .upload-subtext {
   color: grey;
+  cursor: default;
 }
 
 .splash-content ul li .upload-subtext:hover {

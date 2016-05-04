@@ -1,5 +1,6 @@
 var React = require('react');
 var PhotoStore = require('../../stores/photo_store');
+var CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
 var HeaderAlt = require('../HeaderAlt');
 var PhotoComments = require('./PhotoComments');
@@ -17,6 +18,7 @@ var PhotoShow = React.createClass({
     // ADJUST GET PHOTO
     ClientActions.getPhoto(parseInt(this.props.params.photoId));
     this.photoListener = PhotoStore.addListener(this.handleChange);
+    this.commentsListener = CommentStore.addListener(this.handleChangeComments);
   },
 
   handleChange: function () {
@@ -24,8 +26,13 @@ var PhotoShow = React.createClass({
     this.setState({ photo: loadedPhoto });
   },
 
+  handleChangeComments: function () {
+    ClientActions.getComments(parseInt(this.state.photo.id));
+  },
+
   componentWillUnmount: function () {
-    this.photoListener.remove;
+    this.photoListener.remove();
+    this.commentsLister.remove();
   },
 
   showContainer: function () {

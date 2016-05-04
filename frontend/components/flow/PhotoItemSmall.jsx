@@ -13,10 +13,11 @@ var PhotoItemSmall = React.createClass({
 
   likeCount: function () {
     var photo = this.props.photo;
-    console.log(photo.likes);
+    console.log(photo);
+    console.log("like count:" + photo.num_likes);
     return (
       <div className="like-count">
-        0
+        {photo.num_likes}
       </div>
     )
   },

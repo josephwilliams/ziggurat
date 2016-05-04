@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var CommentConstants = require('../constants/comment_constants');
 var Store = require('flux/utils').Store;
 
-var CommentStore = new Store(AppDispatcher);
+var CommentStore = window.CommentStore = new Store(AppDispatcher);
 var _comments = [];
 
 CommentStore.all = function () {

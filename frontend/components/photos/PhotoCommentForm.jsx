@@ -1,7 +1,7 @@
 var React = require('react');
 var CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
-var SessionStore = window.SessionStore = require('../../stores/session_store');
+var SessionStore  = require('../../stores/session_store');
 
 var PhotoCommentForm = React.createClass({
   getInitialState: function () {
@@ -18,21 +18,37 @@ var PhotoCommentForm = React.createClass({
     ClientActions.fetchCurrentUser();
   },
 
+  componentWillUnmount: function () {
+    this.sessionListener.remove();
+  },
+
   findCurrentUser: function () {
     this.setState({ currentUser: SessionStore.currentUser() });
   },
 
   commentForm: function () {
     return(
-      <div>
+      <div className="comment-form">
         <form onSubmit={this.submitCommentForm}>
-          <label>Comment:
-            <input type="text"
+            <textarea
                    value={this.state.commentBody}
-                   onChange={this.changeComment}/>
-          </label>
+                   onChange={this.changeComment}
+                   className="comment-form-input"
+                   placeholder="Leave a comment!"/>
 
-          <input type="submit" value="submit"/>
+
+          <button onClick={this.submitCommentForm}
+                  className="comment-form-button">
+                submit</button>
+
+              <div className="face-line">
+                  <div className="face">😈</div>
+                  <div className="face">👿</div>
+                  <div className="face">😍</div>
+                  <div className="face">😂</div>
+                  <div className="face">😳</div>
+                  <div className="face">😢</div>
+                </div>
         </form>
       </div>
     )

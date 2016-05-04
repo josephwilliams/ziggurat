@@ -28,7 +28,7 @@ ul .flow-gallery {
   position: relative;
 }
 
-.photo-item:hover ~ .like-heart {
+.photo-item:hover ~ .like-heart:before {
   display: block;
   position: absolute;
   top: 10px;
@@ -46,6 +46,14 @@ ul .flow-gallery {
   height: 10%;
   color: white;
   opacity: 0.1;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  transform : scale(1,0.8);
+  -webkit-transform:scale(1,0.8); /* Safari and Chrome */
+  -moz-transform:scale(1,0.8); /* Firefox */
+  -ms-transform:scale(1,0.8); /* IE 9+ */
+  -o-transform:scale(1,0.8); /* Opera */
 }
 
 .like-count {
@@ -61,7 +69,18 @@ ul .flow-gallery {
   top: 10px;
   right: 10px;
   height: 10%;
-  color: pink;
+  color: #ffe9ec;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.like-heart:active {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 10%;
+  color: #ffcbd3;
   opacity: 1.0;
   cursor: pointer;
 }

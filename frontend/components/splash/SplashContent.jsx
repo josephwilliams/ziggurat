@@ -1,5 +1,6 @@
 var React = require('react');
 var CurrentUserState = require('../../mixins/current_user_state');
+var SignUpFormModal = require('../auth/SignUpFormModal');
 
 //Components
 var SearchTags = require('../SearchTags');
@@ -13,8 +14,15 @@ var SplashContent = React.createClass({
   // mixins: [CurrentUserState],
 
   uploadPhotoClick: function () {
+    console.log('click');
     if (this.props.currentUser){
+      console.log(this.props.currentUser);
       this.openUploadWidget();
+    } else {
+      console.log('hmm');
+      this.openUploadWidget();
+
+      <SignUpFormModal parent={this} modalOpen={true}/>
     }
   },
 
