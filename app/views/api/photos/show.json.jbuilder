@@ -5,3 +5,4 @@ json.num_likes @likes
 json.likers @photo.likers.map { |user| user.id }
 json.like_count @photo.likers.count
 json.comment_count @photo.comments.count
+json.likes @photo.likes

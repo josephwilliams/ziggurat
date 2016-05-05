@@ -15,7 +15,7 @@ var LikeActions = {
       actionType: LikeConstants.LIKE_REMOVED,
       like: like
     });
-  },
+  }
 };
 
 module.exports = LikeActions;

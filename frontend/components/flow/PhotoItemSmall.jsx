@@ -13,21 +13,12 @@ var PhotoItemSmall = React.createClass({
   componentDidMount: function () {
     this.userListener = SessionStore.addListener(this.userChange);
     // this.photoListener = PhotoStore.addListener(this.photoUpdate);
-
     // ClientActions.getPhoto(parseInt(this.props.photo.id));
   },
 
   userChange: function () {
     this.setState({ currentUser: SessionStore.currentUser() });
   },
-
-  // photoUpdate: function () {
-  //   PhotoStore.addPhoto(parseInt(this.props.photo.id));
-  //   var updatedPhoto = PhotoStore.find(parseInt(this.props.photo.id));
-  //
-  //   this.setState({ like_count: updatedPhoto.like_count });
-  //   this.setState({ photo: updatedPhoto });
-  // },
 
   componentWillUnmount: function () {
     this.userListener.remove();
@@ -89,7 +80,7 @@ var PhotoItemSmall = React.createClass({
   commentCount: function () {
     return (
       <div className="comment-count">
-        {this.props.photo.comment_count} 💬
+        {this.props.photo.comment_count}&nbsp;💬
       </div>
     )
   },
@@ -101,7 +92,7 @@ var PhotoItemSmall = React.createClass({
       <div className="photo-item">
         <a href={photoURL}>
         <img src={this.props.photo.image_url}
-             width="500"
+             width="490"
              />
         </a>
       </div>

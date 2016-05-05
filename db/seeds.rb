@@ -23,5 +23,3 @@ Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v14622
               author_id: 2)
 Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242500/g5ncq0mfqp2f8eh74tu7.jpg",
               author_id: 2)
-Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242589/mlt7qacy5onl1dqotqv0.png",
-              author_id: 2)

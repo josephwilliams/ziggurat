@@ -1,6 +1,7 @@
 var React = require('react');
 var Modal = require('react-modal');
 var SignUpForm = require('../auth/SignUpForm');
+var CurrentUserState = require('../../mixins/current_user_state');
 
 var SignUpFormStyle = {
   overlay : {
@@ -24,6 +25,12 @@ var SignUpFormStyle = {
 };
 
 var StartButton = React.createClass({
+  mixins: [CurrentUserState],
+
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function(){
     return({ modalOpen: false });
   },
@@ -33,6 +40,14 @@ var StartButton = React.createClass({
   },
   openModal: function(){
     this.setState({ modalOpen: true })
+  },
+
+  handleClick: function () {
+    if (this.state.currentUser){
+      this.context.router.push("flow")
+    } else {
+      this.openModal();
+    }
   },
 
   render: function () {
@@ -55,7 +70,7 @@ var StartButton = React.createClass({
             <li>
 
               <button className="start-button"
-                onClick={this.openModal}>
+                onClick={this.handleClick}>
                 <span>
                   <div className="start-button-words">
                     lets go

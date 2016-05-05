@@ -3,7 +3,8 @@ var Masonry = require('react-masonry-component');
 var PhotoItemSmall = require('./PhotoItemSmall');
 
 var masonryOptions = {
-    transitionDuration: 0
+    transitionDuration: 0,
+    columnWidth: 500
 };
 
 var Gallery = React.createClass({

@@ -2,16 +2,18 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var CommentConstants = require('../constants/comment_constants');
 var Store = require('flux/utils').Store;
 
-var CommentStore = window.CommentStore = new Store(AppDispatcher);
+var CommentStore = new Store(AppDispatcher);
 var _comments = [];
 
 CommentStore.all = function () {
-  var comments = [];
-  for (var id in _comments) {
-    comments.push(_comments[id]);
-  }
+  // var comments = [];
+  // for (var id in _comments) {
+  //   comments.push(_comments[id]);
+  // }
+  //
+  // return comments;
 
-  return comments;
+  return _comments.slice();
 };
 
 CommentStore.resetComments = function (comments) {
@@ -21,16 +23,11 @@ CommentStore.resetComments = function (comments) {
   });
 };
 
-// CommentStore.find = function (id) {
-//   return _comments[id];
-// };
-//
 // CommentStore.delete = function (id) {
 //   delete _comments[id];
 // };
 
 CommentStore.addComment = function (comment) {
-  // _comments[comment.id] = comment;
   _comments.push(comment);
 };
 
@@ -46,7 +43,7 @@ CommentStore.errors = function() {
 
 CommentStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
-    case CommentConstants.POST:
+    case CommentConstants.POST_COMMENT:
       CommentStore.addComment(payload.comment);
       break;
     case CommentConstants.SHOW_ERRORS:

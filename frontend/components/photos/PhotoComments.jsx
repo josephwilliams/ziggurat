@@ -8,12 +8,14 @@ var PhotoComments = React.createClass({
   getInitialState: function () {
     return ({
       photoId: this.props.id,
-      comments: this.props.comments
+      comments: CommentStore.all()
     });
   },
 
   componentDidMount: function () {
-    ClientActions.getComments(this.state.photoId);
+    // ClientActions.getComments(parseInt(this.props.params.photoId));
+    // ClientActions.getComments(this.state.photoId);
+
     this.commentsListener = CommentStore.addListener(this.handleChange);
   },
 
@@ -25,6 +27,7 @@ var PhotoComments = React.createClass({
     this.setState({ comments: CommentStore.all() });
   },
 
+// TODO Refactor the shit out of this :p
   render: function() {
     var photoComments = this.state.comments;
     var comments = photoComments.map(function(comment){
@@ -43,6 +46,8 @@ var PhotoComments = React.createClass({
 
                     <TimeAgo date={comment.created_at}/>
                   </div>
+
+
 
                   <div class="clearfix"/>
                 </div>

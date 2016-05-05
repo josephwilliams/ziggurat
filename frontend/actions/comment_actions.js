@@ -4,7 +4,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var CommentActions = {
   postComment: function(comment){
     AppDispatcher.dispatch({
-      actionType: CommentConstants.POST,
+      actionType: CommentConstants.POST_COMMENT,
       comment: comment
     });
   },
