@@ -10,7 +10,7 @@ var FlowPage = React.createClass({
   // mixins: [CurrentUserState],
 
   getInitialState: function () {
-    return { photos: [] };
+    return { photos: PhotoStore.all() };
   },
 
   componentDidMount: function () {
@@ -24,6 +24,7 @@ var FlowPage = React.createClass({
 
   updatePhotos: function () {
     this.setState({ photos: PhotoStore.all() });
+    this.forceUpdate();
   },
 
   postPhoto: function (photoData) {

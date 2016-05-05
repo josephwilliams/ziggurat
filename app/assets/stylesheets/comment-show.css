@@ -6,7 +6,8 @@
 }
 
 .photo-comment-container {
-  overflow:auto;
+  overflow: auto;
+  padding-top: 10px;
 }
 
 .photo-comment .comment-username {

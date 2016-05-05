@@ -1,40 +1,42 @@
 class Api::LikesController < ApplicationController
-   before_action :require_signed_in!
-   before_action :require_like_owner!, only: [:destroy]
 
-   def create
-    #  @like = current_user.likes.new(like_params)
-     @like = Like.new(like_params)
-     @like.user_id = current_user.id
-
-     if @like.save
-       render json: @like
-     else
-       render json: @like.errors.full_messages, status: :unprocessable_entity
-     end
-   end
-
-   def destroy
-     @like = current_like
-     @like.destroy
-     render json: @like
-   end
-
-   private
-   def like_params
-     params.require(:like).permit(:photo_id)
-   end
-
-   def current_like
-     @current_like ||= Like.find_by(
+  def create
+    @like = Like.new(
       user_id: current_user.id,
-      photo_id: like_params[:photo_id]
-     )
-   end
+      photo_id: likes_params[:photo_id]
+    )
 
-   def require_like_owner!
-     unless current_like.user_id == current_user.id
-       render json: ["Impossible!"], status: :unauthorized
-     end
-   end
+    if(@like.save)
+      render json: {
+        userId: current_user.id,
+        photoId: likes_params[:photo_id]
+        }, status: 200
+    else
+      @errors = @like.errors.full_messages
+			render "api/shared/error", status: 422
+    end
+  end
+
+  def destroy
+    @like = Like.find_by(
+      user_id: current_user.id,
+      photo_id: likes_params[:photo_id]
+    )
+
+    if(@like.destroy)
+      render json: {
+        userId: current_user.id,
+        photoId: likes_params[:photo_id]
+        }, status: 200
+    else
+      @errors = like.errors.full_messages
+			render "api/shared/error", status: 422
+    end
+  end
+
+  private
+  def likes_params
+    params.require(:like).permit(:photo_id)
+  end
+
 end

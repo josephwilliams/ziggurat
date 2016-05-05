@@ -30,8 +30,10 @@ var Header = React.createClass({
     $(window).on("scroll", function () {
       if ($(this).scrollTop() > 175) {
         $(".nav").addClass("transparent");
+        $(".logo").addClass("transparent");
       } else {
         $(".nav").removeClass("transparent");
+        $(".logo").removeClass("transparent");
       }
     });
   },
@@ -45,6 +47,7 @@ var Header = React.createClass({
       window.cloudinary_options,
       function(error, images){
         if (error === null) {
+          // hashHistory.push("photos/" + this.props.photoId.toString() + "/edit");
           this.props.postPhoto(images[0]);
         }
       }.bind(this)

@@ -52,7 +52,9 @@ var PhotoShow = React.createClass({
       )
     } else {
       return(
-        <img src={this.state.photo.image_url}/>
+        <div className="big-photo">
+          <img src={this.state.photo.image_url}/>
+        </div>
       )
     }
   },

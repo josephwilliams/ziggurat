@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var SessionConstants = require('../constants/user_constants');
+var LikeConstants = require('../constants/like_constants');
 var Store = require('flux/utils').Store;
 
 var SessionStore = new Store(AppDispatcher);
@@ -35,6 +36,16 @@ SessionStore.errors = function() {
   }
 };
 
+SessionStore.addLike = function(photoId) {
+  _currentUser.liked_photos.push(parseInt(photoId));
+};
+
+SessionStore.removeLike = function (photoId) {
+  var photoIdx = _currentUser.liked_photos.indexOf(parseInt(photoId));
+  _currentUser.liked_photos.splice(photoIdx, 1);
+};
+
+
 SessionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case SessionConstants.LOGIN:
@@ -42,9 +53,6 @@ SessionStore.__onDispatch = function (payload) {
       break;
     case SessionConstants.LOGOUT:
       SessionStore.logout();
-      break;
-    case SessionConstants.LOGIN:
-      SessionStore.login(payload.user);
       break;
     case SessionConstants.CURRENT_USER:
       SessionStore.currentUser();
@@ -54,6 +62,12 @@ SessionStore.__onDispatch = function (payload) {
       break;
     case SessionConstants.SHOW_ERRORS:
       SessionStore.setErrors(payload.errors);
+      break;
+    case LikeConstants.LIKE_RECEIVED:
+      SessionStore.addLike(payload.like.photoId);
+      break;
+    case LikeConstants.LIKE_REMOVED:
+      SessionStore.removeLike(payload.like.photoId);
       break;
   }
   SessionStore.__emitChange();

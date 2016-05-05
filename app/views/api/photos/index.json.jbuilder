@@ -1,12 +1,9 @@
 json.array!(@photos) do |photo|
 
     json.extract! photo, :image_url, :thumbnail_url, :description, :height, :width, :author_id, :id
-    json.num_likes @likes
+    # json.num_likes @likes
+    json.likers photo.likers.map { |user| user.id }
+    json.like_count photo.likers.count
+    json.comment_count photo.comments.count
 
-    # json.image_url photo.image_url
-    # json.thumbnail_url photo.thumbnail_url
-    # json.description photo.description
-    # json.height photo.height
-    # json.width photo.width
-    # json.author_id photo.author_id
 end

@@ -2,6 +2,7 @@ var React = require('react');
 var UserUtils = require('../utils/user_utils');
 var PhotoUtils = require('../utils/photo_utils');
 var CommentUtils = require('../utils/comment_utils');
+var LikeUtils = require('../utils/like_utils');
 
 module.exports = {
   // ServerActions
@@ -35,15 +36,6 @@ module.exports = {
     PhotoUtils.getPhoto(id);
   },
 
-  // LikeActions
-  likePhoto: function (photoId) {
-    PhotoUtils.likePhoto(photoId);
-  },
-
-  unlikePhoto: function (photoId) {
-    PhotoUtils.unlikePhoto(photoId);
-  },
-
   // CommentActions
   postComment: function (commentData) {
     CommentUtils.postComment(commentData);
@@ -59,6 +51,15 @@ module.exports = {
 
   removeComment: function (id) {
     CommentUtils.removeComment(id);
-  }
+  },
+
+  // LikeActions
+  createLike: function (data) {
+    LikeUtils.createLike(data);
+  },
+
+  destroyLike: function (data) {
+    LikeUtils.destroyLike(data);
+  },
 
 };

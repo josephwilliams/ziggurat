@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var PhotoConstants = require('../constants/photo_constants');
+var LikeConstants = require('../constants/like_constants');
 var Store = require('flux/utils').Store;
 
 var PhotoStore = new Store(AppDispatcher);
@@ -44,6 +45,17 @@ PhotoStore.errors = function() {
   }
 };
 
+PhotoStore.addLike = function(photoId, userId) {
+  _photos[photoId].likers.push(parseInt(userId));
+  _photos[photoId].like_count += 1;
+};
+
+PhotoStore.removeLike = function (photoId, userId) {
+  var userIdx = _photos[photoId].likers.indexOf(parseInt(userId));
+  _photos[photoId].likers.splice(userIdx, 1);
+  _photos[photoId].like_count -= 1;
+};
+
 PhotoStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case PhotoConstants.POST:
@@ -58,8 +70,19 @@ PhotoStore.__onDispatch = function(payload) {
     case PhotoConstants.RECEIVE_PHOTO:
       PhotoStore.addPhoto(payload.photo);
       break;
+    case LikeConstants.LIKE_RECEIVED:
+      // console.log("received");
+      // console.log(payload.like);
+      PhotoStore.addLike(payload.like.photoId, payload.like.userId);
+      break;
+    case LikeConstants.LIKE_REMOVED:
+      // console.log("removed:");
+      // console.log(payload.like);
+      PhotoStore.removeLike(payload.like.photoId, payload.like.userId);
+      break;
+
   }
-  this.__emitChange();
+  PhotoStore.__emitChange();
 };
 
 module.exports = PhotoStore;

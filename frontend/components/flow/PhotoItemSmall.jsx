@@ -1,29 +1,97 @@
 var React = require('react');
 var CurrentUserState = require('../../mixins/current_user_state');
+var SessionStore = require('../../stores/session_store');
+var PhotoStore = window.PhotoStore = require('../../stores/photo_store');
+var ClientActions = require('../../actions/client_actions');
 
 var PhotoItemSmall = React.createClass({
-  // getInitialState: function () {
-  //   return { photo: this.props.photo }
+
+  getInitialState: function () {
+    return { currentUser: SessionStore.currentUser() }
+  },
+
+  componentDidMount: function () {
+    this.userListener = SessionStore.addListener(this.userChange);
+    // this.photoListener = PhotoStore.addListener(this.photoUpdate);
+
+    // ClientActions.getPhoto(parseInt(this.props.photo.id));
+  },
+
+  userChange: function () {
+    this.setState({ currentUser: SessionStore.currentUser() });
+  },
+
+  // photoUpdate: function () {
+  //   PhotoStore.addPhoto(parseInt(this.props.photo.id));
+  //   var updatedPhoto = PhotoStore.find(parseInt(this.props.photo.id));
+  //
+  //   this.setState({ like_count: updatedPhoto.like_count });
+  //   this.setState({ photo: updatedPhoto });
   // },
 
-  // componentDidMount: function () {
-  //   var photo = this.props.photo;
-  //   this.like_count = photo
-  // },
+  componentWillUnmount: function () {
+    this.userListener.remove();
+    // this.photoListener.remove();
+  },
 
   likeCount: function () {
-    var photo = this.props.photo;
-    console.log(photo);
-    console.log("like count:" + photo.num_likes);
     return (
       <div className="like-count">
-        {photo.num_likes}
+        {this.props.photo.like_count}
       </div>
     )
   },
 
-  handleLike: function () {
+  toggleLike: function () {
+    var data = {photo_id: this.props.photo.id};
 
+    if (this._isLiked() === "liked"){
+      ClientActions.createLike(data);
+    } else {
+      ClientActions.destroyLike(data);
+    }
+  },
+
+  _isLiked: function () {
+    var isLiked = "liked";
+    var currentUser = this.state.currentUser;
+
+    if (currentUser){
+      var userLikedPhotos = currentUser.liked_photos;
+      if (userLikedPhotos.indexOf(this.props.photo.id) !== -1) {
+        isLiked = "unliked";
+      }
+    }
+
+    return isLiked;
+  },
+
+  _isLikedHeart: function () {
+    if (this._isLiked() === "unliked"){
+      return (
+        <div className="unliked-like-heart"
+             onClick={this.toggleLike}>
+          {this.likeCount()} ♥
+          {this.commentCount()}
+        </div>
+      );
+    } else {
+      return (
+        <div className="liked-like-heart"
+             onClick={this.toggleLike}>
+          {this.likeCount()} ♥
+          {this.commentCount()}
+        </div>
+      );
+    }
+  },
+
+  commentCount: function () {
+    return (
+      <div className="comment-count">
+        {this.props.photo.comment_count} 💬
+      </div>
+    )
   },
 
   render: function() {
@@ -37,11 +105,7 @@ var PhotoItemSmall = React.createClass({
              />
         </a>
       </div>
-
-          <div className="like-heart"
-               onClick={this.handleLike}>
-            {this.likeCount()} ♥
-          </div>
+          {this._isLikedHeart()}
 
 
     </div>

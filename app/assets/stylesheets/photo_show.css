@@ -21,8 +21,14 @@
   max-width: 1000px;
 }
 
+.big-photo {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}
+
 .photo-bottom-padding {
-  height: 70px;
+  height: 50px;
   background-color: #edede8;
 }
 
