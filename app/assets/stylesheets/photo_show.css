@@ -6,10 +6,9 @@
 
   width: 1000px;
   margin: auto;
-  min-height: 800px;
+  /*min-height: 800px;*/
 
   position: relative;
-  /*top: 111px;*/
 }
 
 .photo-container {
@@ -18,6 +17,7 @@
 }
 
 .photo-container img {
+  /*width: 100%;*/
   max-width: 1000px;
 }
 

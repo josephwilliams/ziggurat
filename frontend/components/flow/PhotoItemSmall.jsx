@@ -62,16 +62,20 @@ var PhotoItemSmall = React.createClass({
       return (
         <div className="unliked-like-heart"
              onClick={this.toggleLike}>
-          {this.likeCount()} ♥
+          {this.likeCount()}
+          <i className="fa fa-heart" style={{ariaHidden:true}}></i>
           {this.commentCount()}
+          {this.tagCount()}
         </div>
       );
     } else {
       return (
         <div className="liked-like-heart"
              onClick={this.toggleLike}>
-          {this.likeCount()} ♥
+          {this.likeCount()}
+          <i className="fa fa-heart-o" style={{ariaHidden:true}}></i>
           {this.commentCount()}
+          {this.tagCount()}
         </div>
       );
     }
@@ -80,7 +84,17 @@ var PhotoItemSmall = React.createClass({
   commentCount: function () {
     return (
       <div className="comment-count">
-        {this.props.photo.comment_count}&nbsp;💬
+        {this.props.photo.comment_count}&nbsp;
+        <i className="fa fa-comments-o" style={{ariaHidden:true}}></i>
+      </div>
+    )
+  },
+
+  tagCount: function () {
+    return (
+      <div className="tag-count">
+        {this.props.photo.tag_count}&nbsp;
+        <i className="fa fa-tags" style={{ariaHidden:true}}></i>
       </div>
     )
   },

@@ -3,6 +3,7 @@ var UserUtils = require('../utils/user_utils');
 var PhotoUtils = require('../utils/photo_utils');
 var CommentUtils = require('../utils/comment_utils');
 var LikeUtils = require('../utils/like_utils');
+var TagUtils = require('../utils/tag_utils');
 
 module.exports = {
   // ServerActions
@@ -62,4 +63,16 @@ module.exports = {
     LikeUtils.destroyLike(data);
   },
 
+  // TagActions
+  fetchTags: function () {
+    TagUtils.fetchTags();
+  },
+
+  createTag: function (tag) {
+    TagUtils.createTag(tag);
+  },
+
+  removeTag: function (tagId) {
+    TagUtils.removeTag(tagId);
+  }
 };

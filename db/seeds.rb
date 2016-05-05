@@ -17,8 +17,6 @@ Photo.create!(image_url: "https://images.unsplash.com/photo-1438930249256-07387c
               author_id: 2)
 Photo.create!(image_url: "https://images.unsplash.com/12/palm-trees.JPG?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=c68801d882fdd2231a11a56050d57d93",
               author_id: 2)
-Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242042/qm9ahdrw36mizse1jmps.jpg",
-              author_id: 2)
 Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242472/sugr77oyhv6npa8t14hn.jpg",
               author_id: 2)
 Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242500/g5ncq0mfqp2f8eh74tu7.jpg",

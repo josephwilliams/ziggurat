@@ -1,7 +1,6 @@
 var React = require('react');
-var PhotoStore = window.PhotoStore = require('../../stores/photo_store');
-// TODO remove this window.commentstore
-var CommentStore = window.CommentStore = require('../../stores/comment_store');
+var PhotoStore = require('../../stores/photo_store');
+var CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
 var HeaderAlt = require('../HeaderAlt');
 var PhotoComments = require('./PhotoComments');

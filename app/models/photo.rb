@@ -12,6 +12,9 @@ class Photo < ActiveRecord::Base
   has_many :likers, through: :likes, source: :user
   has_many :comments
 
+  has_many :taggings, dependent: :destroy, inverse_of: :photo
+  has_many :tags, through: :taggings
+
   def liked_by?(user)
     likes.exists?(user_id: user.id)
   end

@@ -66,32 +66,36 @@ ul .flow-gallery {
   display: flex;
 }
 
+.tag-count {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.5em;
+
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  height: 10%;
+  color: white;
+  opacity: 1;
+
+  display: flex;
+}
+
 /*UNLIKED HEART*/
 
 .unliked-like-heart {
-  display: block;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
-  height: 10%;
   color: #e5a3ad;
   opacity: 0.6;
-
-  text-transform: uppercase;
-  text-decoration: none;
-  transform : scale(1,0.85);
-  -webkit-transform:scale(1,0.85); /* Safari and Chrome */
-  -moz-transform:scale(1,0.85); /* Firefox */
-  -ms-transform:scale(1,0.85); /* IE 9+ */
-  -o-transform:scale(1,0.85); /* Opera */
+  padding: 5px 3px;
 }
 
 .unliked-like-heart:hover {
   display: block;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
-  height: 10%;
   color: #ffe9ec;
   opacity: 1;
   cursor: pointer;
@@ -100,9 +104,8 @@ ul .flow-gallery {
 .unliked-like-heart:active {
   display: block;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
-  height: 10%;
   color: #ffcbd3;
   opacity: 1.0;
   cursor: pointer;
@@ -111,29 +114,19 @@ ul .flow-gallery {
 /*LIKED HEART*/
 
 .liked-like-heart {
-  display: block;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
-  height: 10%;
   color: white;
   opacity: 0.6;
-
-  text-transform: uppercase;
-  text-decoration: none;
-  transform : scale(1,0.8);
-  -webkit-transform:scale(1,0.85); /* Safari and Chrome */
-  -moz-transform:scale(1,0.85); /* Firefox */
-  -ms-transform:scale(1,0.85); /* IE 9+ */
-  -o-transform:scale(1,0.85); /* Opera */
+  padding: 5px 3px;
 }
 
 .liked-like-heart:hover {
   display: block;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
-  height: 10%;
   color: white;
   opacity: 0.8;
   cursor: pointer;
@@ -142,9 +135,8 @@ ul .flow-gallery {
 .liked-like-heart:active {
   display: block;
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
-  height: 10%;
   color: #ffcbd3;
   opacity: 1.0;
   cursor: pointer;

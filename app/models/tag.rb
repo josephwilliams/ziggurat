@@ -3,5 +3,5 @@ class Tag < ActiveRecord::Base
   validates :name, uniqueness: true
 
   has_many :taggings, dependent: :destroy
-  has_many :images, through: :taggings
+  has_many :photos, through: :taggings
 end
