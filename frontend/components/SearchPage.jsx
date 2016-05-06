@@ -17,25 +17,23 @@ var SearchPage = React.createClass({
     this.photoListener.remove();
   },
 
-  updateQuery: function (event) {
-    this.setState({ query: event.target.value });
-  },
-
   updateResults: function () {
     this.setState({ photoResults: PhotoStore.all() });
+  },
+
+  updateQuery: function (event) {
+    this.setState({ query: event.target.value });
   },
 
   handleSearch: function (event) {
     event.preventDefault();
     var queryString = this.state.query;
-    // ClientActions.filterSearch calls PhotoActions.getPhotos, resulting in
-    // PhotoStore receiving the searched photos, emitting a change, and having
-    // an updated PhotoStore.all(), which this.state.photoResults is set to in
-    // this.updateResults
 
     if (queryString !== ""){
       ClientActions.filterSearch(queryString);
     }
+
+    this.setState({ query: "" });
   },
 
   searchForm: function () {

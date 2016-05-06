@@ -2,7 +2,7 @@ var React = require('react');
 var CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
 var PhotoShow = require('./PhotoShow');
-var TimeAgo = require('react-timeago').default;
+// var TimeAgo = require('react-timeago').default;
 
 var PhotoComments = React.createClass({
   getInitialState: function () {
@@ -42,7 +42,7 @@ var PhotoComments = React.createClass({
 
             <div className="comment-time">
 
-              <TimeAgo date={comment.created_at}/>
+              {comment.created_at}
             </div>
             <div className="clearfix"/>
           </div>

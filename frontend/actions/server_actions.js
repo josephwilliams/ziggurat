@@ -8,14 +8,7 @@ var ServerActions = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     });
-  },
-
-  // updateSearch: function(query){
-  //   AppDispatcher.dispatch({
-  //     actionType: SearchConstants.FILTER_PHOTOS,
-  //     query: query
-  //   });
-  // }
+  }
 };
 
 module.exports = ServerActions;

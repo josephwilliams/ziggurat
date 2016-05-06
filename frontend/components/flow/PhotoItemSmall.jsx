@@ -1,7 +1,7 @@
 var React = require('react');
 var CurrentUserState = require('../../mixins/current_user_state');
 var SessionStore = require('../../stores/session_store');
-var PhotoStore = window.PhotoStore = require('../../stores/photo_store');
+var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
 
 var PhotoItemSmall = React.createClass({
@@ -12,8 +12,6 @@ var PhotoItemSmall = React.createClass({
 
   componentDidMount: function () {
     this.userListener = SessionStore.addListener(this.userChange);
-    // this.photoListener = PhotoStore.addListener(this.photoUpdate);
-    // ClientActions.getPhoto(parseInt(this.props.photo.id));
   },
 
   userChange: function () {
@@ -22,7 +20,6 @@ var PhotoItemSmall = React.createClass({
 
   componentWillUnmount: function () {
     this.userListener.remove();
-    // this.photoListener.remove();
   },
 
   likeCount: function () {

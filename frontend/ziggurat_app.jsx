@@ -47,8 +47,8 @@ var App = React.createClass({
       <div>
         <div className="content">
           {this.props.children}
-          <Footer />
         </div>
+        <Footer />
       </div>
     );
   }
