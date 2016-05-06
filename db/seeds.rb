@@ -12,12 +12,22 @@ User.create!(username: "Tyler", password: "williams", email: "...", location: "P
 User.create!(username: "Adam", password: "password", email: "...", location: "Washington, D.C.");
 
 Photo.create!(image_url: "https://images.unsplash.com/45/Vo7YbYQQ8iyOo4J9bOoj_ggb24.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f4405935f612ba77d99216f0f2f8f91a",
-              author_id: 2)
+              author_id: 2,
+              username: "Joseph",
+              description: "the bay")
 Photo.create!(image_url: "https://images.unsplash.com/photo-1438930249256-07387cf30528?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=867be065397a1352dbeea0a60e0417f7",
-              author_id: 2)
+              author_id: 2,
+              username: "Joseph",
+              description: "The sea..")
 Photo.create!(image_url: "https://images.unsplash.com/12/palm-trees.JPG?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=c68801d882fdd2231a11a56050d57d93",
-              author_id: 2)
+              author_id: 2,
+              username: "Joseph",
+              description: "palm trees..")
 Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242472/sugr77oyhv6npa8t14hn.jpg",
-              author_id: 2)
+              author_id: 2,
+              username: "Joseph",
+              description: "chill night on the river")
 Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242500/g5ncq0mfqp2f8eh74tu7.jpg",
-              author_id: 2)
+              author_id: 2,
+              username: "Joseph",
+              description: "the jam begins")

@@ -4,6 +4,7 @@ var PhotoUtils = require('../utils/photo_utils');
 var CommentUtils = require('../utils/comment_utils');
 var LikeUtils = require('../utils/like_utils');
 var TagUtils = require('../utils/tag_utils');
+var SearchUtils = require('../utils/search_utils');
 
 module.exports = {
   // ServerActions
@@ -64,8 +65,8 @@ module.exports = {
   },
 
   // TagActions
-  fetchTags: function () {
-    TagUtils.fetchTags();
+  fetchTags: function (photoId) {
+    TagUtils.fetchTags(photoId);
   },
 
   createTag: function (tag) {
@@ -74,5 +75,10 @@ module.exports = {
 
   removeTag: function (tagId) {
     TagUtils.removeTag(tagId);
+  },
+
+  // SearchActions
+  filterSearch: function (queryString) {
+    SearchUtils.filterSearch(queryString);
   }
 };

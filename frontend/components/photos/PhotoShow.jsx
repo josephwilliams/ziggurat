@@ -6,6 +6,8 @@ var HeaderAlt = require('../HeaderAlt');
 var PhotoComments = require('./PhotoComments');
 var PhotoCommentForm = require('./PhotoCommentForm');
 var PhotoLikesHistory = require('./PhotoLikesHistory');
+var PhotoTagForm = require('./PhotoTagForm');
+var ShowTags = require('./ShowTags');
 
 var PhotoShow = React.createClass({
   getInitialState: function () {
@@ -15,16 +17,17 @@ var PhotoShow = React.createClass({
   },
 
   componentDidMount: function () {
-    ClientActions.getPhoto(parseInt(this.props.params.photoId));
-    ClientActions.getComments(parseInt(this.props.params.photoId));
-
     this.photoListener = PhotoStore.addListener(this.handleChange);
     this.commentsListener = CommentStore.addListener(this.handleChangeComments);
+
+    ClientActions.getPhoto(parseInt(this.props.params.photoId));
+    ClientActions.getComments(parseInt(this.props.params.photoId));
   },
 
   handleChange: function () {
     var loadedPhoto = PhotoStore.find(parseInt(this.props.params.photoId));
-    this.setState({ photo: loadedPhoto });
+    var photo = loadedPhoto ? loadedPhoto : {};
+    this.setState({ photo: photo });
   },
 
   handleChangeComments: function () {
@@ -48,6 +51,7 @@ var PhotoShow = React.createClass({
         </div>
       )
     } else {
+
       return(
         <div className="big-photo">
           <img src={this.state.photo.image_url}/>
@@ -56,7 +60,37 @@ var PhotoShow = React.createClass({
     }
   },
 
+  tagsContainer: function () {
+    if (this.state.photo.keys === undefined ){
+
+      return(
+        <div>
+          <h1>
+            NO PHOTO
+          </h1>
+        </div>
+      );
+    } else {
+      {this.showTags()}
+    }
+  },
+
+  showTags: function () {
+    var tags = this.state.photo.tags.map(function(tag){
+      return(
+        <div className="tag">
+          {tag.name}
+        </div>
+      );
+    });
+
+    return(
+      {tags}
+    )
+  },
+
   render: function() {
+    var tags = (this.state.photo.tags || []);
     var likes = this.state.photo.likes || [];
     var photoId = this.props.params.photoId;
 
@@ -68,10 +102,24 @@ var PhotoShow = React.createClass({
           <div className="photo-container">
             {this.showContainer()}
 
-            <div className="photo-bottom-padding"/>
+            <ShowTags tags={tags} photoId={this.props.params.photoId}/>
+
+            <div className="photo-bottom-padding">
+              <div className="photo-bottom-padding-type">
+                description:
+              </div>
+              {this.state.photo.description}
+              <div className="photo-bottom-padding-type">
+                user:
+              </div>
+              {this.state.photo.username}
+
+            </div>
 
               <PhotoComments id={this.props.params.photoId}
                              comments={this.state.comments}/>
+              <PhotoTagForm id={this.props.params.photoId}
+                            currentUser={this.state.currentUser}/>
               <PhotoCommentForm id={this.props.params.photoId}/>
               <PhotoLikesHistory likes={likes}/>
           </div>

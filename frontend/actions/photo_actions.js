@@ -2,7 +2,6 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var PhotoConstants = require('../constants/photo_constants');
 
 var PhotoActions = {
-
   postPhoto: function(photo) {
     AppDispatcher.dispatch({
       actionType: PhotoConstants.POST,

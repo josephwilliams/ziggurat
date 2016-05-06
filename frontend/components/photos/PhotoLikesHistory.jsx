@@ -10,9 +10,8 @@ var PhotoLikesHistory = React.createClass({
   render: function() {
     var likes = this.props.likes.map(function(like){
       return (
-        <div className="photo-comment">
-          <div className="like-comment-container"
-             key={like.id}>
+        <div className="photo-comment" key={like.id}>
+          <div className="like-comment-container">
 
             <div className="photo-liker">
               <div className="liked-by">
@@ -26,7 +25,7 @@ var PhotoLikesHistory = React.createClass({
               <TimeAgo date={like.created_at}/>
             </div>
 
-            <div class="clearfix"/>
+            <div className="clearfix"/>
           </div>
         </div>)
       });

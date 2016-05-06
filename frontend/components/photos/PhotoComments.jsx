@@ -13,13 +13,10 @@ var PhotoComments = React.createClass({
   },
 
   componentDidMount: function () {
-    // ClientActions.getComments(parseInt(this.props.params.photoId));
-    // ClientActions.getComments(this.state.photoId);
-
     this.commentsListener = CommentStore.addListener(this.handleChange);
   },
 
-  componentWillUnMount: function () {
+  componentWillUnmount: function () {
     this.commentsListener.remove();
   },
 
@@ -31,27 +28,26 @@ var PhotoComments = React.createClass({
   render: function() {
     var photoComments = this.state.comments;
     var comments = photoComments.map(function(comment){
-      return (<div className="photo-comment">
-                <div className="photo-comment-container"
-                   key={comment.id}>
+      return (
+        <div className="photo-comment" key={comment.id}>
+          <div className="photo-comment-container"
+             key={comment.id}>
 
-                  <div className="comment-username">
-                    {comment.username}
-                  </div>
-                  <div className="comment-body">
-                    :&nbsp;&nbsp;{comment.comment_body}
-                  </div>
+            <div className="comment-username">
+              {comment.username}
+            </div>
+            <div className="comment-body">
+              :&nbsp;&nbsp;{comment.comment_body}
+            </div>
 
-                  <div className="comment-time">
+            <div className="comment-time">
 
-                    <TimeAgo date={comment.created_at}/>
-                  </div>
-
-
-
-                  <div class="clearfix"/>
-                </div>
-              </div>)
+              <TimeAgo date={comment.created_at}/>
+            </div>
+            <div className="clearfix"/>
+          </div>
+        </div>
+      )
     });
 
     return (

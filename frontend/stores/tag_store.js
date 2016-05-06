@@ -11,6 +11,7 @@ TagStore.__onDispatch = function (payload) {
     	TagStore.addTag(payload.tag);
       break;
     case "RECEIVE_TAGS":
+      TagStore.resetTags();
     	TagStore.addTags(payload.tags);
       break;
     case "REMOVE_TAG":
@@ -31,20 +32,23 @@ TagStore.all = function () {
   return tags;
 };
 
+TagStore.resetTags = function () {
+  _tags = {};
+};
+
 TagStore.findById = function(id){
   return _tags[id];
 };
 
-var addTag = function(tag){
+TagStore.addTag = function(tag){
   _tags[tag.id] = tag;
 };
 
-var removeTag = function(tag){
-  debugger;
+TagStore.removeTag = function(tag){
   _tags[tag.id].remove;
 };
 
-var addTags = function(tags){
+TagStore.addTags = function(tags){
   for (var i = 0; i < tags.length; i++) {
     _tags[tags[i].id] = tags[i];
   }

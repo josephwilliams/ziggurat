@@ -9,11 +9,6 @@ class Api::PhotosController < ApplicationController
   def show
     @photo = Photo.includes(:likes).includes(:comments).find(params[:id])
     @likes = @photo.likes.size
-
-    @likes_hash = {}
-    if signed_in?
-     @likes_hash[@photo.id] = @photo.likes.find_by(user_id: current_user.id)
-    end
   end
 
   def new
@@ -23,6 +18,7 @@ class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.author_id = current_user.id
+    @photo.username = current_user.username
 
     if @photo.save
       render :show
@@ -34,6 +30,12 @@ class Api::PhotosController < ApplicationController
 
   def destroy
     render json: {}
+  end
+
+  def search
+    search_tags = Tag.where("name LIKE?", "#{params[:search]}")
+
+    @photos = search_tags.map { |tag| tag.photos }
   end
 
   private

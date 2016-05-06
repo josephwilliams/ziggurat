@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :show, :destroy, :index, :edit, :update] do
       resources :comments, only: [:create, :show, :destroy, :index]
     end
+    get '/search', :to => 'photos#search'
   end
 end

@@ -5,19 +5,20 @@ var TagActions = require('../actions/tag_actions');
 var TagApiUtil = {
 	createTag: function(data){
 		$.ajax({
-			url: "/api/tags",
+			url: "/api/tag",
 			type: "POST",
 			data: {tag: data},
 			success: function(tag){
-				ServerActions.receiveTag(tag);
+				TagActions.receiveTag(tag);
 			},
 		});
 	},
 
-	fetchTags: function(){
+	fetchTags: function(photo_id){
 		$.ajax({
 			url: '/api/tags',
 			type: "GET",
+			data: {photo_id: photo_id},
 			success: function(tags){
 				TagActions.receiveTags(tags);
 			},

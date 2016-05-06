@@ -29,9 +29,6 @@ var PhotoUtils = {
       type: "GET",
       success: function (photos) {
         PhotoActions.getPhotos(photos);
-      },
-      errors: function () {
-        console.log('photos not gotten');
       }
     });
   },

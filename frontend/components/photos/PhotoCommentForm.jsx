@@ -1,5 +1,5 @@
 var React = require('react');
-var CommentStore = window.CommentStore =  require('../../stores/comment_store');
+var CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
 var SessionStore  = require('../../stores/session_store');
 
@@ -24,19 +24,6 @@ var PhotoCommentForm = React.createClass({
 
   findCurrentUser: function () {
     this.setState({ currentUser: SessionStore.currentUser() });
-  },
-
-  faces: function () {
-    return(
-      <div className="face-line">
-          <div className="face">😈</div>
-          <div className="face">👿</div>
-          <div className="face">😍</div>
-          <div className="face">😂</div>
-          <div className="face">😳</div>
-          <div className="face">😢</div>
-        </div>
-    );
   },
 
   commentForm: function () {

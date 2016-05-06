@@ -12,7 +12,7 @@ var CurrentUserState = {
   },
 
   componentDidMount: function() {
-    SessionStore.addListener(this.updateUser);
+    this.listener = SessionStore.addListener(this.updateUser);
     if (typeof SessionStore.currentUser() === 'undefined'){
       UserActions.fetchCurrentUser();
     }
@@ -25,6 +25,10 @@ var CurrentUserState = {
       userErrors: SessionStore.errors()
     });
   },
+
+  componentWillUnmount: function(){
+    this.listener.remove();
+  }
 
 };
 

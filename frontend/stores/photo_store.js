@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var PhotoConstants = require('../constants/photo_constants');
+var SearchConstants = require('../constants/search_constants');
 var LikeConstants = require('../constants/like_constants');
 var Store = require('flux/utils').Store;
 
@@ -71,16 +72,11 @@ PhotoStore.__onDispatch = function(payload) {
       PhotoStore.addPhoto(payload.photo);
       break;
     case LikeConstants.LIKE_RECEIVED:
-      // console.log("received");
-      // console.log(payload.like);
       PhotoStore.addLike(payload.like.photoId, payload.like.userId);
       break;
     case LikeConstants.LIKE_REMOVED:
-      // console.log("removed:");
-      // console.log(payload.like);
       PhotoStore.removeLike(payload.like.photoId, payload.like.userId);
       break;
-
   }
   PhotoStore.__emitChange();
 };

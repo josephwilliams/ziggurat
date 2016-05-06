@@ -5,12 +5,12 @@ class Api::TagsController < ApplicationController
 
      if @tag
        @tagging = Tagging.create(photo_id: tag_params["photo_id"], tag_id: @tag.id)
-       render "api/photos/show"
+       render "api/tags/show"
      else
        @tag = Tag.new(name: tag_params["name"])
        if @tag.save
          @tagging = Tagging.create(photo_id: tag_params["photo_id"], tag_id: @tag.id)
-         render "api/photos/show"
+         render "api/tags/show"
        else
          @errors = @user.errors.full_messages
          render "api/shared/error", status: 422
@@ -19,7 +19,9 @@ class Api::TagsController < ApplicationController
   end
 
   def index
-    @tags = Tag.all
+    @photo = Photo.find_by(id: params[:photo_id])
+    @tags = @photo.tags
+    
     render :index
   end
 

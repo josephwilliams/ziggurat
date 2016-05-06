@@ -25,11 +25,23 @@
   display: flex;
   justify-content: space-around;
   padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
 }
 
 .photo-bottom-padding {
-  height: 50px;
+  height: 30px;
   background-color: #edede8;
+  font-size: 0.4em;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0px 5px;
+  display: flex;
+  align-items: center;
+}
+
+.photo-bottom-padding-type {
+  font-family: 'Open Sans', sans-serif;
+  padding: 0px 5px;
+  color: grey;
 }
 
 .bad-load {
