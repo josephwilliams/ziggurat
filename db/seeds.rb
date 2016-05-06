@@ -23,11 +23,11 @@ Photo.create!(image_url: "https://images.unsplash.com/12/palm-trees.JPG?ixlib=rb
               author_id: 2,
               username: "Joseph",
               description: "palm trees..")
-Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242472/sugr77oyhv6npa8t14hn.jpg",
+Photo.create!(image_url: "https://res.cloudinary.com/ziggurat/image/upload/v1462242472/sugr77oyhv6npa8t14hn.jpg",
               author_id: 2,
               username: "Joseph",
               description: "chill night on the river")
-Photo.create!(image_url: "http://res.cloudinary.com/ziggurat/image/upload/v1462242500/g5ncq0mfqp2f8eh74tu7.jpg",
+Photo.create!(image_url: "https://res.cloudinary.com/ziggurat/image/upload/v1462242500/g5ncq0mfqp2f8eh74tu7.jpg",
               author_id: 2,
               username: "Joseph",
               description: "the jam begins")
