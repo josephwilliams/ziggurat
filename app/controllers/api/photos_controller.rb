@@ -34,7 +34,6 @@ class Api::PhotosController < ApplicationController
 
   def search
     search_tags = Tag.where("name LIKE?", "#{params[:search]}")
-
     @photos = search_tags.map { |tag| tag.photos }.flatten
   end
 

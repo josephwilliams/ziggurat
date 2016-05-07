@@ -1,127 +1,61 @@
 # Ziggurat
 
-##Minimum Viable Product
-Ziggurat is a web application inspired by various online photo-sharing communities, including 500px, Instagram, and Imgur.  Utilizing Ruby on Rails for backend functionality and React.js for frontend charm and intrigue, Ziggurat will allow users to delve into photo-sharing with a new degree of freedom and fun in a visually-appealing aesthetic.  By the end of Week 9 (Friday, May 6th), this project will satisfy, at minimum, the following criteria:
+[Ziggurat live][heroku] **NB:** This should be a link to your production site
 
- - [ ] New account creation, login, and guest/demo login, as well as user options, including profile customization and photo preferences.
- - [ ] Smooth, bug-free navigation
- - [ ] Adequate seed data to demonstrate the site's features
- - [ ] The minimally necessary features for a 500px-inspired site: photo uploading, browsing, gallery creation, and client-side preferencing, i.e. choosing your favorite photos.
- - [ ] Hosting on Heroku
- - [ ] CSS styling that is satisfactorily visually appealing
- - [ ] A production README, replacing this README
+[heroku]: http://www.ziggurat.me
 
-## Product Goals and Priorities
-Ziggurat will allow users to do the following:
-  - [x] Create an account (MVP)
-  - [ ] Customize one’s user profile
-  - [x] Log in / Log out, including as a Guest/Demo User (MVP)
-  - [ ] Upload, edit the information of, browse (share), and like/comment photos (MVP)
-  - [ ] Organize photos within galleries (MVP)
-  - [ ] Tag photos with multiple tags and/or emojis (expected feature, but not MVP)
+Ziggurat is a web application inspired by various online photo-sharing communities, including 500px, Instagram, and Imgur.  Utilizing Ruby on Rails for backend functionality and React.js for frontend charm and intrigue, Ziggurat will allow users to delve into photo-sharing with a new degree of freedom and fun in a visually-appealing aesthetic.
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+![image of Ziggurat](http://res.cloudinary.com/ziggurat/image/upload/v1462580299/kdpukscgjp9kft3dppab.png)
 
-[views]: ./docs/views.md
-[components]: ./docs/components.md
-[flux-cycles]: ./docs/flux-cycles.md
-[api-endpoints]: ./docs/api-endpoints.md
-[schema]: ./docs/schema.md
+## Features & Implementation
 
-## Implementation Timeline
+Ziggurat offers a multitude of features, allowing users to interact with the site at varying degrees of engagement.  At the most basic level, users can create an account or log in as a demo user.  Once authenticated, users can upload their own photos or browse through Ziggurat's collection.  Each photo can be liked by clicking on the well-established heart symbol, tagged via key words - and made searchable through these tags, and commented on, allowing users to provide more in-depth thoughts on the subject matter or to interact with one another.
 
-### Phase 1: Backend Setup and User Authentication (0.5 days)
-**Objective:** functioning Ruby on Rails project with Authentication, basic page layout
- - [x] Create new Ruby on Rails project
- - [x] Create User model
- - [x] Establish functioning authentication
- - [x] Ensure functional User Login and Signup pages
- - [x] Create landing page upon successful signup or login
+### Multi-page App with Single Page Features
 
-### Phase 2: Photo Model, API, and basic APIUtil (1.5 days)
-**Objective:** Photos can be created, viewed (read), edited (their info), and destroyed through the API.
+Ziggurat is a multi-page app with dynamic single-page components, dependent on React.js and its ever-flowing, change-emitting Flux loop.  The moment a user interacts with a photo, be it through likes, tags, or comments, a call to the database is made via an AJAX request, and the resulting change appears instantly.  Meanwhile, in the backend, Ruby on Rails maintains secure information through BCrypt and frequent API calls to a Sessions Controller to check the status of the current user.
 
- - [ ] Create Photo model
- - [ ] Seed the database with test data (some decent photos)
- - [ ] CRUD API for photos (PhotosController)
- - [ ] Construct jBuilder views for Photos
- - [x] Setup Webpack and Flux scaffold
- - [x] Setup APIUtil to interact with the API
- - [x] Test out API Interaction in the console; ensure basic functionality
 
-###Phase 3: Flux Architecture and Router (1.5 days)
-**Objective:** User API works with Photos.
+### Photo Comments
 
- - [x] Setup the Flux loop with skeleton files
- - [x] Setup React Router
- - [ ] Implement each Photo component, building out the Flux loop as needed.
- - [ ] PhotoIndex
- - [ ] PhotoIndexItem
- - [ ] PhotoForm
- - [x] Further Implement the User component, building out the Flux loop as needed.
- - [ ] UserIndex
- - [ ] UserIndexItem
+On the database side, photo comments are stored in one table that includes columns for 'id', 'user_id', 'photo_id', 'username', and timestamps.  Comments are rendered on their respective photo page, based on the photo_id param of that page.  Each comment includes the name of its author, the comment body, and the time (the 'created_at' table of the database) the comment was made.
 
-###Phase 4: Start Styling (1.5 days) (total: 5 days)
-**Objective:** Existing pages have uniformity and quality of design. These pages will include the following:
+![image of Photo](http://res.cloudinary.com/ziggurat/image/upload/v1462580289/tmrai4cwhoyyilygvn3j.png)
 
- - [x] Splash page, including login and site information
- - [ ] User profile
- - [x] Sign Up page
- - [ ] “Flow” page (like Facebook’s wall or the Instagram infinite scroll photos page)
- - [ ] Search Page
+### Photo Likes
 
-I will implement CSS in order to:
-Position elements aesthetically on the page, ensuring general uniformity, navigability, and responsiveness despite browser window size or screen resolution.
-Add basic colors and stylistic elements.
+Likes are stored with photo objects in the PhotoStore, linked very simply via a 'photo_id', 'id', and timestamps.  While this adds extra information to any liked photo object, it avoids the necessity of a separate likes store.  However, via associations, likes and photos can behave dynamically, and provide relatively simple but interesting information, including the count of likes on any given photo, and the time and 'username' of the photo's liker.
 
-###Phase 5: Photo information customization (1.5 day)
-**Objective:** Photos have tags, can be liked, contain user info, and perhaps other features, including a revolutionary new emoji-based like system, similar to Facebook’s recent addition to status liking.
+### Photo Tags
 
- - [ ] Create a Tag model and join table
- - [ ] Build out API, Flux loop, and components for:
- - [ ] Adding tags to photos
- - [ ] Searching photos by tag
- - [ ] Create a “liked” model and join table
- - [ ] Build out similar features to the tag, but with a boolean-like “liked” or          “not-liked” system
- - [ ] Style new elements
+Photo tags exist through a Tags table in the database.  This table includes only 'name', 'id', and timestamps.  They are linked to photos through a separate 'Tagging' join table, which holds 'user_id', and 'tag_d' and timestamps.
 
-###Phase 6: User comments on photos (1.5 day)
-**Objective:** Implement a highly functional user commentary system on photos.
+### Explore
 
- - [ ] Create a Comment model and join table
- - [ ] Build out API, Flux Loop, and components for:
- - [ ] Adding comments to photos
- - [ ] Editing and Deleting comments
- - [ ] Style new elements (regarding how the comment feature will look)
+![image of Explore](http://res.cloudinary.com/ziggurat/image/upload/v1462580296/bkuzmh9aglhouqbhoyzv.png)
 
-###Phase 7: Ensure highly functional Search (1 day)
-**Objective:** self-explanatory.
+The Explore page was key to my app.  It exists through a request to the Photo API, resulting in the PhotoStore receiving all of the photos from the database.  At this point, each photo is passed as a prop to a photo item that contains a photo's 'id', 'image_url', 'thumbnail_url', 'author_id', 'username', 'width', 'height', and, more dynamically, dependent on associations within the 'Photo Model', 'likes', 'likers' (users that have liked the photo), 'like_count', 'tags' (the 'name' and 'id' of each tag, linked through the 'Taggings' join table), 'tag_count', and 'comment_count'.
 
- - [ ] Establish discreet search filters, such as liked vs. not-liked, by tag, by user, or by photo title, (and potentially by emoji)
+The dynamic photo items are then rendered in an orderly, aesthetic fashion with the masonry react module.
 
-###Phase 8: Styling Cleanup and Seeding (1 day)
-**Objective:** Make the site feel more cohesive and visually stunning.
+The search feature also depends on the explore page, intaking a query string, utilizing a backend SQL command in the Photo Controller to find photos associated to the tags listed in the string, and displaying said photos.  (shown below)
 
- - [ ] Get feedback on my UI from others
- - [ ] Refactor HTML classes and CSS rules
- - [ ] Add modals, transitions, and other styling flourishes
+```ruby
+def search
+  search_tags = Tag.where("name LIKE?", "#{params[:search]}")
+  @photos = search_tags.map { |tag| tag.photos }.flatten
+end
+```
 
-BONUS Features (TBD)
+## Future Directions for the Project
 
- - [ ] Pagination / infinite scroll for photos “flow” page
- - [ ] The oft-spoken of emoji-based search and tag system
- - [ ] Sexy CSS magic, including the 500px-esque floating top bar that stays with the page despite scrolldown/up.
+In addition to the features already implemented, I plan to continue work on this project.  The next steps for Ziggurat are outlined below.
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
-[phase-six]: ./docs/phases/phase6.md
-[phase-seven]: ./docs/phases/phase7.md
+### User Profiles
+
+Users will, upon authentication via a sign up process, be redirected to a user page, wherein they can upload a profile photo, update their information, including location and description - both of which are already included in the the Users table in the database, and track their liked photos.
+
+### Emoji-based Likes
+
+Photo-Likes have become a standard if not basic expectation of photo-sharing sites.  This can be improved upon by including different kinds of likes, similar to Facebook's recent implementation of various reactions to User statuses.  This implementation could be improved upon further by allowing users to filter through photos based on the emoji they've chosen for that given photo, or that photo's predominant emoji (based on other users' input).
