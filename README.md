@@ -1,6 +1,6 @@
 # Ziggurat
 
-[Ziggurat live][heroku] **NB:** This should be a link to your production site
+[Ziggurat live][heroku]
 
 [heroku]: http://www.ziggurat.me
 
