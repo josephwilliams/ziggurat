@@ -42,7 +42,7 @@ var PhotoComments = React.createClass({
 
             <div className="comment-time">
 
-              {comment.created_at}
+              <TimeAgo date={comment.created_at} />
             </div>
             <div className="clearfix"/>
           </div>

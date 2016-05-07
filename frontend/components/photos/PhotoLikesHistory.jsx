@@ -3,7 +3,7 @@ var CommentStore = require('../../stores/comment_store');
 var PhotoStore = require('../../stores/photo_store');
 var ClientActions = require('../../actions/client_actions');
 var PhotoShow = require('./PhotoShow');
-// var TimeAgo = require('react-timeago').default;
+var TimeAgo = require('react-timeago').default;
 
 var PhotoLikesHistory = React.createClass({
 
@@ -22,7 +22,7 @@ var PhotoLikesHistory = React.createClass({
 
             <div className="like-time">
 
-              {like.created_at}
+              <TimeAgo date={like.created_at}/>
             </div>
 
             <div className="clearfix"/>
