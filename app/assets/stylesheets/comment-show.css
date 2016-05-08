@@ -15,9 +15,11 @@
   font-weight: 800;
   color: #413839;
   float: left;
+  font-weight: 600;
 }
 
 .comment-body {
+  font-weight: 200;
   float: left;
 }
 
@@ -31,8 +33,10 @@
 }
 
 .like-comment-container {
+  color: grey;
   overflow: auto;
   padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .photo-liker {
