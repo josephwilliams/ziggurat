@@ -106,13 +106,13 @@ var PhotoShow = React.createClass({
 
             <div className="photo-bottom-padding">
               <div className="photo-bottom-padding-type">
-                description:
-              </div>
-              {this.state.photo.description}
-              <div className="photo-bottom-padding-type">
                 user:
               </div>
               {this.state.photo.username}
+              <div className="photo-bottom-padding-type">
+                description:
+              </div>
+              {this.state.photo.description}
 
             </div>
 
