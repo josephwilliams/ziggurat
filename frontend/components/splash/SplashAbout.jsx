@@ -12,7 +12,7 @@ var SplashAbout = React.createClass({
           photo-sharing and beyond : like, tag, and comment your most beloved photos
         </p>
         <p>
-          On the backend, Ziggurat is built on Ruby on Rails.  On the frontend, Ziggurat utilizes the charm and intrigue of the React.js Javascript library (thanks Facebook!) for near-instantaneous data-upkeep - which means a super-fast, highly responsive user experience (hopefully).
+          On the backend, Ziggurat is built on Ruby on Rails.  On the frontend, Ziggurat utilizes the charm of the React.js Javascript library (thanks Facebook!) for near-instantaneous data-upkeep - which means a super-fast, highly responsive user experience (hopefully).
         </p>
         <br/>
       </div>
