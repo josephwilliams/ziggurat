@@ -3,7 +3,6 @@ var PhotoStore = require('../../stores/photo_store');
 var CommentStore = require('../../stores/comment_store');
 var ClientActions = require('../../actions/client_actions');
 var PhotoComments = require('./PhotoComments');
-var HeaderAlt = require('../HeaderAlt');
 var PhotoCommentForm = require('./PhotoCommentForm');
 var PhotoLikesHistory = require('./PhotoLikesHistory');
 var PhotoTagForm = require('./PhotoTagForm');
@@ -18,8 +17,8 @@ var SplashPhoto = React.createClass({
   },
 
   componentDidMount: function () {
-    this.photoListener = PhotoStore.addListener(this.handleChange);
-    this.commentsListener = CommentStore.addListener(this.handleChangeComments);
+    this.splashPhotoListener = PhotoStore.addListener(this.handleChange);
+    this.splashCommentsListener = CommentStore.addListener(this.handleChangeComments);
 
     ClientActions.getPhoto(this.photoId);
     ClientActions.getComments(this.photoId);
@@ -36,8 +35,8 @@ var SplashPhoto = React.createClass({
   },
 
   componentWillUnmount: function () {
-    this.photoListener.remove();
-    this.commentsListener.remove();
+    this.splashPhotoListener.remove();
+    this.splashCommentsListener.remove();
   },
 
   showContainer: function () {
@@ -97,22 +96,20 @@ var SplashPhoto = React.createClass({
     return (
       <div>
         <div className="show-photo-container">
-
           <div className="photo-container">
-            {this.showContainer()}
 
+            {this.showContainer()}
             <ShowTags tags={tags} photoId={this.photoId}/>
 
             <div className="photo-bottom-padding">
               <div className="photo-bottom-padding-type">
                 user:
               </div>
-              {this.state.photo.username}
+                {this.state.photo.username}
               <div className="photo-bottom-padding-type">
                 description:
               </div>
-              {this.state.photo.description}
-
+                {this.state.photo.description}
             </div>
 
               <PhotoComments id={this.photoId}
@@ -126,7 +123,6 @@ var SplashPhoto = React.createClass({
       </div>
     );
   }
-
 });
 
 module.exports = SplashPhoto;

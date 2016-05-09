@@ -11,7 +11,7 @@ footer {
 }
 
 .footer-container {
-  padding: 5px;
+  padding: 8px;
   display: flex;
   align-items: flex-start;
 }

@@ -148,7 +148,7 @@ Photo.create!(image_url: "https://images.unsplash.com/photo-1416949929422-a1d9c8
               username: users.sample.username,
               description: Faker::Hipster.sentence)
 
-500.times {
+300.times {
   Comment.create!(comment_body: Faker::Hipster.sentence,
                   photo_id: rand(1..33),
                   user_id: rand(1..24),
