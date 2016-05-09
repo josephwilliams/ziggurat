@@ -1,10 +1,11 @@
 var React = require('react');
-var Modal = require("react-modal");
+var Modal = require('react-modal');
 var SplashImage = require('./SplashImage');
 var SplashContent = require('./SplashContent');
 var StartButton = require('./StartButton');
 var Header = require('../Header');
 var CurrentUserState = require('../../mixins/current_user_state');
+// var SplashPhoto = require('../photos/SplashPhoto');
 
 
 var SplashPage = React.createClass({
@@ -27,6 +28,7 @@ var SplashPage = React.createClass({
           <SplashContent />
           <StartButton/>
         </div>
+
       </div>
     );
   }

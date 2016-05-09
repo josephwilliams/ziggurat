@@ -37,11 +37,6 @@ var App = React.createClass({
     ClientActions.fetchCurrentUser();
   },
 
-  // postPhoto: function (photoData) {
-  //   // called after successful upload via cloudinary widget
-  //   ClientActions.postPhoto(photoData);
-  // },
-
   render: function() {
     return (
       <div>

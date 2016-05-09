@@ -23,7 +23,8 @@ var Gallery = React.createClass({
               options={masonryOptions}
               disableImagesLoaded={false}
           >
-              {childElements}
+
+            {childElements}
           </Masonry>
         </div>
       );

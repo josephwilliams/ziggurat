@@ -69,6 +69,10 @@ module.exports = {
     TagUtils.fetchTags(photoId);
   },
 
+  allTags: function () {
+    TagUtils.allTags();
+  },
+
   createTag: function (tag) {
     TagUtils.createTag(tag);
   },

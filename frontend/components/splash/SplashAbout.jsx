@@ -6,13 +6,13 @@ var SplashAbout = React.createClass({
       <div>
         <br/>
         <p>
-          Welcome to Ziggurat.  What is Ziggurat? Well.. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Welcome to Ziggurat.  What is Ziggurat? Well, ziggurats (plural) were ancient Babylonian fortresses built into the sandy foothills of Mesopotamia, or, as we call it in modern times, the Middle East.  THE Ziggurat, however, is slightly different.  We are a photo-sharing web-app that allows users to upload photos and interact with one another through likes, tags, and comments.
         </p>
         <p className="splash-content-about-large">
-          photo-sharing and beyond : pick and sort based on love, fear, hope, and awe
+          photo-sharing and beyond : like, tag, and comment your most beloved photos
         </p>
         <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          On the backend, Ziggurat is built on Ruby on Rails.  On the frontend, Ziggurat utilizes the charm and intrigue of the React.js Javascript library (thanks Facebook!) for near-instantaneous data-upkeep - which means a super-fast, highly responsive user experience (hopefully).
         </p>
         <br/>
       </div>

@@ -13,6 +13,10 @@ var ClientActions = require('../../actions/client_actions');
 var SplashContent = React.createClass({
   mixins: [CurrentUserState],
 
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   uploadPhotoClick: function () {
     if (this.state.currentUser){
       this.openUploadWidget();
@@ -37,6 +41,10 @@ var SplashContent = React.createClass({
     );
   },
 
+  linkSearch: function () {
+    this.context.router.push("search")
+  },
+
   render: function () {
     var uploadSubText;
     if (this.state.currentUser){
@@ -50,7 +58,7 @@ var SplashContent = React.createClass({
         <div className="splash-content">
           <ul>
             <li>
-              <a>🔎begin your search</a> <br/>
+              <a onClick={this.linkSearch}>🔎begin your search</a> <br/>
                 <SearchTags/>
             </li>
 
@@ -74,8 +82,12 @@ var SplashContent = React.createClass({
           <img src="https://images.unsplash.com/45/Vo7YbYQQ8iyOo4J9bOoj_ggb24.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f4405935f612ba77d99216f0f2f8f91a">
           </img>
           <div className="inside-image">
-            <p>how it works?</p>
-            <h3>FUCKING MAGIC</h3>
+            <h3>EXPLORE</h3>
+              <p>journey through our collection of photos</p>
+            <h3>JOIN</h3>
+              <p>become a member! it's quick and easy</p>
+            <h3>CONTRIBUTE</h3>
+              <p>post photos! or like, tag, and comment other peoples photos</p>
           </div>
         </div>
       </div>

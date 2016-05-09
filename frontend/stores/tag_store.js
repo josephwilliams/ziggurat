@@ -45,7 +45,7 @@ TagStore.addTag = function(tag){
 };
 
 TagStore.removeTag = function(tag){
-  _tags[tag.id].remove;
+  delete _tags[tag.id];
 };
 
 TagStore.addTags = function(tags){

@@ -2,10 +2,12 @@ footer {
   background-color: #edede8;
   width: 1000px;
   height: 150px;
-  font-size: .9em;
+  font-size: 13px;
+  color: grey;
   margin: auto;
   padding-top: 2px;
-  /*border-top: 1px solid black;*/
+  display: flex;
+  align-items: flex-end;
 }
 
 .footer-container {
@@ -18,4 +20,9 @@ footer {
   padding: 0px;
   margin: 0px;
   border: 0px;
+}
+
+.footer-container p a {
+  color: #8E49E8;
+  padding-left: 5px;
 }

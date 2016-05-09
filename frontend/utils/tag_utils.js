@@ -25,6 +25,16 @@ var TagApiUtil = {
 		});
 	},
 
+	allTags: function() {
+		$.ajax({
+			url: "api/tags",
+			type: "GET",
+			success: function (tags) {
+				TagActions.receiveTags(tags);
+			}
+		});
+	},
+
 	removeTag: function(tagId){
 		$.ajax({
 			url: '/api/tags' + tagId.toString(),
