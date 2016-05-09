@@ -55,9 +55,10 @@ var StartButton = React.createClass({
         <div className="start-button-container">
           <ul>
             <li>
-
-              <img src="https://67.media.tumblr.com/0c7a8025e4c23f9d4fd1e2b0ce7f54c7/tumblr_o6f8src6Se1vns4tpo1_540.png"
-                width="50"/>
+              <div className="start-button-camera">
+                <img src="https://67.media.tumblr.com/0c7a8025e4c23f9d4fd1e2b0ce7f54c7/tumblr_o6f8src6Se1vns4tpo1_540.png"
+                  width="50"/>
+              </div>
 
             </li>
             <li>

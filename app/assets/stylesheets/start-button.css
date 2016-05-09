@@ -1,15 +1,20 @@
 /* Container */
 .start-button-container {
-  width: 36em;
+  /*width: 36em;
   transform: translate(-50%,-50%);
   animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-
   position: absolute;
   left: 50%;
   margin-top: -5%;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;*/
+
+  width: 36em;
+  transform: translate(-50%,-50%);
+  animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
 }
 
 .start-button-container ul {
