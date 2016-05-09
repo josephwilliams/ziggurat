@@ -15,7 +15,6 @@ users = []
          users << user
 }
 
-
 Photo.create!(image_url: "https://images.unsplash.com/45/Vo7YbYQQ8iyOo4J9bOoj_ggb24.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f4405935f612ba77d99216f0f2f8f91a",
               author_id: 2,
               username: "Joseph",
@@ -36,7 +35,6 @@ Photo.create!(image_url: "https://res.cloudinary.com/ziggurat/image/upload/v1462
               author_id: 2,
               username: "Joseph",
               description: "the jam begins")
-
 Photo.create!(image_url: "https://images.unsplash.com/photo-1461409971633-aa0e46732112?crop=entropy&dpr=2&fit=crop&fm=jpg&h=825&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1425",
               author_id: rand(1..24),
               username: users.sample.username,
@@ -157,25 +155,3 @@ Photo.create!(image_url: "https://images.unsplash.com/photo-1416949929422-a1d9c8
                   username: users.sample.username
   )
 }
-
-
-# word_tags = []
-# 1000.times { word_tags << Faker::Hipster.word }
-# word_tags.uniq!
-# word_tags.each do |word|
-#   Tag.create!(name: word)
-# end
-#
-#
-# @taggings = []
-# 500.times {
-#   rand_tag_id = rand(1..word_tags.count)
-#   rand_photo_id = rand(1..33)
-#
-#   unless @taggings.include?([rand_tag_id, rand_photo_id])
-#     Tagging.create!(tag_id: rand(1..word_tags.count),
-#                     photo_id: rand(1..33))
-#
-#     @taggings << [rand_tag_id, rand_photo_id]
-#   end
-# }
