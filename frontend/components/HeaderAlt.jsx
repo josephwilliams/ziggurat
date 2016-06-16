@@ -77,7 +77,7 @@ var HeaderAlt = React.createClass({
     if (this.state.currentUser){
       return(
         <div>
-          <li>profile</li>
+          <li onClick={this.linkProfile}>profile</li>
         </div>
       )
     }
@@ -115,11 +115,15 @@ var HeaderAlt = React.createClass({
   },
 
   linkExplore: function () {
-    this.context.router.push("flow")
+    this.context.router.push("flow");
   },
 
   linkSearch: function () {
-    this.context.router.push("search")
+    this.context.router.push("search");
+  },
+
+  linkProfile: function () {
+    this.context.router.push("profile");
   },
 
   render: function () {

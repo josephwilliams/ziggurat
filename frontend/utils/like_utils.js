@@ -23,7 +23,6 @@ var LikeUtils = {
       }
     });
   }
-
 };
 
 module.exports = LikeUtils;

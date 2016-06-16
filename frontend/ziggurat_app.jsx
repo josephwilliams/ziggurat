@@ -19,6 +19,7 @@ var FlowPage = require('./components/flow/FlowPage');
 var PhotoShow = require('./components/photos/PhotoShow');
 var PhotoEdit = require('./components/photos/PhotoEdit');
 var SearchPage = require('./components/SearchPage');
+var ProfilePage = require('./components/profile/ProfilePage');
 
 //Mixins
 var CurrentUserState = require('./mixins/current_user_state');
@@ -57,6 +58,7 @@ var Router = (
       <Route path="flow" component={FlowPage} />
       <Route path="photos/:photoId" component={PhotoShow}/>
       <Route path="search" component={SearchPage}/>
+      <Route path="profile" component={ProfilePage}/>
     </Route>
   </Router>
 );

@@ -10,6 +10,9 @@ var SignUpFormModal = require('../auth/SignUpFormModal');
 //Actions
 var ClientActions = require('../../actions/client_actions');
 
+//Stores
+var PhotoStore = require('../../stores/photo_store');
+
 var SplashContent = React.createClass({
   mixins: [CurrentUserState],
 

@@ -16,6 +16,17 @@ PhotoStore.all = function () {
   return photos;
 };
 
+PhotoStore.some = function (arr) {
+  var photos = [];
+  for (var id in _photos) {
+    if (arr.indexOf(id) !== -1) {
+      photos.push(_photos[id]);
+    }
+  }
+
+  return photos;
+};
+
 PhotoStore.resetPhotos = function (photos) {
   _photos = {};
   photos.forEach(function(photo){
