@@ -62,6 +62,9 @@ var SearchPage = React.createClass({
         <div className="search-top">
           {this.searchForm()}
         </div>
+        <div className="search-text">
+          search for photos based on their tags
+        </div>
           <SearchResults query={this.state.query}
                          photoResults={this.state.photoResults}/>
       </div>
