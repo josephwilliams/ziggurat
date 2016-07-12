@@ -19,10 +19,10 @@ Photo.create!(image_url: "https://images.unsplash.com/45/Vo7YbYQQ8iyOo4J9bOoj_gg
               author_id: 2,
               username: "Joseph",
               description: "the bay")
-Photo.create!(image_url: "https://images.unsplash.com/photo-1438930249256-07387cf30528?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=867be065397a1352dbeea0a60e0417f7",
+Photo.create!(image_url: "https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=ea44e41f0b18d77930e5b15992a5cc15",
               author_id: 2,
               username: "Joseph",
-              description: "The sea..")
+              description: "Tranquility")
 Photo.create!(image_url: "https://images.unsplash.com/12/palm-trees.JPG?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=c68801d882fdd2231a11a56050d57d93",
               author_id: 2,
               username: "Joseph",
