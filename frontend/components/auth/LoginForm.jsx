@@ -56,56 +56,57 @@ var LoginForm = React.createClass({
     var errors = JSON.stringify(this.state.userErrors);
     return (
       <div className="auth-modal">
-        <div className="auth-forms">
-          {errors}
-          <form onSubmit={this.handleSubmit}
-                className="auth-modal-login-form">
-            <div className="field">
-              <input type="text" className="input"
-                     value={this.state.username} onChange={this.changeUsername}
-                     id="fieldUsername"
-                     />
-              <label className="label">Username</label>
-            </div>
-            <div className="field">
-              <input type="password" className="input"
-                     value={this.state.password} onChange={this.changePassword}
-                     id="fieldPassword"
-                     />
-              <label className="label">Password</label>
-            </div>
+        <div className="auth-modal-header">
+          welcome to &nbsp;
+            <img src="https://40.media.tumblr.com/dcedda1084e9b37cd607016d9be49b69/tumblr_o6ey0nnijK1vns4tpo1_400.png"
+              width="130"/>
+
+        </div>
+        <div className="auth-modal-content">
+          <div className="auth-modal-login-form">
+            {errors}
+            <form onSubmit={this.handleSubmit}
+                  id="signupForm">
+              <div className="field">
+                <input type="text" className="input"
+                       value={this.state.username} onChange={this.changeUsername}
+                       ref="usernameInput" autoFocus />
+                <label className="label">Username</label>
+              </div>
+              <div className="field">
+                <input type="password" className="input"
+                       value={this.state.password} onChange={this.changePassword}
+                       id="fieldPassword"
+                       />
+                <label className="label">Password</label>
+              </div>
+            </form>
+
+            <div className="modal-buttons">
               <button type="submit"
-                      className="btn">Login</button>
+                      onClick={this.handleSubmit}
+                      form="signupForm"
+                      className="btn">login</button>
 
-          </form>
-       </div>
+               &nbsp;&nbsp;
+              <button className="btn-demo"
+                      onClick={this.loginGuestUser}>Demo</button>&nbsp;&nbsp;
 
-       <div className="auth-modal-text-login">
+            </div>
+         </div>
+
          <div className="auth-modal-text">
-         <h1>welcome to &nbsp;
-           <img src="https://40.media.tumblr.com/dcedda1084e9b37cd607016d9be49b69/tumblr_o6ey0nnijK1vns4tpo1_400.png"
-                width="130"/>
-        </h1>
+           <p>
+             {this.showErrors()}
+             Ziggurat provides the opportunity to experience a new kind of
+             photo-sharing. By signing up, you will be able to pick and
+             sort photos based on the emotions they inspire within you.
+           </p>
 
-
-         <p>
-           {this.showErrors()}
-           Ziggurat provides the opportunity to experience a new kind of
-           photo-sharing. By signing up, you will be able to pick and
-           sort photos based on the emotions they inspire within you.
-         </p>
-         <p>
-           Let's see how our photos make you feel.
-         </p>
-         <p>
-           <button className="btn-demo"
-                   onClick={this.loginGuestUser}>Demo</button>&nbsp;&nbsp;
-            Or try as a guest user! &nbsp;&nbsp;
-            <img src="https://67.media.tumblr.com/0c7a8025e4c23f9d4fd1e2b0ce7f54c7/tumblr_o6f8src6Se1vns4tpo1_540.png"
-              width="50"
-              className="camera-logo"/>
-         </p>
-       </div>
+           <p>
+             Let's see how our photos make you feel.
+           </p>
+         </div>
        </div>
      </div>
     )

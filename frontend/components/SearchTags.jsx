@@ -6,37 +6,41 @@ var SearchTags = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
-  
-  linkSearch: function () {
+
+  linkSearch: function (word) {
+    ClientActions.filterSearch(word);
     this.context.router.push("search");
   },
 
   render: function () {
     return(
       <div>
-      <ul className="search-tags" onClick={this.linkSearch}>
-        <li><button className="tag">bay</button></li>
-        <li><button className="tag">chill</button></li>
-        <li><button className="tag">omg</button></li>
-        <li><button className="tag">drums</button></li>
-        <li><button className="tag">nature</button></li>
+      <ul className="search-tags">
+        <li><button className="tag" onClick={() => this.linkSearch('bay')}>bay</button></li>
+        <li><button className="tag" onClick={() => this.linkSearch('chill')}>chill</button></li>
+        <li><button className="tag" onClick={() => this.linkSearch('omg')}>omg</button></li>
+        <li><button className="tag" onClick={() => this.linkSearch('drums')}>drums</button></li>
+        <li><button className="tag" onClick={() => this.linkSearch('nature')}>nature</button></li>
+        <li><button className="tag" onClick={() => this.linkSearch('forest')}>forest</button></li>
+        <li><button className="tag" onClick={() => this.linkSearch('car')}>car</button></li>
       </ul>
-        <ul className="search-tags" onClick={this.linkSearch}>
+        <ul className="search-tags">
 
-          <li><button className="tag">sea</button></li>
-          <li><button className="tag">boats</button></li>
-          <li><button className="tag">summer</button></li>
-          <li><button className="tag">woah</button></li>
-
+          <li><button className="tag" onClick={() => this.linkSearch('sea')}>sea</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('boats')}>boats</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('summer')}>summer</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('blue')}>blue</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('human')}>human</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('sky')}>sky</button></li>
         </ul>
-        <ul className="search-tags" onClick={this.linkSearch}>
+        <ul className="search-tags">
 
-          <li><button className="tag">California</button></li>
-          <li><button className="tag">SF</button></li>
-          <li><button className="tag">woah</button></li>
-          <li><button className="tag">blue</button></li>
-          <li><button className="tag">trees</button></li>
-          <li><button className="tag">dark</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('California')}>California</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('bay')}>SF</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('city')}>city</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('woah')}>woah</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('trees')}>trees</button></li>
+          <li><button className="tag" onClick={() => this.linkSearch('dark')}>dark</button></li>
         </ul>
       </div>
     );

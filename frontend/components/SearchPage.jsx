@@ -28,12 +28,21 @@ var SearchPage = React.createClass({
   handleSearch: function (event) {
     event.preventDefault();
     var queryString = this.state.query;
+    var queryArray = queryString.split(' ');
 
     if (queryString !== ""){
-      ClientActions.filterSearch(queryString);
+      // ClientActions.filterSearch(queryString);
+      for (var i = 0; i < queryArray.length; i++) {
+        var queryWord = queryArray[i];
+        this.searchWord(queryWord);
+      }
     }
 
     this.setState({ query: "" });
+  },
+
+  searchWord: function (word) {
+    ClientActions.filterSearch(word);
   },
 
   searchForm: function () {

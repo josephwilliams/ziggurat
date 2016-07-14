@@ -13,13 +13,17 @@ var modalStyle = {
     // z-index         : 10
   },
   content : {
-    position        : 'fixed',
-    left            : '20%',
-    right           : '20%',
-    bottom          : '300px',
-    top             : '20%',
-    border          : '1px solid #ccc',
-    padding         : '5px',
+    position              : 'fixed',
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    border                : '1px solid #ccc',
+    width                 : '500px',
+    padding               : '20px 20px 30px 20px',
+    boxShadow             : '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'
     // z-index         : 11
   }
 };

@@ -23,16 +23,26 @@ var ShowTags = React.createClass({
     this.tagsListener.remove();
   },
 
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
+  linkSearch: function (word) {
+    ClientActions.filterSearch(word);
+    this.context.router.push("search");
+  },
+
   imageTags: function () {
     var mappedTags;
+    var that = this;
     if (this.state.tags.length > 0) {
       mappedTags = this.state.tags.map(function(tag){
         return(
-          <div className="tag" key={tag.id}>
+          <div className="tag" key={tag.id} onClick={() => this.linkSearch(tag.name)}>
             {tag.name}
           </div>
         );
-      });
+      }, this);
     }
 
     return mappedTags;

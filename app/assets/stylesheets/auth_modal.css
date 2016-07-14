@@ -1,18 +1,35 @@
 
 .auth-modal {
+
+}
+
+.auth-modal-header {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: -10px;
+}
+.auth-modal-content {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: flex-end;
+}
+
+.modal-buttons {
+  width: 215px;
 }
 
 .auth-forms {
    position: relative;
    top: 25px;
+   width: 210px;
  }
 
  .auth-modal-login-form {
    position: relative;
-   top: 75px;
+   top: 5px;
+   width: 210px;
  }
 
 .auth-button {
@@ -40,16 +57,23 @@
 
 .auth-modal-text {
   padding: 5px;
-  width: 450px;
+  width: 240px;
   position: relative;
-  top: 7px;
+  top: 25px;
+  font-size: 15px;
 }
 
 .auth-modal-text-login {
   padding: 5px;
+  width: 240px;
+  position: relative;
+  top: 25px;
+  font-size: 15px;
+
+  /*padding: 5px;
   width: 450px;
   position: relative;
-  top: 30px;
+  top: 30px;*/
 }
 
 .auth-modal-text h1 {
@@ -145,6 +169,7 @@ input:valid + .label {
   border-radius: .25rem;
   letter-spacing: .2em;
   transition: background .2s;
+  cursor: pointer;
 }
 .btn:focus {
   outline: 0;
@@ -168,6 +193,7 @@ input:valid + .label {
   letter-spacing: .2em;
   border: 1px solid #8E49E8;
   transition: background .2s;
+  cursor: pointer;
 }
 .btn-demo:focus {
   outline: 0;
