@@ -99,8 +99,8 @@ var LoginForm = React.createClass({
            <p>
              {this.showErrors()}
              Ziggurat provides the opportunity to experience a new kind of
-             photo-sharing. By signing up, you will be able to pick and
-             sort photos based on the emotions they inspire within you.
+             photo-sharing. Log in and participate in the digital adventure,
+             liking, tagging, commenting, and uploading your favorite photos.
            </p>
 
            <p>
