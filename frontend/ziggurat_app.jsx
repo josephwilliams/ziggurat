@@ -52,7 +52,7 @@ var App = React.createClass({
 
 var Router = (
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
+    <Route path="/" component={App} >
       <IndexRoute component={SplashPage}/>
       <Route path="splash" component={SplashPage} />
       <Route path="flow" component={FlowPage} />

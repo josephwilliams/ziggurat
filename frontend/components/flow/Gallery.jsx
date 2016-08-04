@@ -1,4 +1,4 @@
-var React = require('react');
+import React, { Component } from "react";
 var Masonry = require('react-masonry-component');
 var PhotoItemSmall = require('./PhotoItemSmall');
 
@@ -8,6 +8,29 @@ var masonryOptions = {
 };
 
 var Gallery = React.createClass({
+  getInitialState: function () {
+    return ({ photos: this.props.photos });
+  },
+
+  // morePhotos: function () {
+  //   var that = this;
+  //   var morePhotoElements;
+  //   window.addEventListener('scroll', function(e){
+  //       var distanceY = window.pageYOffset || document.documentElement.scrollTop;
+  //       var loadMore = 400;
+  //       if (distanceY > loadMore) {
+  //         morePhotoElements = that.props.somePhotos.map(function(photo){
+  //           return (
+  //             <PhotoItemSmall photo={photo} key={photo.id}/>
+  //           );
+  //         });
+  //       }
+  //   });
+  //
+  //   this.setState({ photos: this.props.photos + this.props.somePhotos });
+  //   return morePhotoElements;
+  // },
+
   render: function () {
       var childElements = this.props.photos.map(function(photo){
          return (
@@ -17,6 +40,7 @@ var Gallery = React.createClass({
 
       return (
         <div className="flow-gallery-container">
+
           <Masonry
               className={'flow-gallery'}
               elementType={'div'}
@@ -25,6 +49,7 @@ var Gallery = React.createClass({
           >
 
             {childElements}
+
           </Masonry>
         </div>
       );
