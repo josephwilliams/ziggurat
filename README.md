@@ -6,8 +6,6 @@
 
 Ziggurat is a web application inspired by various online photo-sharing communities, including 500px, Instagram, and Imgur.  Utilizing Ruby on Rails for backend functionality and React.js for frontend charm and intrigue, Ziggurat will allow users to delve into photo-sharing with a new degree of freedom and fun in a visually-appealing aesthetic.
 
-![image of Ziggurat](http://res.cloudinary.com/ziggurat/image/upload/v1462580299/kdpukscgjp9kft3dppab.png)
-
 ## Features & Implementation
 
 Ziggurat offers a multitude of features, allowing users to interact with the site at varying degrees of engagement.  At the most basic level, users can create an account or log in as a demo user.  Once authenticated, users can upload their own photos or browse through Ziggurat's collection.  Each photo can be liked by clicking on the well-established heart symbol, tagged via key words - and made searchable through these tags, and commented on, allowing users to provide more in-depth thoughts on the subject matter or to interact with one another.
